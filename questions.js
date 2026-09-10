@@ -483,7 +483,7 @@ const QUIZ_DATA = [
       },
       {
         type: "text",
-        question: "Wie lautet die Formel für die Anzahl nutzbarer Hosts in einem Subnetz? (Format: 2^n-2)",
+        question: "Wie berechnest du aus n Host-Bits die Anzahl nutzbarer IPv4-Hostadressen eines klassischen Subnetzes? Gib die Formel ein.",
         accepted: ["2^n-2", "2^n - 2", "2n-2"],
         explanation: "n = Anzahl der Host-Bits. Zwei Adressen (Netzwerk- und Broadcastadresse) sind nicht nutzbar."
       },
