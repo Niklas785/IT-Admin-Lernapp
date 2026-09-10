@@ -1,0 +1,551 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --ink: #1c2541;
+  --ink-soft: #4a5170;
+  --paper: #faf7f0;
+  --paper-raised: #ffffff;
+  --line: #ddd5c2;
+  --accent: #4c7a73;
+  --accent-soft: #e4ede9;
+  --good: #2f6f4e;
+  --good-bg: #e6f0e8;
+  --bad: #a8402b;
+  --bad-bg: #f6e5e0;
+  --radius: 4px;
+  --max-width: 640px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  font-family: 'Public Sans', system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+code, .mono, .ip-input, .fill-input {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+#app {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px 18px 60px;
+  min-height: 100vh;
+}
+
+/* ---------- Header ---------- */
+
+.app-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 14px;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  font-size: 1.15rem;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.app-header .subtitle {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+.header-right {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  text-align: right;
+}
+
+.quiz-header-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.quiz-exit-btn {
+  font-family: 'Public Sans', system-ui, sans-serif;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Topic select screen ---------- */
+
+.intro-text {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+
+.topic-list {
+  border-top: 1px solid var(--line);
+}
+
+.topic-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 2px;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.topic-row input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.topic-row .topic-info {
+  flex: 1;
+}
+
+.topic-row .topic-name {
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.topic-row .topic-count {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.topic-row .topic-best {
+  font-size: 0.75rem;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.setup-row {
+  display: flex;
+  gap: 10px;
+  margin: 22px 0 6px;
+  flex-wrap: wrap;
+}
+
+.setup-block {
+  flex: 1;
+  min-width: 140px;
+}
+
+.setup-block label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
+select {
+  width: 100%;
+  padding: 10px 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  border: none;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+  width: 100%;
+  margin-top: 18px;
+}
+
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  width: 100%;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-soft);
+  border: none;
+  text-decoration: underline;
+  padding: 8px 0;
+  font-weight: 500;
+}
+
+/* ---------- Quiz screen ---------- */
+
+.progress-track {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 22px;
+}
+
+.progress-tick {
+  flex: 1;
+  height: 5px;
+  background: var(--line);
+  border-radius: 2px;
+}
+
+.progress-tick.done-correct { background: var(--good); }
+.progress-tick.done-wrong { background: var(--bad); }
+.progress-tick.current { background: var(--ink); }
+
+.progress-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+
+.topic-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-family: 'IBM Plex Mono', monospace;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.question-card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 18px;
+}
+
+.question-text {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 18px;
+  line-height: 1.45;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.92rem;
+  background: var(--paper);
+}
+
+.option .marker {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink-soft);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--ink-soft);
+}
+
+.option.selected {
+  border-color: var(--ink);
+  background: var(--accent-soft);
+}
+
+.option.selected .marker {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.option.correct {
+  border-color: var(--good);
+  background: var(--good-bg);
+}
+
+.option.correct .marker {
+  background: var(--good);
+  border-color: var(--good);
+  color: #fff;
+}
+
+.option.wrong {
+  border-color: var(--bad);
+  background: var(--bad-bg);
+}
+
+.option.wrong .marker {
+  background: var(--bad);
+  border-color: var(--bad);
+  color: #fff;
+}
+
+.option.disabled {
+  cursor: default;
+}
+
+.fill-input, .ip-input, .text-input {
+  width: 100%;
+  padding: 12px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.fill-input:focus, .ip-input:focus, .text-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.blank-line {
+  margin-bottom: 12px;
+}
+
+.blank-line .blank-context {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+
+.ip-field-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.ip-field-row label {
+  font-size: 0.85rem;
+  flex: 1;
+  color: var(--ink-soft);
+}
+
+.ip-field-row input {
+  flex: 1;
+  max-width: 60%;
+}
+
+.input-feedback {
+  margin-top: 6px;
+  font-size: 0.82rem;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.input-feedback.ok { color: var(--good); }
+.input-feedback.bad { color: var(--bad); }
+
+.field-wrap.ok input { border-color: var(--good); background: var(--good-bg); }
+.field-wrap.bad input { border-color: var(--bad); background: var(--bad-bg); }
+
+.explanation-box {
+  margin-top: 16px;
+  padding: 13px 14px;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+
+.explanation-box strong {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+
+.quiz-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.quiz-actions .btn { margin-top: 0; }
+
+/* ---------- Result screen ---------- */
+
+.score-hero {
+  text-align: center;
+  padding: 30px 10px 24px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 22px;
+}
+
+.score-big {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.score-sub {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.score-verdict {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.score-verdict.pass { background: var(--good-bg); color: var(--good); }
+.score-verdict.fail { background: var(--bad-bg); color: var(--bad); }
+
+.result-actions {
+  display: grid;
+  gap: 10px;
+}
+
+.result-actions .btn {
+  margin-top: 0;
+}
+
+.topic-summary {
+  display: grid;
+  gap: 8px;
+}
+
+.topic-summary-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  background: var(--paper-raised);
+}
+
+.topic-summary-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.84rem;
+}
+
+.topic-summary-head strong {
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.topic-summary-track {
+  height: 5px;
+  overflow: hidden;
+  background: var(--line);
+  border-radius: 3px;
+  margin-top: 8px;
+}
+
+.topic-summary-fill {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.topic-summary-fill.good { background: var(--good); }
+.topic-summary-fill.bad { background: var(--bad); }
+
+.review-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.review-item .review-q {
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 8px;
+}
+
+.review-item .review-your {
+  color: var(--bad);
+  font-size: 0.85rem;
+  margin-bottom: 3px;
+}
+
+.review-item .review-correct {
+  color: var(--good);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.review-item .explanation-box {
+  margin-top: 8px;
+}
+
+.section-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  margin: 26px 0 12px;
+}
+
+footer.app-footer {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin-top: 40px;
+}
+
+@media (max-width: 400px) {
+  .score-big { font-size: 2.4rem; }
+  .ip-field-row { flex-direction: column; align-items: stretch; }
+  .ip-field-row input { max-width: 100%; }
+}
