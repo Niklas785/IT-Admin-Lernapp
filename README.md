@@ -5,7 +5,7 @@ Läuft komplett im Browser, keine Installation, kein Backend nötig.
 
 **Themen aktuell:** IT-Sicherheit & Datenschutz, SQL-Grundlagen, IPv4-Adressen &
 Subnetting, Netzwerkgrundlagen, IT-Grundlagen & Virtualisierung, Arbeitsgruppe/
-Domäne & GPOs sowie Windows Server & AD-Verwaltung — insgesamt 390 Fragen,
+Domäne & GPOs sowie Windows Server & AD-Verwaltung — insgesamt 413 Fragen,
 gemischt aus Multiple-Choice, Freitext,
 Lückentext und IPv4-Berechnungsaufgaben.
 
@@ -59,6 +59,8 @@ keine weitere Anpassung nötig.
   gleichmäßiger Verteilung über mehrere ausgewählte Themen
 - Schwierigkeitsfilter: Grundlagen, Prüfungsniveau, Vertiefung oder alle Niveaus
 - Reihenfolge wählbar (gemischt oder wie einsortiert)
+- Mehrfachauswahl bei gezielten Szenariofragen; eine Antwort ist nur richtig,
+  wenn alle zutreffenden Optionen und keine falsche Option gewählt wurden
 - Direktes Feedback nach jeder Frage inkl. Erklärung
 - Fortschrittsanzeige (grün = richtig, rot = falsch beantwortet)
 - Abschluss-Auswertung mit Gesamt- und Themenwerten sowie Wiederholung der

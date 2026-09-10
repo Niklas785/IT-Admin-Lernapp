@@ -262,6 +262,12 @@ select {
   line-height: 1.45;
 }
 
+.multi-select-hint {
+  margin: -8px 0 14px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
 .options-list {
   display: flex;
   flex-direction: column;
@@ -303,6 +309,20 @@ select {
   background: var(--ink);
   border-color: var(--ink);
   color: var(--paper);
+}
+
+.option.multi-option .marker {
+  border-radius: var(--radius);
+}
+
+.option.multi-option.selected .marker {
+  font-size: 0;
+}
+
+.option.multi-option.selected .marker::after {
+  content: "✓";
+  font-family: 'Public Sans', system-ui, sans-serif;
+  font-size: 0.85rem;
 }
 
 .option.correct {

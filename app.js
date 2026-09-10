@@ -270,9 +270,10 @@ function abortQuiz() {
 function renderQuestionBody(q) {
   const slot = document.getElementById("question-body");
 
-  if (q.type === "mc") {
+  if (q.type === "mc" || q.type === "multi") {
     slot.innerHTML = `
       <p class="question-text">${escapeHtml(q.question)}</p>
+      ${q.type === "multi" ? `<p class="multi-select-hint">Mehrfachauswahl: Wähle alle zutreffenden Antworten.</p>` : ""}
       <div class="options-list" id="options-list"></div>
     `;
     const optionsList = document.getElementById("options-list");
@@ -285,9 +286,9 @@ function renderQuestionBody(q) {
     q._shuffledOptions.forEach((opt, displayIdx) => {
       const letter = String.fromCharCode(65 + displayIdx);
       const div = document.createElement("div");
-      div.className = "option";
+      div.className = "option" + (q.type === "multi" ? " multi-option" : "");
       div.innerHTML = `<span class="marker">${letter}</span><span>${escapeHtml(opt.text)}</span>`;
-      div.addEventListener("click", () => selectMcOption(displayIdx));
+      div.addEventListener("click", () => q.type === "multi" ? toggleMultiOption(displayIdx) : selectMcOption(displayIdx));
       div.dataset.displayIdx = displayIdx;
       optionsList.appendChild(div);
     });
@@ -342,6 +343,19 @@ function selectMcOption(displayIdx) {
   updateSubmitState();
 }
 
+function toggleMultiOption(displayIdx) {
+  if (state.answeredCurrent) return;
+  if (!Array.isArray(state.currentSelection)) state.currentSelection = [];
+
+  const selectedIndex = state.currentSelection.indexOf(displayIdx);
+  if (selectedIndex === -1) state.currentSelection.push(displayIdx);
+  else state.currentSelection.splice(selectedIndex, 1);
+
+  const el = document.querySelector(`.option[data-display-idx="${displayIdx}"]`);
+  if (el) el.classList.toggle("selected", state.currentSelection.includes(displayIdx));
+  updateSubmitState();
+}
+
 function updateSubmitState() {
   const btn = document.getElementById("submit-btn");
   if (!btn) return;
@@ -349,6 +363,8 @@ function updateSubmitState() {
   let ready = false;
   if (q.type === "mc") {
     ready = state.currentSelection !== null && state.currentSelection !== undefined;
+  } else if (q.type === "multi") {
+    ready = Array.isArray(state.currentSelection) && state.currentSelection.length > 0;
   } else {
     ready = true; // Text/Blank/IP: leere Felder werden als falsch gewertet, erlauben aber Abgabe
   }
@@ -369,7 +385,7 @@ function renderActions() {
       });
     }, 0);
     updateSubmitState();
-    if (document.getElementById("options-list")) {
+    if (document.getElementById("options-list") && state.questions[state.current].type === "mc") {
       // mc: submit disabled bis Auswahl
       document.getElementById("submit-btn").disabled = true;
     }
@@ -398,6 +414,26 @@ function submitAnswer() {
       if (optObj.origIdx === q.correct) {
         el.classList.add("correct");
       } else if (di === state.currentSelection) {
+        el.classList.add("wrong");
+      }
+    });
+  } else if (q.type === "multi") {
+    const selectedDisplayIndexes = Array.isArray(state.currentSelection) ? state.currentSelection : [];
+    const selectedOriginalIndexes = selectedDisplayIndexes
+      .map((displayIdx) => q._shuffledOptions[displayIdx].origIdx)
+      .sort((a, b) => a - b);
+    const correctOriginalIndexes = q.correct.slice().sort((a, b) => a - b);
+    correct = selectedOriginalIndexes.length === correctOriginalIndexes.length
+      && selectedOriginalIndexes.every((index, position) => index === correctOriginalIndexes[position]);
+    givenSummary = selectedOriginalIndexes.map((index) => q.options[index]).join(" / ");
+
+    document.querySelectorAll(".option").forEach((el) => {
+      el.classList.add("disabled");
+      const displayIdx = parseInt(el.dataset.displayIdx, 10);
+      const originalIdx = q._shuffledOptions[displayIdx].origIdx;
+      if (q.correct.includes(originalIdx)) {
+        el.classList.add("correct");
+      } else if (selectedDisplayIndexes.includes(displayIdx)) {
         el.classList.add("wrong");
       }
     });
@@ -467,6 +503,9 @@ function showExplanation(q, correct) {
   if (!correct) {
     if (q.type === "mc") {
       correctAnswerLine = `<div style="margin-bottom:6px; color: var(--good); font-size:0.85rem;">Richtige Antwort: ${escapeHtml(q.options[q.correct])}</div>`;
+    } else if (q.type === "multi") {
+      const answers = q.correct.map((index) => q.options[index]).join(" / ");
+      correctAnswerLine = `<div style="margin-bottom:6px; color: var(--good); font-size:0.85rem;">Richtige Antworten: ${escapeHtml(answers)}</div>`;
     } else if (q.type === "text") {
       correctAnswerLine = `<div style="margin-bottom:6px; color: var(--good); font-size:0.85rem;">Richtige Antwort: ${escapeHtml(q.accepted[0])}</div>`;
     } else if (q.type === "blank") {
@@ -569,6 +608,7 @@ function renderResult() {
         const q = a.question;
         let correctText = "";
         if (q.type === "mc") correctText = q.options[q.correct];
+        else if (q.type === "multi") correctText = q.correct.map((index) => q.options[index]).join(" / ");
         else if (q.type === "text") correctText = q.accepted[0];
         else if (q.type === "blank") correctText = q.blanks.map((b) => b[0]).join(" / ");
         else if (q.type === "ip") correctText = q.fields.map((f) => `${f.label}: ${f.answer}`).join(" · ");
