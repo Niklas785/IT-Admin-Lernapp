@@ -66,6 +66,14 @@
     correct: [0, 2],                // alle richtigen Indizes
     explanation: "Kurze Erklärung, warum diese Antworten richtig sind."
   }
+
+  6) Reihenfolge (type: "order")
+  {
+    type: "order",
+    question: "Bringe die Schritte in die richtige Reihenfolge.",
+    items: ["Erster Schritt", "Zweiter Schritt", "Dritter Schritt"],
+    explanation: "Kurze Erklärung der richtigen Reihenfolge."
+  }
   ============================================================
 */
 
@@ -287,12 +295,10 @@ const QUIZ_DATA = [
         explanation: "GROUP BY fasst z. B. alle Kunden je Land zu einer Gruppe zusammen."
       },
       {
-        type: "blank",
-        question:
-          "In welcher Schreibreihenfolge werden die fehlenden Teile einer SELECT-Abfrage ergänzt? SELECT, ___, JOIN, WHERE, ___, HAVING, ___.",
-        blanks: [["from"], ["group by"], ["order by"]],
-        explanation:
-          "Das ist die übliche Schreibreihenfolge. Die logische Verarbeitung einer Abfrage beginnt dagegen bei den Datenquellen aus FROM und JOIN."
+        type: "order",
+        question: "Bringe die Klauseln einer üblichen SELECT-Abfrage in ihre syntaktische Schreibreihenfolge.",
+        items: ["SELECT", "FROM", "JOIN", "WHERE", "GROUP BY", "HAVING", "ORDER BY"],
+        explanation: "Die übliche Schreibreihenfolge lautet SELECT, FROM, JOIN, WHERE, GROUP BY, HAVING, ORDER BY. Die logische Verarbeitung einer Abfrage beginnt dagegen bei den Datenquellen aus FROM und JOIN."
       },
       {
         type: "mc",
@@ -701,12 +707,10 @@ const QUIZ_DATA = [
         explanation: "Eine Firewall überwacht den Datenverkehr und entscheidet anhand von Sicherheitsregeln, ob Pakete durchgelassen werden."
       },
       {
-        type: "blank",
-        question:
-          "DHCP funktioniert nach dem sogenannten ___-Prozess: Discover, ___, Request und ___.",
-        blanks: [["dora"], ["offer"], ["acknowledge"]],
-        explanation:
-          "DORA = Discover (Client sucht Server), Offer (Server bietet IP an), Request (Client fordert sie an), Acknowledge (Server bestätigt)."
+        type: "order",
+        question: "Bringe die Nachrichten des DHCP-DORA-Prozesses in die richtige Reihenfolge.",
+        items: ["Discover", "Offer", "Request", "Acknowledge"],
+        explanation: "DORA bedeutet Discover, Offer, Request, Acknowledge: Der Client sucht, der Server bietet eine Konfiguration an, der Client fordert sie an und der Server bestätigt sie."
       },
       {
         type: "mc",
@@ -1427,6 +1431,8 @@ const mc = (id, subtopic, difficulty, question, options, correct, explanation) =
   ({ id, subtopic, difficulty, type: "mc", question, options, correct, explanation });
 const multi = (id, subtopic, difficulty, question, options, correct, explanation) =>
   ({ id, subtopic, difficulty, type: "multi", question, options, correct, explanation });
+const orderQuestion = (id, subtopic, difficulty, question, items, explanation) =>
+  ({ id, subtopic, difficulty, type: "order", question, items, explanation });
 const textQuestion = (id, subtopic, difficulty, question, accepted, explanation) =>
   ({ id, subtopic, difficulty, type: "text", question, accepted, explanation });
 const blankQuestion = (id, subtopic, difficulty, question, blanks, explanation) =>
@@ -1605,7 +1611,7 @@ const QUESTION_POOL_EXPANSION = {
   ],
   "windows-netzwerke": [
     mc("win-net-009", "active-directory", "fortgeschritten", "Warum werden Benutzer und Computer in Active Directory häufig in Organisationseinheiten (OUs) strukturiert?", ["Um Verwaltung, Delegation und gezielte Anwendung von Gruppenrichtlinien zu ermöglichen.", "Damit jeder Benutzer einen eigenen Domain Controller erhält.", "Damit DNS nicht mehr benötigt wird.", "Damit alle Berechtigungen lokal gespeichert werden."], 0, "OUs sind Verwaltungscontainer; sie helfen bei Delegation und bei der GPO-Verknüpfung."),
-    mc("win-net-010", "gpo", "anspruchsvoll", "Ein Benutzer erhält eine Kennwortrichtlinie aus einer verknüpften GPO. Welche Reihenfolge beschreibt die übliche Verarbeitung von GPOs?", ["Local, Site, Domain, OU", "OU, Domain, Site, Local", "DNS, DHCP, GPO, OU", "Nur die zuletzt erstellte GPO"], 0, "Die typische Reihenfolge lautet LSDOU. Später angewendete Einstellungen können bei Konflikten vorherige überschreiben."),
+    orderQuestion("win-net-010", "gpo", "anspruchsvoll", "Bringe die Ebenen der üblichen GPO-Verarbeitung in die richtige Reihenfolge (LSDOU).", ["Local", "Site", "Domain", "OU"], "Die typische Reihenfolge lautet Local, Site, Domain, OU (LSDOU). Später angewendete Einstellungen können bei Konflikten vorherige überschreiben."),
     mc("win-net-011", "gpo", "fortgeschritten", "Was bewirkt 'Block Inheritance' auf einer OU grundsätzlich?", ["Vererbte GPOs höherer Ebenen werden für diese OU grundsätzlich nicht übernommen, soweit sie nicht erzwungen sind.", "Alle lokalen Benutzer werden gelöscht.", "Die OU wird zur neuen Domäne.", "DNS-Einträge werden blockiert."], 0, "Block Inheritance ist kein universeller Schutz: erzwungene GPOs können weiterhin wirken."),
     mc("win-net-012", "gpo", "fortgeschritten", "Welche Wirkung hat eine als 'Enforced' markierte GPO gegenüber Block Inheritance?", ["Sie wird trotz Block Inheritance weiter vererbt.", "Sie kann keine Computereinstellungen enthalten.", "Sie gilt nur für lokale Konten.", "Sie deaktiviert Active Directory."], 0, "Erzwungene GPOs sind ein starkes Mittel und sollten gezielt eingesetzt werden."),
     mc("win-net-013", "gpo", "anspruchsvoll", "Eine GPO soll nur für Mitglieder der Gruppe Vertrieb gelten, obwohl sie an der OU mit allen Mitarbeitenden verknüpft ist. Welche Technik ergänzt die Verknüpfung passend?", ["Security Filtering mit der Gruppe Vertrieb und passenden Les-/Anwenden-Rechten", "Ein zweites DHCP-Scope", "Eine Änderung der Subnetzmaske", "Ein lokales Administratorpasswort"], 0, "Security Filtering grenzt die Anwendung einer GPO auf berechtigte Sicherheitsprinzipale ein."),
@@ -1760,6 +1766,48 @@ const QUESTION_POOL_MULTISELECT_EXTENSION = {
   ]
 };
 
+/*
+  Ergänzende Grundlagenfragen: Diese Fragen erklären zentrale Begriffe, die
+  später in den Anwendungs- und Szenariofragen vorausgesetzt werden. Sie
+  ergänzen den Pool, ohne gleichartige Szenariofragen zu ersetzen.
+*/
+const QUESTION_POOL_FOUNDATION_EXTENSION = {
+  "it-sicherheit": [
+    mc("sec-base-001", "risikomanagement", "grundlagen", "Was ist eine Schwachstelle (Vulnerability) in der IT-Sicherheit?", ["Ein Fehler, eine Fehlkonfiguration oder eine Schwäche, die von einer Bedrohung ausgenutzt werden kann", "Jeder bereits eingetretene Sicherheitsvorfall", "Ein Backup, das außerhalb des Unternehmens gespeichert wird", "Eine ausschließlich organisatorische Sicherheitsrichtlinie"], 0, "Eine Schwachstelle ist eine ausnutzbare Schwäche. Sie wird erst zusammen mit einer Bedrohung und möglichen Auswirkungen zu einem konkreten Risiko."),
+    mc("sec-base-002", "zugriffsschutz", "grundlagen", "Was beschreibt Mehrfaktor-Authentisierung?", ["Die Anmeldung mit mindestens zwei unabhängigen Faktoren, etwa Passwort und Sicherheitsschlüssel", "Die Anmeldung mit zwei unterschiedlichen Passwörtern", "Die Verwendung eines besonders langen Benutzernamens", "Die automatische Anmeldung an mehreren Computern"], 0, "Mehrfaktor-Authentisierung kombiniert verschiedene Faktorarten, beispielsweise Wissen, Besitz oder ein biometrisches Merkmal. Zwei Passwörter wären weiterhin nur ein Faktor: Wissen.")
+  ],
+  "sql": [
+    mc("sql-base-001", "datenmodell", "grundlagen", "Was ist die zentrale Aufgabe eines Primärschlüssels in einer Tabelle?", ["Jeden Datensatz eindeutig zu identifizieren", "Die Tabelle nach einer Spalte zu sortieren", "Alle Daten in einer Spalte zu verschlüsseln", "Abfragen aus mehreren Tabellen automatisch zu verbinden"], 0, "Ein Primärschlüssel identifiziert einen Datensatz eindeutig und darf nicht NULL sein. Er ist eine wichtige Grundlage für Beziehungen zwischen Tabellen."),
+    mc("sql-base-002", "transaktionen", "grundlagen", "Was beschreibt eine Datenbanktransaktion?", ["Eine zusammengehörige Folge von Änderungen, die vollständig oder gar nicht wirksam wird", "Eine Sicherungskopie jeder einzelnen Tabelle", "Eine Abfrage, die Daten ausschließlich sortiert", "Eine automatisch erzeugte Tabellenbeziehung"], 0, "Transaktionen fassen zusammengehörige Änderungen zusammen. Bei einem Fehler kann die gesamte Einheit zurückgerollt werden, damit kein halbfertiger Zustand bleibt.")
+  ],
+  "ipv4": [
+    mc("ip-base-001", "subnetting", "grundlagen", "Welche Aufgabe hat eine IPv4-Subnetzmaske?", ["Sie trennt bei einer IPv4-Adresse den Netzanteil vom Hostanteil", "Sie verschlüsselt den Netzwerkverkehr", "Sie ersetzt die MAC-Adresse eines Geräts", "Sie legt den DNS-Server für einen Client fest"], 0, "Die Subnetzmaske kennzeichnet die Bits des Netzanteils mit Einsen; die übrigen Bits gehören zum Hostanteil."),
+    mc("ip-base-002", "dhcp", "grundlagen", "Wofür wird DHCP in einem IPv4-Netz eingesetzt?", ["Zur automatischen Zuweisung von IP-Konfigurationen wie Adresse, Maske, Gateway und DNS", "Zur Verschlüsselung von Ethernet-Frames", "Zur Übersetzung von Domainnamen in IP-Adressen", "Zur Weiterleitung zwischen verschiedenen IP-Netzen"], 0, "DHCP verteilt zentrale Netzparameter. DNS löst Namen auf, während Router zwischen Netzen weiterleiten.")
+  ],
+  "netzwerke": [
+    mc("net-base-001", "vlan", "grundlagen", "Was ist ein VLAN?", ["Eine logische Aufteilung eines Switch-Netzes in getrennte Broadcast-Domänen", "Ein Kabeltyp für besonders schnelle Netzwerkverbindungen", "Ein Verfahren zur Verschlüsselung von WLAN-Verbindungen", "Eine öffentliche IPv4-Adresse für einen Router"], 0, "VLANs segmentieren ein physisches Switch-Netz logisch. Kommunikation zwischen VLANs benötigt Routing, etwa über einen Router oder Layer-3-Switch."),
+    mc("net-base-002", "ethernet", "grundlagen", "Wofür wird eine MAC-Adresse in einem Ethernet-LAN hauptsächlich verwendet?", ["Zur lokalen Zustellung von Frames auf Layer 2", "Zur weltweiten eindeutigen Adressierung im Internet", "Zur Vergabe von Subnetzmasken", "Zur Verschlüsselung von DNS-Anfragen"], 0, "Eine MAC-Adresse dient der Layer-2-Kommunikation im lokalen Netz. Für die Kommunikation zwischen IP-Netzen werden IP-Adressen und Routing verwendet.")
+  ],
+  "it-grundlagen": [
+    mc("base-base-001", "betriebssysteme", "grundlagen", "Was ist ein Prozess im Betriebssystemkontext?", ["Eine gerade ausgeführte Instanz eines Programms mit zugeordneten Ressourcen", "Ein physischer Rechenkern einer CPU", "Eine dauerhafte Sicherungskopie einer Datei", "Eine Netzwerkverbindung zwischen zwei Servern"], 0, "Ein Prozess ist die laufende Instanz eines Programms. Das Betriebssystem verwaltet dafür unter anderem Speicher, Ausführungszeit und Berechtigungen."),
+    mc("base-base-002", "schnittstellen", "grundlagen", "Was ist eine API?", ["Eine definierte Schnittstelle, über die Programme Funktionen oder Daten anderer Programme nutzen können", "Ein Dateisystem für virtuelle Maschinen", "Ein Hardwareanschluss für Netzwerkkabel", "Eine Methode zur Komprimierung von Backups"], 0, "APIs definieren, wie Software miteinander kommuniziert. Sie ermöglichen beispielsweise die strukturierte Nutzung von Daten oder Funktionen eines Dienstes.")
+  ],
+  "windows-netzwerke": [
+    mc("win-base-001", "active-directory", "grundlagen", "Was ist Active Directory in einer Windows-Domänenumgebung?", ["Ein Verzeichnisdienst zur zentralen Verwaltung von Identitäten, Computern und weiteren Domänenobjekten", "Ein lokaler Ordner für Windows-Updates", "Eine Firewall-Regel für das Internet", "Ein Dateisystem für USB-Datenträger"], 0, "Active Directory speichert und organisiert Domänenobjekte wie Benutzer, Gruppen und Computer und unterstützt zentrale Authentisierung sowie Verwaltung."),
+    mc("win-base-002", "domäne", "grundlagen", "Was beschreibt eine Windows-Domäne am treffendsten?", ["Eine zentral verwaltete Umgebung für Benutzer, Computer, Richtlinien und Berechtigungen", "Eine Sammlung unabhängiger PCs ohne zentrale Anmeldung", "Ein einzelner freigegebener Ordner auf einem Server", "Eine feste IP-Adressklasse in IPv4"], 0, "Eine Domäne ermöglicht zentrale Verwaltung und Anmeldung. Das unterscheidet sie grundlegend von einer Arbeitsgruppe.")
+  ],
+  "windows-server-admin": [
+    mc("srv-base-001", "serverrollen", "grundlagen", "Was ist eine Serverrolle unter Windows Server?", ["Eine installierbare Sammlung von Diensten für eine Aufgabe wie DNS, DHCP oder Dateifreigaben", "Ein Benutzerkonto mit lokalen Administratorrechten", "Eine Lizenzart für Windows-Clients", "Ein virtueller Hyper-V-Switch"], 0, "Serverrollen stellen gezielt Dienste für bestimmte Serveraufgaben bereit. Sie können über Server Manager oder PowerShell installiert und verwaltet werden."),
+    mc("srv-base-002", "fileserver", "grundlagen", "Was ist eine Windows-Dateifreigabe?", ["Ein über das Netzwerk bereitgestellter Ordner, auf den berechtigte Benutzer per UNC-Pfad zugreifen können", "Eine lokale Kopie eines Ordners auf jedem Client", "Eine Methode zum Verschlüsseln von Festplatten", "Eine automatisch vergebene IP-Adresse"], 0, "Eine Freigabe macht einen Ordner im Netzwerk erreichbar. Der Zugriff wird durch Freigabe- und gegebenenfalls NTFS-Berechtigungen gesteuert.")
+  ]
+};
+
+const QUESTION_POOL_ORDER_EXTENSION = {
+  "ipv4": [
+    orderQuestion("ip-order-001", "subnetting", "grundlagen", "Bringe die Rechenschritte in die richtige Reihenfolge, um die Anzahl nutzbarer Hostadressen in einem klassischen IPv4-Subnetz zu bestimmen.", ["Die Präfixlänge von 32 abziehen und so die Zahl der Host-Bits bestimmen", "2 hoch die Anzahl der Host-Bits berechnen", "Für Netzwerk- und Broadcastadresse 2 abziehen"], "Zuerst wird aus dem Präfix die Zahl der Host-Bits ermittelt. Dann ergibt 2^n die Zahl aller Adressen; im klassischen IPv4-Modell bleiben nach Abzug von Netzwerk- und Broadcastadresse 2^n − 2 nutzbare Hostadressen." )
+  ]
+};
+
 Object.entries(QUESTION_POOL_EXPANSION).forEach(([topicId, questions]) => {
   const topic = QUIZ_DATA.find((entry) => entry.id === topicId);
   if (!topic) throw new Error(`Unbekanntes Thema im Fragenpool: ${topicId}`);
@@ -1773,6 +1821,18 @@ Object.entries(QUESTION_POOL_MATERIAL_EXTENSION).forEach(([topicId, questions]) 
 });
 
 Object.entries(QUESTION_POOL_MULTISELECT_EXTENSION).forEach(([topicId, questions]) => {
+  const topic = QUIZ_DATA.find((entry) => entry.id === topicId);
+  if (!topic) throw new Error(`Unbekanntes Thema im Fragenpool: ${topicId}`);
+  topic.questions.push(...questions);
+});
+
+Object.entries(QUESTION_POOL_FOUNDATION_EXTENSION).forEach(([topicId, questions]) => {
+  const topic = QUIZ_DATA.find((entry) => entry.id === topicId);
+  if (!topic) throw new Error(`Unbekanntes Thema im Fragenpool: ${topicId}`);
+  topic.questions.push(...questions);
+});
+
+Object.entries(QUESTION_POOL_ORDER_EXTENSION).forEach(([topicId, questions]) => {
   const topic = QUIZ_DATA.find((entry) => entry.id === topicId);
   if (!topic) throw new Error(`Unbekanntes Thema im Fragenpool: ${topicId}`);
   topic.questions.push(...questions);

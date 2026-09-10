@@ -292,6 +292,16 @@ function renderQuestionBody(q) {
       div.dataset.displayIdx = displayIdx;
       optionsList.appendChild(div);
     });
+  } else if (q.type === "order") {
+    slot.innerHTML = `
+      <p class="question-text">${escapeHtml(q.question)}</p>
+      <p class="order-hint">Ordne die Elemente mit den Pfeilen von oben nach unten.</p>
+      <div class="order-list" id="order-list"></div>
+    `;
+    if (!q._shuffledItems) {
+      q._shuffledItems = shuffle(q.items.map((text, origIdx) => ({ text, origIdx })));
+    }
+    renderOrderItems(q);
   } else if (q.type === "text") {
     slot.innerHTML = `
       <p class="question-text">${escapeHtml(q.question)}</p>
@@ -332,6 +342,37 @@ function renderQuestionBody(q) {
       fieldWrap.appendChild(row);
     });
   }
+}
+
+function renderOrderItems(q) {
+  const list = document.getElementById("order-list");
+  if (!list) return;
+  list.innerHTML = "";
+  q._shuffledItems.forEach((item, index) => {
+    const row = document.createElement("div");
+    row.className = "order-item";
+    row.dataset.orderIndex = index;
+    row.innerHTML = `
+      <span class="order-position">${index + 1}</span>
+      <span class="order-text">${escapeHtml(item.text)}</span>
+      <span class="order-controls">
+        <button class="order-move" type="button" aria-label="${escapeHtml(item.text)} nach oben" ${index === 0 ? "disabled" : ""}>↑</button>
+        <button class="order-move" type="button" aria-label="${escapeHtml(item.text)} nach unten" ${index === q._shuffledItems.length - 1 ? "disabled" : ""}>↓</button>
+      </span>
+    `;
+    const buttons = row.querySelectorAll(".order-move");
+    buttons[0].addEventListener("click", () => moveOrderItem(q, index, -1));
+    buttons[1].addEventListener("click", () => moveOrderItem(q, index, 1));
+    list.appendChild(row);
+  });
+}
+
+function moveOrderItem(q, fromIndex, direction) {
+  if (state.answeredCurrent) return;
+  const toIndex = fromIndex + direction;
+  if (toIndex < 0 || toIndex >= q._shuffledItems.length) return;
+  [q._shuffledItems[fromIndex], q._shuffledItems[toIndex]] = [q._shuffledItems[toIndex], q._shuffledItems[fromIndex]];
+  renderOrderItems(q);
 }
 
 function selectMcOption(displayIdx) {
@@ -437,6 +478,14 @@ function submitAnswer() {
         el.classList.add("wrong");
       }
     });
+  } else if (q.type === "order") {
+    const orderedItems = q._shuffledItems;
+    correct = orderedItems.every((item, index) => item.origIdx === index);
+    givenSummary = orderedItems.map((item) => item.text).join(" → ");
+    document.querySelectorAll(".order-item").forEach((el, index) => {
+      el.classList.add("disabled", orderedItems[index].origIdx === index ? "correct" : "wrong");
+    });
+    document.querySelectorAll(".order-move").forEach((button) => { button.disabled = true; });
   } else if (q.type === "text") {
     const input = document.getElementById("text-answer");
     const val = input.value;
@@ -506,6 +555,8 @@ function showExplanation(q, correct) {
     } else if (q.type === "multi") {
       const answers = q.correct.map((index) => q.options[index]).join(" / ");
       correctAnswerLine = `<div style="margin-bottom:6px; color: var(--good); font-size:0.85rem;">Richtige Antworten: ${escapeHtml(answers)}</div>`;
+    } else if (q.type === "order") {
+      correctAnswerLine = `<div style="margin-bottom:6px; color: var(--good); font-size:0.85rem;">Richtige Reihenfolge: ${escapeHtml(q.items.join(" → "))}</div>`;
     } else if (q.type === "text") {
       correctAnswerLine = `<div style="margin-bottom:6px; color: var(--good); font-size:0.85rem;">Richtige Antwort: ${escapeHtml(q.accepted[0])}</div>`;
     } else if (q.type === "blank") {
@@ -609,6 +660,7 @@ function renderResult() {
         let correctText = "";
         if (q.type === "mc") correctText = q.options[q.correct];
         else if (q.type === "multi") correctText = q.correct.map((index) => q.options[index]).join(" / ");
+        else if (q.type === "order") correctText = q.items.join(" → ");
         else if (q.type === "text") correctText = q.accepted[0];
         else if (q.type === "blank") correctText = q.blanks.map((b) => b[0]).join(" / ");
         else if (q.type === "ip") correctText = q.fields.map((f) => `${f.label}: ${f.answer}`).join(" · ");
@@ -666,6 +718,7 @@ function repeatWrongQuestions() {
     .map((a) => {
       const question = { ...a.question };
       delete question._shuffledOptions;
+      delete question._shuffledItems;
       return question;
     });
 
