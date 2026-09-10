@@ -55,12 +55,14 @@ keine weitere Anpassung nötig.
 ## Funktionen der App
 
 - Themenauswahl (auch mehrere Themen gleichzeitig kombinierbar)
-- Anzahl der Fragen wählbar (10 / 20 / 30 / alle) und Reihenfolge (gemischt
-  oder wie einsortiert)
+- Anzahl der Fragen wählbar (10 / 20 / 30 / 40 / 50 / alle), mit möglichst
+  gleichmäßiger Verteilung über mehrere ausgewählte Themen
+- Schwierigkeitsfilter: Grundlagen, Prüfungsniveau, Vertiefung oder alle Niveaus
+- Reihenfolge wählbar (gemischt oder wie einsortiert)
 - Direktes Feedback nach jeder Frage inkl. Erklärung
 - Fortschrittsanzeige (grün = richtig, rot = falsch beantwortet)
-- Abschluss-Auswertung mit Prozentwert und Wiederholung der falsch
-  beantworteten Fragen samt Erklärung
+- Abschluss-Auswertung mit Gesamt- und Themenwerten sowie Wiederholung der
+  falsch beantworteten Fragen samt Erklärung
 - Merkt sich den besten Prozentwert je Thema lokal auf dem Gerät
   (kein Server, keine Anmeldung, keine Cloud-Synchronisierung)
 

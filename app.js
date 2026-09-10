@@ -90,7 +90,7 @@ function renderSetup() {
       <div class="header-right">${QUIZ_DATA.reduce((s, t) => s + t.questions.length, 0)} Fragen<br/>${QUIZ_DATA.length} Themen</div>
     </header>
 
-    <p class="intro-text">Wähle ein oder mehrere Themen aus. Die Fragen werden gemischt und du bekommst nach jeder Antwort direkt eine Erklärung.</p>
+    <p class="intro-text">Wähle Themen und ein Niveau aus. Bei mehreren Themen verteilt die App die Fragen innerhalb der gewählten Stufe möglichst gleichmäßig. Nach jeder Antwort erhältst du direkt eine Erklärung.</p>
 
     <div class="topic-list">${topicRows}</div>
 
@@ -101,6 +101,8 @@ function renderSetup() {
           <option value="10">10 Fragen</option>
           <option value="20">20 Fragen</option>
           <option value="30">30 Fragen</option>
+          <option value="40">40 Fragen</option>
+          <option value="50">50 Fragen</option>
           <option value="all">Alle verfügbaren</option>
         </select>
       </div>
@@ -109,6 +111,15 @@ function renderSetup() {
         <select id="question-order">
           <option value="shuffle">Gemischt</option>
           <option value="order">Wie in der Liste</option>
+        </select>
+      </div>
+      <div class="setup-block">
+        <label for="difficulty">Schwierigkeit</label>
+        <select id="difficulty">
+          <option value="all">Alle Niveaus</option>
+          <option value="grundlagen">Grundlagen</option>
+          <option value="fortgeschritten">Prüfungsniveau</option>
+          <option value="anspruchsvoll">Vertiefung</option>
         </select>
       </div>
     </div>
@@ -137,17 +148,58 @@ function renderSetup() {
 function startQuiz() {
   const countValue = document.getElementById("question-count").value;
   const orderValue = document.getElementById("question-order").value;
+  const difficultyValue = document.getElementById("difficulty").value;
 
-  let pool = [];
-  QUIZ_DATA.filter((t) => state.selectedTopics.includes(t.id)).forEach((topic) => {
-    topic.questions.forEach((q) => pool.push({ ...q, topicId: topic.id, topicTitle: topic.title }));
-  });
+  const selectedTopics = QUIZ_DATA.filter((topic) => state.selectedTopics.includes(topic.id));
+  const matchesDifficulty = (question) => {
+    if (difficultyValue === "all") return true;
+    if (difficultyValue === "grundlagen") return !question.difficulty;
+    return question.difficulty === difficultyValue;
+  };
+  const allQuestions = selectedTopics.flatMap((topic) =>
+    topic.questions
+      .filter(matchesDifficulty)
+      .map((q) => ({ ...q, topicId: topic.id, topicTitle: topic.title }))
+  );
 
-  if (orderValue === "shuffle") pool = shuffle(pool);
+  if (allQuestions.length === 0) {
+    window.alert("Für diese Auswahl sind noch keine Fragen vorhanden. Wähle ein anderes Niveau oder weitere Themen.");
+    return;
+  }
 
-  if (countValue !== "all") {
-    const n = parseInt(countValue, 10);
-    if (pool.length > n) pool = pool.slice(0, n);
+  let pool;
+  if (countValue === "all") {
+    pool = orderValue === "shuffle" ? shuffle(allQuestions) : allQuestions;
+  } else {
+    const targetCount = Math.min(parseInt(countValue, 10), allQuestions.length);
+    const topicPools = selectedTopics.map((topic) => {
+      const questions = topic.questions
+        .filter(matchesDifficulty)
+        .map((q) => ({ ...q, topicId: topic.id, topicTitle: topic.title }));
+      return orderValue === "shuffle" ? shuffle(questions) : questions;
+    });
+
+    // Reihum je eine Frage vergeben: Die Themen bleiben dadurch möglichst gleich gewichtet,
+    // auch wenn ein später hinzugefügtes Thema einmal weniger Fragen enthalten sollte.
+    const quotas = topicPools.map(() => 0);
+    const topicOrder = orderValue === "shuffle"
+      ? shuffle(topicPools.map((_, index) => index))
+      : topicPools.map((_, index) => index);
+    let remaining = targetCount;
+    while (remaining > 0) {
+      let addedQuestion = false;
+      topicOrder.forEach((index) => {
+        if (remaining > 0 && quotas[index] < topicPools[index].length) {
+          quotas[index] += 1;
+          remaining -= 1;
+          addedQuestion = true;
+        }
+      });
+      if (!addedQuestion) break;
+    }
+
+    pool = topicPools.flatMap((questions, index) => questions.slice(0, quotas[index]));
+    if (orderValue === "shuffle") pool = shuffle(pool);
   }
 
   state.questions = pool;
