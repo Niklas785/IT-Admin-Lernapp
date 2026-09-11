@@ -453,7 +453,7 @@ const QUIZ_DATA = [
       {
         type: "text",
         question:
-          "Wie werden Textwerte bei INSERT INTO in SQL geschrieben – mit welchem Zeichen umschlossen? (z. B. 'Max')",
+          "Mit welcher Art von Anführungszeichen werden Textwerte bei INSERT INTO in SQL umschlossen?",
         accepted: ["einfache anführungszeichen", "apostroph", "'", "hochkomma"],
         explanation: "Textwerte stehen in einfachen Anführungszeichen ('...'), Zahlen dagegen ohne Anführungszeichen."
       }
