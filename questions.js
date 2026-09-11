@@ -1835,6 +1835,42 @@ const QUESTION_POOL_MATCH_EXTENSION = {
   ]
 };
 
+/*
+  Kurze Begriffsabfragen für die Grundlagenstufe. Sie schaffen ein solides
+  Vokabular für die komplexeren Anwendungs- und Szenariofragen, ohne diese zu
+  verdrängen.
+*/
+const QUESTION_POOL_TERM_EXTENSION = {
+  "it-sicherheit": [
+    mc("sec-term-001", "social-engineering", "grundlagen", "Was ist Phishing?", ["Der Versuch, über täuschend echte Nachrichten oder Webseiten vertrauliche Informationen zu erlangen", "Die automatische Installation von Sicherheitsupdates", "Die Verschlüsselung einer Festplatte", "Eine Methode, IP-Adressen dynamisch zu vergeben"], 0, "Phishing nutzt Täuschung und oft Zeitdruck, um etwa Zugangsdaten oder Zahlungsinformationen zu erlangen. Die Prüfung von Absender, Zieladresse und Kontext ist wichtig."),
+    mc("sec-term-002", "patchmanagement", "grundlagen", "Was ist ein Sicherheitsupdate?", ["Eine Aktualisierung, die bekannte Schwachstellen oder sicherheitsrelevante Fehler behebt", "Eine Sicherungskopie aller Benutzerdaten", "Eine Richtlinie für sichere Passwörter", "Eine Verschlüsselungstechnik für E-Mails"], 0, "Sicherheitsupdates reduzieren bekannte Angriffsflächen. Sie sollten geregelt getestet und zeitnah verteilt werden.")
+  ],
+  "sql": [
+    mc("sql-term-001", "datenmodell", "grundlagen", "Was ist ein Fremdschlüssel in einer relationalen Datenbank?", ["Eine Spalte oder Spaltenkombination, die auf einen passenden Schlüssel einer anderen Tabelle verweist", "Ein automatisch erzeugtes Kennwort für die Datenbank", "Eine Spalte, die jeden Datensatz derselben Tabelle eindeutig kennzeichnet", "Eine Sortierreihenfolge für Abfrageergebnisse"], 0, "Fremdschlüssel bilden Beziehungen zwischen Tabellen ab und können verhindern, dass auf nicht vorhandene Datensätze verwiesen wird."),
+    mc("sql-term-002", "abfragen", "grundlagen", "Was ist eine SQL-Abfrage (Query)?", ["Eine Anweisung, mit der Daten aus einer Datenbank gezielt abgerufen oder ausgewertet werden", "Eine physische Kopie einer Datenbank auf einem anderen Server", "Ein Dateisystem für Tabellen", "Eine Methode zur Verschlüsselung von Passwörtern"], 0, "Eine Query ist typischerweise eine SELECT-Abfrage. Sie kann Daten filtern, verbinden, gruppieren und auswerten, ohne die Daten zwingend zu verändern.")
+  ],
+  "ipv4": [
+    mc("ip-term-001", "adressierung", "grundlagen", "Was ist eine Broadcastadresse in einem klassischen IPv4-Subnetz?", ["Eine Adresse, über die eine Nachricht an alle Hosts desselben Subnetzes gesendet wird", "Die erste nutzbare Hostadresse eines Subnetzes", "Die öffentliche Adresse eines DNS-Servers", "Eine Adresse, die nur ein einzelner Router verwendet"], 0, "Die Broadcastadresse kennzeichnet alle Hosts eines klassischen IPv4-Subnetzes gleichzeitig und ist daher nicht als normale Hostadresse nutzbar."),
+    mc("ip-term-002", "dhcp", "grundlagen", "Was bezeichnet APIPA bei IPv4?", ["Eine automatisch vergebene Link-Local-Adresse aus 169.254.0.0/16, wenn kein DHCP-Lease verfügbar ist", "Einen privaten IPv4-Adressbereich für Unternehmensnetze", "Ein Routing-Protokoll für das Internet", "Eine Verschlüsselung für WLAN-Verbindungen"], 0, "APIPA-Adressen deuten häufig darauf hin, dass ein Client keinen DHCP-Server erreichen oder keinen Lease erhalten konnte.")
+  ],
+  "netzwerke": [
+    mc("net-term-001", "protokolle", "grundlagen", "Was ist ein Netzwerkprotokoll?", ["Ein festgelegter Satz von Regeln und Datenformaten für die Kommunikation zwischen Systemen", "Ein physischer Anschluss an einem Switch", "Eine Sicherheitskopie der Routingtabelle", "Eine automatisch vergebene MAC-Adresse"], 0, "Netzwerkprotokolle definieren, wie Systeme Daten austauschen. Beispiele sind HTTP, DNS, DHCP oder TCP."),
+    mc("net-term-002", "ethernet", "grundlagen", "Was ist ein Ethernet-Frame?", ["Eine Datenübertragungseinheit auf Layer 2 mit unter anderem Quell- und Ziel-MAC-Adresse", "Ein IP-Paket, das zwischen verschiedenen Netzen geroutet wird", "Ein WLAN-Kennwort für einen Access Point", "Eine Konfiguration für einen DHCP-Bereich"], 0, "Ein Ethernet-Frame transportiert Daten im lokalen Netz. Switches verwenden die darin enthaltenen MAC-Adressen für die Weiterleitung auf Layer 2.")
+  ],
+  "it-grundlagen": [
+    mc("base-term-001", "virtualisierung", "grundlagen", "Was ist ein Hypervisor?", ["Eine Software- oder Firmware-Schicht, die virtuelle Maschinen erstellt und verwaltet", "Ein Dateisystem für USB-Datenträger", "Ein Protokoll zur Namensauflösung", "Ein physischer Rechenkern einer CPU"], 0, "Ein Hypervisor verteilt Hardware-Ressourcen an virtuelle Maschinen. Typ-1-Hypervisor laufen direkt auf der Hardware, Typ-2-Hypervisor auf einem Betriebssystem."),
+    mc("base-term-002", "virtualisierung", "grundlagen", "Was ist ein Container in der IT?", ["Eine isolierte Ausführungsumgebung für Anwendungen, die üblicherweise den Kernel des Host-Betriebssystems mitnutzt", "Eine vollständige virtuelle Maschine mit eigenem Betriebssystemkern", "Ein verschlüsselter Datenträger für Backups", "Ein physischer Netzwerkschrank"], 0, "Container kapseln Anwendungen und ihre Abhängigkeiten, teilen aber in der Regel den Kernel des Hosts. Dadurch starten sie oft schneller als vollständige virtuelle Maschinen." )
+  ],
+  "windows-netzwerke": [
+    mc("win-term-001", "gpo", "grundlagen", "Was ist eine Gruppenrichtlinie (GPO) in einer Windows-Domäne?", ["Eine zentral verwaltete Sammlung von Einstellungen für Benutzer und Computer", "Ein persönliches Kennwort eines Domänenbenutzers", "Ein Netzwerkprotokoll zur IP-Adressvergabe", "Eine lokale Sicherungskopie von Active Directory"], 0, "GPOs verteilen beispielsweise Kennwort-, Desktop- oder Sicherheitseinstellungen zentral an Benutzer und Computer in einer Domäne."),
+    mc("win-term-002", "authentisierung", "grundlagen", "Was ist Kerberos in einer Windows-Domäne?", ["Ein Authentifizierungsprotokoll, das mit zeitlich begrenzten Tickets arbeitet", "Eine Datenbank für Windows-Updates", "Ein Format für Dateifreigaben", "Ein Verfahren zur Zuweisung von IPv4-Adressen"], 0, "Kerberos ermöglicht die Authentifizierung in Active Directory über Tickets. Eine zuverlässige Zeitsynchronisation ist wichtig, weil die Tickets zeitlich begrenzt gültig sind.")
+  ],
+  "windows-server-admin": [
+    mc("srv-term-001", "speicher", "grundlagen", "Was ist RAID?", ["Ein Verbund mehrerer Laufwerke, der je nach RAID-Level Leistung, Redundanz oder beides verbessern kann", "Eine Verschlüsselungsmethode für Windows-Benutzerkonten", "Ein Protokoll zur dynamischen IP-Adressvergabe", "Ein Dateiformat für virtuelle Festplatten"], 0, "RAID fasst Laufwerke logisch zusammen. Welchen Schutz oder welche Kapazität es bietet, hängt vom verwendeten RAID-Level ab; RAID ersetzt kein Backup."),
+    mc("srv-term-002", "sicherheit", "grundlagen", "Was ist BitLocker?", ["Eine Windows-Funktion zur Verschlüsselung von Datenträgern und zum Schutz gespeicherter Daten", "Ein Dienst zur Auflösung von DNS-Namen", "Eine Serverrolle zur Dateifreigabe", "Ein Werkzeug zum Verwalten von Gruppenrichtlinien"], 0, "BitLocker schützt Daten auf verlorenen oder gestohlenen Datenträgern vor unbefugtem Zugriff. Es ersetzt weder Zugriffsrechte noch Backups.")
+  ]
+};
+
 Object.entries(QUESTION_POOL_EXPANSION).forEach(([topicId, questions]) => {
   const topic = QUIZ_DATA.find((entry) => entry.id === topicId);
   if (!topic) throw new Error(`Unbekanntes Thema im Fragenpool: ${topicId}`);
@@ -1866,6 +1902,12 @@ Object.entries(QUESTION_POOL_ORDER_EXTENSION).forEach(([topicId, questions]) => 
 });
 
 Object.entries(QUESTION_POOL_MATCH_EXTENSION).forEach(([topicId, questions]) => {
+  const topic = QUIZ_DATA.find((entry) => entry.id === topicId);
+  if (!topic) throw new Error(`Unbekanntes Thema im Fragenpool: ${topicId}`);
+  topic.questions.push(...questions);
+});
+
+Object.entries(QUESTION_POOL_TERM_EXTENSION).forEach(([topicId, questions]) => {
   const topic = QUIZ_DATA.find((entry) => entry.id === topicId);
   if (!topic) throw new Error(`Unbekanntes Thema im Fragenpool: ${topicId}`);
   topic.questions.push(...questions);
