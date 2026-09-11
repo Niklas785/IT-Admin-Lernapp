@@ -532,7 +532,7 @@ const QUIZ_DATA = [
       {
         type: "text",
         question:
-          "Wie viele verschiedene IPv4-Adressen gibt es insgesamt (2^32)? (nur Ziffern, ohne Punkte)",
+          "Wie viele verschiedene IPv4-Adressen gibt es insgesamt? (nur Ziffern, ohne Punkte)",
         accepted: ["4294967296"],
         explanation: "2³² = 4.294.967.296 mögliche Kombinationen."
       },
