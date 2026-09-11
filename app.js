@@ -302,6 +302,19 @@ function renderQuestionBody(q) {
       q._shuffledItems = shuffle(q.items.map((text, origIdx) => ({ text, origIdx })));
     }
     renderOrderItems(q);
+  } else if (q.type === "match") {
+    slot.innerHTML = `
+      <p class="question-text">${escapeHtml(q.question)}</p>
+      <p class="match-hint">Wähle rechts zu jedem Begriff die passende Erklärung.</p>
+      <div class="match-list" id="match-list"></div>
+    `;
+    if (!q._shuffledMatchOptions) {
+      q._shuffledMatchOptions = shuffle(q.pairs.map((pair, origIdx) => ({ text: pair.right, origIdx })));
+    }
+    if (!Array.isArray(state.currentSelection)) {
+      state.currentSelection = Array(q.pairs.length).fill("");
+    }
+    renderMatchPairs(q);
   } else if (q.type === "text") {
     slot.innerHTML = `
       <p class="question-text">${escapeHtml(q.question)}</p>
@@ -375,6 +388,47 @@ function moveOrderItem(q, fromIndex, direction) {
   renderOrderItems(q);
 }
 
+function renderMatchPairs(q) {
+  const list = document.getElementById("match-list");
+  if (!list) return;
+  list.innerHTML = "";
+  q.pairs.forEach((pair, pairIndex) => {
+    const row = document.createElement("div");
+    row.className = "match-row";
+    row.innerHTML = `<span class="match-term">${escapeHtml(pair.left)}</span>`;
+    const select = document.createElement("select");
+    select.className = "match-select";
+    select.setAttribute("aria-label", `Erklärung für ${pair.left}`);
+    select.dataset.matchIndex = pairIndex;
+    select.innerHTML = `<option value="">Erklärung auswählen</option>${q._shuffledMatchOptions.map((option, displayIndex) => `<option value="${displayIndex}">${escapeHtml(option.text)}</option>`).join("")}`;
+    select.value = state.currentSelection[pairIndex] || "";
+    select.addEventListener("change", () => selectMatchOption(pairIndex, select.value));
+    row.appendChild(select);
+    list.appendChild(row);
+  });
+  updateMatchOptionAvailability();
+}
+
+function selectMatchOption(pairIndex, displayIndex) {
+  if (state.answeredCurrent) return;
+  state.currentSelection[pairIndex] = displayIndex;
+  updateMatchOptionAvailability();
+  updateSubmitState();
+}
+
+function updateMatchOptionAvailability() {
+  const selectedByOtherRows = (currentIndex) => new Set(
+    state.currentSelection.filter((value, index) => index !== currentIndex && value !== "")
+  );
+  document.querySelectorAll(".match-select").forEach((select) => {
+    const currentIndex = Number(select.dataset.matchIndex);
+    const unavailable = selectedByOtherRows(currentIndex);
+    Array.from(select.options).forEach((option) => {
+      option.disabled = option.value !== "" && unavailable.has(option.value);
+    });
+  });
+}
+
 function selectMcOption(displayIdx) {
   if (state.answeredCurrent) return;
   document.querySelectorAll(".option").forEach((el) => el.classList.remove("selected"));
@@ -406,6 +460,8 @@ function updateSubmitState() {
     ready = state.currentSelection !== null && state.currentSelection !== undefined;
   } else if (q.type === "multi") {
     ready = Array.isArray(state.currentSelection) && state.currentSelection.length > 0;
+  } else if (q.type === "match") {
+    ready = Array.isArray(state.currentSelection) && state.currentSelection.every((value) => value !== "");
   } else {
     ready = true; // Text/Blank/IP: leere Felder werden als falsch gewertet, erlauben aber Abgabe
   }
@@ -486,6 +542,18 @@ function submitAnswer() {
       el.classList.add("disabled", orderedItems[index].origIdx === index ? "correct" : "wrong");
     });
     document.querySelectorAll(".order-move").forEach((button) => { button.disabled = true; });
+  } else if (q.type === "match") {
+    const selectedDisplayIndexes = state.currentSelection.map(Number);
+    correct = q.pairs.every((pair, index) => q._shuffledMatchOptions[selectedDisplayIndexes[index]].origIdx === index);
+    givenSummary = q.pairs.map((pair, index) => {
+      const selected = q._shuffledMatchOptions[selectedDisplayIndexes[index]];
+      return `${pair.left}: ${selected ? selected.text : "(keine Angabe)"}`;
+    }).join(" / ");
+    document.querySelectorAll(".match-row").forEach((row, index) => {
+      const selected = q._shuffledMatchOptions[selectedDisplayIndexes[index]];
+      row.classList.add("disabled", selected && selected.origIdx === index ? "correct" : "wrong");
+    });
+    document.querySelectorAll(".match-select").forEach((select) => { select.disabled = true; });
   } else if (q.type === "text") {
     const input = document.getElementById("text-answer");
     const val = input.value;
@@ -557,6 +625,9 @@ function showExplanation(q, correct) {
       correctAnswerLine = `<div style="margin-bottom:6px; color: var(--good); font-size:0.85rem;">Richtige Antworten: ${escapeHtml(answers)}</div>`;
     } else if (q.type === "order") {
       correctAnswerLine = `<div style="margin-bottom:6px; color: var(--good); font-size:0.85rem;">Richtige Reihenfolge: ${escapeHtml(q.items.join(" → "))}</div>`;
+    } else if (q.type === "match") {
+      const answers = q.pairs.map((pair) => `${pair.left}: ${pair.right}`).join(" / ");
+      correctAnswerLine = `<div style="margin-bottom:6px; color: var(--good); font-size:0.85rem;">Richtige Zuordnung: ${escapeHtml(answers)}</div>`;
     } else if (q.type === "text") {
       correctAnswerLine = `<div style="margin-bottom:6px; color: var(--good); font-size:0.85rem;">Richtige Antwort: ${escapeHtml(q.accepted[0])}</div>`;
     } else if (q.type === "blank") {
@@ -661,6 +732,7 @@ function renderResult() {
         if (q.type === "mc") correctText = q.options[q.correct];
         else if (q.type === "multi") correctText = q.correct.map((index) => q.options[index]).join(" / ");
         else if (q.type === "order") correctText = q.items.join(" → ");
+        else if (q.type === "match") correctText = q.pairs.map((pair) => `${pair.left}: ${pair.right}`).join(" / ");
         else if (q.type === "text") correctText = q.accepted[0];
         else if (q.type === "blank") correctText = q.blanks.map((b) => b[0]).join(" / ");
         else if (q.type === "ip") correctText = q.fields.map((f) => `${f.label}: ${f.answer}`).join(" · ");
@@ -719,6 +791,7 @@ function repeatWrongQuestions() {
       const question = { ...a.question };
       delete question._shuffledOptions;
       delete question._shuffledItems;
+      delete question._shuffledMatchOptions;
       return question;
     });
 

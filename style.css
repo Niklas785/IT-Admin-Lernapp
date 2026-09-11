@@ -341,6 +341,51 @@ select {
   cursor: default;
 }
 
+.match-hint {
+  margin: -8px 0 14px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.match-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.match-row {
+  display: grid;
+  grid-template-columns: minmax(82px, 0.55fr) minmax(0, 1.45fr);
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.match-term {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.match-select {
+  min-width: 0;
+  padding: 9px 8px;
+  font-size: 0.82rem;
+}
+
+.match-row.correct {
+  border-color: var(--good);
+  background: var(--good-bg);
+}
+
+.match-row.wrong {
+  border-color: var(--bad);
+  background: var(--bad-bg);
+}
+
 .options-list {
   display: flex;
   flex-direction: column;

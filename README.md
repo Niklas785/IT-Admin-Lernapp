@@ -5,7 +5,7 @@ Läuft komplett im Browser, keine Installation, kein Backend nötig.
 
 **Themen aktuell:** IT-Sicherheit & Datenschutz, SQL-Grundlagen, IPv4-Adressen &
 Subnetting, Netzwerkgrundlagen, IT-Grundlagen & Virtualisierung, Arbeitsgruppe/
-Domäne & GPOs sowie Windows Server & AD-Verwaltung — insgesamt 428 Fragen,
+Domäne & GPOs sowie Windows Server & AD-Verwaltung — insgesamt 430 Fragen,
 gemischt aus Multiple-Choice, Freitext,
 Lückentext und IPv4-Berechnungsaufgaben.
 
@@ -31,7 +31,7 @@ automatisch neu veröffentlicht, meist innerhalb einer Minute.
 Du musst dafür **nur `questions.js` bearbeiten** — die Logik in `app.js` und
 das Layout in `style.css`/`index.html` bleiben unangetastet.
 
-Am Anfang von `questions.js` steht eine ausführliche Anleitung mit allen sechs
+Am Anfang von `questions.js` steht eine ausführliche Anleitung mit allen sieben
 Fragetypen und Beispielen:
 
 - `mc` – Multiple Choice (4 Antworten, 1 richtig)
@@ -40,6 +40,7 @@ Fragetypen und Beispielen:
 - `ip` – IPv4-Berechnung mit mehreren Teilantworten (Netz, Broadcast, Hosts …)
 - `multi` – Mehrfachauswahl (alle richtigen Antworten wählen)
 - `order` – Begriffe oder Schritte mit Pfeilen in die richtige Reihenfolge bringen
+- `match` – Begriffe und Erklärungen eindeutig einander zuordnen
 
 Ein neues Thema fügst du als weiteres Objekt in das `QUIZ_DATA`-Array ein:
 
@@ -64,6 +65,7 @@ keine weitere Anpassung nötig.
 - Mehrfachauswahl bei gezielten Szenariofragen; eine Antwort ist nur richtig,
   wenn alle zutreffenden Optionen und keine falsche Option gewählt wurden
 - Reihenfolgeaufgaben bei eindeutigen Abläufen, mit touch-freundlichen Pfeilen
+- Zuordnungsaufgaben für eindeutig verknüpfbare Begriffe und Erklärungen
 - Direktes Feedback nach jeder Frage inkl. Erklärung
 - Fortschrittsanzeige (grün = richtig, rot = falsch beantwortet)
 - Abschluss-Auswertung mit Gesamt- und Themenwerten sowie Wiederholung der

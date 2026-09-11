@@ -74,6 +74,17 @@
     items: ["Erster Schritt", "Zweiter Schritt", "Dritter Schritt"],
     explanation: "Kurze Erklärung der richtigen Reihenfolge."
   }
+
+  7) Zuordnung (type: "match")
+  {
+    type: "match",
+    question: "Ordne die Begriffe ihren Erklärungen zu.",
+    pairs: [
+      { left: "Begriff A", right: "Passende Erklärung A" },
+      { left: "Begriff B", right: "Passende Erklärung B" }
+    ],
+    explanation: "Kurze Erklärung der Zuordnungen."
+  }
   ============================================================
 */
 
@@ -1433,6 +1444,8 @@ const multi = (id, subtopic, difficulty, question, options, correct, explanation
   ({ id, subtopic, difficulty, type: "multi", question, options, correct, explanation });
 const orderQuestion = (id, subtopic, difficulty, question, items, explanation) =>
   ({ id, subtopic, difficulty, type: "order", question, items, explanation });
+const matchQuestion = (id, subtopic, difficulty, question, pairs, explanation) =>
+  ({ id, subtopic, difficulty, type: "match", question, pairs, explanation });
 const textQuestion = (id, subtopic, difficulty, question, accepted, explanation) =>
   ({ id, subtopic, difficulty, type: "text", question, accepted, explanation });
 const blankQuestion = (id, subtopic, difficulty, question, blanks, explanation) =>
@@ -1805,6 +1818,20 @@ const QUESTION_POOL_FOUNDATION_EXTENSION = {
 const QUESTION_POOL_ORDER_EXTENSION = {
   "ipv4": [
     orderQuestion("ip-order-001", "subnetting", "grundlagen", "Bringe die Rechenschritte in die richtige Reihenfolge, um die Anzahl nutzbarer Hostadressen in einem klassischen IPv4-Subnetz zu bestimmen.", ["Die Präfixlänge von 32 abziehen und so die Zahl der Host-Bits bestimmen", "2 hoch die Anzahl der Host-Bits berechnen", "Für Netzwerk- und Broadcastadresse 2 abziehen"], "Zuerst wird aus dem Präfix die Zahl der Host-Bits ermittelt. Dann ergibt 2^n die Zahl aller Adressen; im klassischen IPv4-Modell bleiben nach Abzug von Netzwerk- und Broadcastadresse 2^n − 2 nutzbare Hostadressen." )
+  ],
+  "netzwerke": [
+    orderQuestion("net-order-001", "osi", "grundlagen", "Bringe die sieben Schichten des OSI-Modells von Schicht 1 bis Schicht 7 in die richtige Reihenfolge.", ["Bitübertragungsschicht", "Sicherungsschicht", "Vermittlungsschicht", "Transportschicht", "Sitzungsschicht", "Darstellungsschicht", "Anwendungsschicht"], "Die Reihenfolge von unten nach oben lautet: Bitübertragungs-, Sicherungs-, Vermittlungs-, Transport-, Sitzungs-, Darstellungs- und Anwendungsschicht. Sie erleichtert die systematische Einordnung von Netzwerkfunktionen und Fehlern.")
+  ]
+};
+
+const QUESTION_POOL_MATCH_EXTENSION = {
+  "netzwerke": [
+    matchQuestion("net-match-001", "dhcp", "grundlagen", "Ordne jeder Nachricht des DHCP-DORA-Prozesses die passende Aufgabe zu.", [
+      { left: "Discover", right: "Der Client sucht im Netzwerk nach verfügbaren DHCP-Servern." },
+      { left: "Offer", right: "Ein DHCP-Server bietet dem Client eine IP-Konfiguration an." },
+      { left: "Request", right: "Der Client fordert die angebotene Konfiguration eines Servers an." },
+      { left: "Acknowledge", right: "Der DHCP-Server bestätigt die Zuweisung der Konfiguration." }
+    ], "Discover startet die Suche, Offer liefert ein Angebot, Request wählt beziehungsweise fordert das Angebot an und Acknowledge bestätigt die Zuweisung. Der Ablauf und die Zuordnung ergänzen sich, prüfen aber unterschiedliche Aspekte.")
   ]
 };
 
@@ -1833,6 +1860,12 @@ Object.entries(QUESTION_POOL_FOUNDATION_EXTENSION).forEach(([topicId, questions]
 });
 
 Object.entries(QUESTION_POOL_ORDER_EXTENSION).forEach(([topicId, questions]) => {
+  const topic = QUIZ_DATA.find((entry) => entry.id === topicId);
+  if (!topic) throw new Error(`Unbekanntes Thema im Fragenpool: ${topicId}`);
+  topic.questions.push(...questions);
+});
+
+Object.entries(QUESTION_POOL_MATCH_EXTENSION).forEach(([topicId, questions]) => {
   const topic = QUIZ_DATA.find((entry) => entry.id === topicId);
   if (!topic) throw new Error(`Unbekanntes Thema im Fragenpool: ${topicId}`);
   topic.questions.push(...questions);
