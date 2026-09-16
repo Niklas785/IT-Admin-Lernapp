@@ -5,7 +5,7 @@ Läuft komplett im Browser, keine Installation, kein Backend nötig.
 
 **Themen aktuell:** IT-Sicherheit & Datenschutz, SQL-Grundlagen, IPv4-Adressen &
 Subnetting, Netzwerkgrundlagen, IT-Grundlagen & Virtualisierung, Arbeitsgruppe/
-Domäne & GPOs sowie Windows Server & AD-Verwaltung — insgesamt 444 Fragen,
+Domäne & GPOs sowie Windows Server & AD-Verwaltung — insgesamt 446 Fragen,
 gemischt aus Multiple-Choice, Freitext,
 Lückentext und IPv4-Berechnungsaufgaben.
 

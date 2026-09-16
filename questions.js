@@ -1832,6 +1832,15 @@ const QUESTION_POOL_MATCH_EXTENSION = {
       { left: "Request", right: "Der Client fordert die angebotene Konfiguration eines Servers an." },
       { left: "Acknowledge", right: "Der DHCP-Server bestätigt die Zuweisung der Konfiguration." }
     ], "Discover startet die Suche, Offer liefert ein Angebot, Request wählt beziehungsweise fordert das Angebot an und Acknowledge bestätigt die Zuweisung. Der Ablauf und die Zuordnung ergänzen sich, prüfen aber unterschiedliche Aspekte.")
+  ],
+  "windows-server-admin": [
+    matchQuestion("srv-match-001", "active-directory", "fortgeschritten", "Ordne jeder FSMO-Rolle ihre zentrale Aufgabe zu.", [
+      { left: "Schema Master", right: "Verarbeitet Änderungen am Active-Directory-Schema." },
+      { left: "Domain Naming Master", right: "Fügt Domänen im Forest hinzu oder entfernt sie daraus." },
+      { left: "RID Master", right: "Verteilt RID-Pools für neue Sicherheitsprinzipale an Domain Controller." },
+      { left: "PDC Emulator", right: "Behandelt unter anderem Kennwortänderungen und dient in der Gesamtstruktur-Stammdomäne als maßgebliche Zeitquelle." },
+      { left: "Infrastructure Master", right: "Aktualisiert Verweise auf Objekte aus anderen Domänen." }
+    ], "Schema Master und Domain Naming Master gibt es je Forest; RID Master, PDC Emulator und Infrastructure Master je Domäne. Die Rollen verhindern Konflikte bei besonderen Verzeichnisoperationen.")
   ]
 };
 
@@ -1868,6 +1877,12 @@ const QUESTION_POOL_TERM_EXTENSION = {
   "windows-server-admin": [
     mc("srv-term-001", "speicher", "grundlagen", "Was ist RAID?", ["Ein Verbund mehrerer Laufwerke, der je nach RAID-Level Leistung, Redundanz oder beides verbessern kann", "Eine Verschlüsselungsmethode für Windows-Benutzerkonten", "Ein Protokoll zur dynamischen IP-Adressvergabe", "Ein Dateiformat für virtuelle Festplatten"], 0, "RAID fasst Laufwerke logisch zusammen. Welchen Schutz oder welche Kapazität es bietet, hängt vom verwendeten RAID-Level ab; RAID ersetzt kein Backup."),
     mc("srv-term-002", "sicherheit", "grundlagen", "Was ist BitLocker?", ["Eine Windows-Funktion zur Verschlüsselung von Datenträgern und zum Schutz gespeicherter Daten", "Ein Dienst zur Auflösung von DNS-Namen", "Eine Serverrolle zur Dateifreigabe", "Ein Werkzeug zum Verwalten von Gruppenrichtlinien"], 0, "BitLocker schützt Daten auf verlorenen oder gestohlenen Datenträgern vor unbefugtem Zugriff. Es ersetzt weder Zugriffsrechte noch Backups.")
+  ]
+};
+
+const QUESTION_POOL_PERMISSION_EXTENSION = {
+  "windows-netzwerke": [
+    mc("win-perm-001", "berechtigungen", "fortgeschritten", "Welche Aussage beschreibt die Priorität von explizit gesetzten gegenüber vererbten NTFS-Berechtigungen korrekt?", ["Direkt auf dem Objekt gesetzte Berechtigungen stehen in der DACL vor geerbten Berechtigungen und haben bei einem Konflikt Vorrang.", "Geerbte Berechtigungen haben immer Vorrang, weil sie vom übergeordneten Ordner stammen.", "Ein Ordner kann niemals zugleich explizite und geerbte Berechtigungen enthalten.", "Vererbte Berechtigungen wirken ausschließlich bei Zugriff über eine Netzwerkfreigabe."], 0, "Windows ordnet direkt gesetzte ACE vor geerbten ACE in der DACL ein. Zusätzlich spielt die Art der ACE eine Rolle: Ein explizites Deny steht vor einem expliziten Allow. Die effektive Berechtigung sollte bei komplexen ACLs stets geprüft werden.")
   ]
 };
 
@@ -1908,6 +1923,12 @@ Object.entries(QUESTION_POOL_MATCH_EXTENSION).forEach(([topicId, questions]) => 
 });
 
 Object.entries(QUESTION_POOL_TERM_EXTENSION).forEach(([topicId, questions]) => {
+  const topic = QUIZ_DATA.find((entry) => entry.id === topicId);
+  if (!topic) throw new Error(`Unbekanntes Thema im Fragenpool: ${topicId}`);
+  topic.questions.push(...questions);
+});
+
+Object.entries(QUESTION_POOL_PERMISSION_EXTENSION).forEach(([topicId, questions]) => {
   const topic = QUIZ_DATA.find((entry) => entry.id === topicId);
   if (!topic) throw new Error(`Unbekanntes Thema im Fragenpool: ${topicId}`);
   topic.questions.push(...questions);
