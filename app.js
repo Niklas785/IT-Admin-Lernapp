@@ -153,7 +153,7 @@ function startQuiz() {
   const selectedTopics = QUIZ_DATA.filter((topic) => state.selectedTopics.includes(topic.id));
   const matchesDifficulty = (question) => {
     if (difficultyValue === "all") return true;
-    if (difficultyValue === "grundlagen") return !question.difficulty;
+    if (difficultyValue === "grundlagen") return !question.difficulty || question.difficulty === "grundlagen";
     return question.difficulty === difficultyValue;
   };
   const allQuestions = selectedTopics.flatMap((topic) =>
