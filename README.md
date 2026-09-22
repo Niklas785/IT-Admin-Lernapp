@@ -5,9 +5,44 @@ Läuft komplett im Browser, keine Installation, kein Backend nötig.
 
 **Themen aktuell:** IT-Sicherheit & Datenschutz, SQL-Grundlagen, IPv4-Adressen &
 Subnetting, Netzwerkgrundlagen, IT-Grundlagen & Virtualisierung, Arbeitsgruppe/
-Domäne & GPOs sowie Windows Server & AD-Verwaltung — insgesamt 489 Fragen,
-gemischt aus Multiple-Choice, Freitext,
-Lückentext und IPv4-Berechnungsaufgaben.
+Domäne & GPOs sowie Windows Server & AD-Verwaltung — insgesamt 559 Fragen,
+gemischt aus einfacher und mehrfacher Auswahl, Freitext, Lückentext,
+Zuordnung, Reihenfolge und IPv4-Berechnungsaufgaben.
+
+## Fragenpool-Abgleich mit der Masterdatei (22.09.2026)
+
+Fachliche Grundlage der Ergänzungen: `Master_Lernskript_IT_Administration.pdf`,
+Stand 21.09.2026. Die PDF wurde nicht verändert. Die 70 neuen Fragen tragen
+IDs mit `master-`; Kapitel und Seiten stehen an den Datenblöcken in `questions.js`.
+
+- DHCP-/DNS-Administration, Dienstports, Verkabelung und Funktechniken: 17 neue Fragen
+- Hardware, Einheiten und Cloud-/Hybridverwaltung: 10 neue Fragen
+- Schadsoftware, Täuschungsangriffe, mobile Geräte und Passwortspeicherung: 8 neue Fragen
+- SQL-Datentypen, logische Verarbeitung und Ergebnisinterpretation: 6 neue Fragen
+- IPv4-Sonderpräfixe und PAT: 2 neue Fragen
+- AD-Identitäten, Gruppen, Profile und GPO-Vertiefung: 11 neue Fragen
+- Speicher, Berechtigungen, Diagnose, UAC und VM-Ressourcen: 16 neue Fragen
+
+Die Ergänzung enthält 31 Grundlagen-, 30 Prüfungsniveau- und 9 Vertiefungsfragen.
+Begriffsabfragen ergänzen die bestehenden Szenarien. Zwölf Altfragen wurden
+präzisiert oder inhaltlich neu ausgerichtet, unter anderem zu LTSC,
+Dreiwegspiegelung, Normalisierung, Passwort-Kostenfaktor und GPO-Geltungsbereich.
+Die bisherigen sieben Themen und alle bestehenden Frage-IDs bleiben erhalten.
+
+Aktuelle Typen: 447 einfache Auswahlfragen, 37 Mehrfachauswahlen (6,6 %),
+30 Freitextfragen, 29 Zuordnungen, 8 Reihenfolgen, 5 Lückentexte und
+3 mehrteilige IPv4-Berechnungen. Eine Zuordnungsaufgabe zählt als eine Frage.
+
+Geprüft wurden Datenstruktur, IDs, identische Fragetexte und Ähnlichkeitshinweise.
+Der Browsertest bewertet jede Frage einmal richtig und einmal falsch, prüft
+zusätzliche falsche Mehrfachantworten, alle Themen-/Niveau-/Rundenkombinationen,
+Ergebnisse, Wiederholung und Abbruch. Die neuen Aufgaben wurden außerdem auf
+horizontalen Überlauf bei 375 Pixel Ansichtsbreite geprüft.
+Tests: `tmp/validate_question_pool.js` (Node.js) und
+`tmp/test_master_pool_browser.js` (Node.js, Playwright und Microsoft Edge).
+
+Der Ausbau schließt zentrale Lücken der Masterdatei, ist aber keine Zusage,
+dass jedes Detail oder der gesamte mögliche IHK-Prüfungsstoff abgefragt wird.
 
 ## Auf GitHub hochladen & mit dem Handy nutzen (GitHub Pages)
 
