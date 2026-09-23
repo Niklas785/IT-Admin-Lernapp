@@ -5,9 +5,62 @@ Läuft komplett im Browser, keine Installation, kein Backend nötig.
 
 **Themen aktuell:** IT-Sicherheit & Datenschutz, SQL-Grundlagen, IPv4-Adressen &
 Subnetting, Netzwerkgrundlagen, IT-Grundlagen & Virtualisierung, Arbeitsgruppe/
-Domäne & GPOs sowie Windows Server & AD-Verwaltung — insgesamt 559 Fragen,
+Domäne & GPOs sowie Windows Server & AD-Verwaltung — insgesamt 574 Fragen,
 gemischt aus einfacher und mehrfacher Auswahl, Freitext, Lückentext,
 Zuordnung, Reihenfolge und IPv4-Berechnungsaufgaben.
+
+## Ergänzung aus den Aufgabendateien (23.09.2026)
+
+Aus `Sammelmappe Server.pdf` und den Aufgabenbildern in `WLAntworten.docx`
+wurden 15 eigenständige Lernziele ergänzt. Blau in Word und Grün/Rot in der PDF
+wurden als Lösungsschlüssel gelesen, aber nicht ohne fachliche Prüfung übernommen.
+Die Originaldateien bleiben unverändert. Die neuen IDs beginnen mit `exam-`;
+PDF-Seiten und zugehörige Word-Aufgabennummern stehen direkt bei den Fragen.
+
+- Netzwerkgrundlagen: 4 Fragen zu DHCP-Bereichsgruppierung, DHCP-Bindungen,
+  DNS-Stammzone und hosts-Datei
+- Domäne & GPOs: 4 Fragen zu PowerShell-Skripten, MSI-Softwarezuweisung,
+  ADDSDeployment und Offline-Kompaktierung der AD-Datenbank
+- Windows Server & AD-Verwaltung: 7 Fragen zu NTFS Lesen/Ausführen,
+  PowerShell-Hilfe und Remoting, Volume-Einhängepunkten, privaten Hyper-V-Switches
+  und PXE bei Generation-1-VMs
+
+Die Ergänzung enthält 11 einfache Auswahlfragen, 3 Freitextfragen und eine
+Zuordnung; 5 Grundlagen-, 8 Prüfungsniveau- und 2 Vertiefungsfragen.
+Alle bisherigen 559 Fragen bleiben einschließlich ihrer Reihenfolge innerhalb
+des jeweiligen Themenbereichs erhalten. Design, Navigation und Quizlogik wurden
+nicht geändert. Neue Fragen werden an die passenden Themen angehängt.
+
+Vorhandene Lernziele wie DORA, OSI, FSMO und APIPA wurden nicht erneut importiert.
+Die PDF-Aufgaben 39, 41 und 42 bleiben wegen fehlender Case-Study-Abbildungen aus.
+Problematische Vorlagen zu ReFS-Dateinamen, Aktivierung und pauschalen
+Administratorrechten wurden nicht übernommen; widersprüchliche Angaben in
+übernommenen Szenarien wurden präzisiert. Historische IPv4-Klassen wurden nicht
+zusätzlich aufgenommen. Der Einzelabgleich liegt unter
+`tmp/exam_sources_review/Pruefung-Aufgabendateien.md`.
+
+Fachliche Gegenprüfung anhand von Microsoft-Dokumentation, unter anderem:
+[DHCP-Bereiche](https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-scopes),
+[DHCP-Bindungen](https://learn.microsoft.com/en-us/powershell/module/dhcpserver/set-dhcpserverv4binding),
+[Softwareinstallation per GPO](https://learn.microsoft.com/en-us/troubleshoot/windows-server/group-policy/use-group-policy-to-install-software),
+[ADDSDeployment](https://learn.microsoft.com/en-us/powershell/module/addsdeployment/install-addsdomaincontroller),
+[AD-Datenbankwartung](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/ad-database-offline-defragmentation),
+[Volume-Einhängepunkte](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/assign-a-mount-point-folder-path-to-a-drive)
+und [Windows-Namensauflösung](https://learn.microsoft.com/en-us/windows-server/networking/dns/queries-lookups).
+
+Aktuelle Typen: 458 einfache Auswahlfragen, 37 Mehrfachauswahlen (6,4 %),
+33 Freitextfragen, 30 Zuordnungen, 8 Reihenfolgen, 5 Lückentexte und
+3 mehrteilige IPv4-Berechnungen. Eine Zuordnungsaufgabe zählt als eine Frage.
+
+Prüfung dieser Ergänzung: `tmp/validate_question_pool.js exam-`,
+`tmp/test_master_pool_browser.js exam-` und `tmp/test_exam_pool.js`.
+Ergebnis: keine Strukturfehler oder automatischen Ähnlichkeitshinweise;
+1.148 Richtig/Falsch-Bewertungen, 6.096 Auswahlkombinationen und 86 zusätzliche
+Antwortvarianten erfolgreich geprüft. Alle 15 neuen Fragen wurden bei 375 Pixel
+Ansichtsbreite auf horizontalen Überlauf geprüft; die neue Zuordnung zusätzlich
+visuell kontrolliert. Der Altbestand sowie die unveränderten App-Dateien wurden
+mit dem gesicherten Ausgangsstand verglichen.
+Das ZIP-Paket enthält die aktualisierte App, keine Quelldokumente oder Prüfskripte.
 
 ## Fragenpool-Abgleich mit der Masterdatei (22.09.2026)
 
@@ -29,7 +82,7 @@ präzisiert oder inhaltlich neu ausgerichtet, unter anderem zu LTSC,
 Dreiwegspiegelung, Normalisierung, Passwort-Kostenfaktor und GPO-Geltungsbereich.
 Die bisherigen sieben Themen und alle bestehenden Frage-IDs bleiben erhalten.
 
-Aktuelle Typen: 447 einfache Auswahlfragen, 37 Mehrfachauswahlen (6,6 %),
+Typen nach dem damaligen Masterdatei-Abgleich: 447 einfache Auswahlfragen, 37 Mehrfachauswahlen (6,6 %),
 30 Freitextfragen, 29 Zuordnungen, 8 Reihenfolgen, 5 Lückentexte und
 3 mehrteilige IPv4-Berechnungen. Eine Zuordnungsaufgabe zählt als eine Frage.
 
