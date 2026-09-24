@@ -2290,12 +2290,34 @@ Object.entries(QUESTION_POOL_EXAM_EXTENSION).forEach(([topicId, questions]) => {
   topic.questions.push(...questions);
 });
 
+// Eigenes Thema: allgemeine PowerShell-Lernziele aus den bisherigen Themen
+// verschieben, nicht kopieren. Die Quellblöcke und Frage-IDs bleiben erhalten.
+// AD-/GPO-/Serverrollen-spezifische Aufgaben bleiben bei ihrem Fachthema.
+const POWERSHELL_TOPIC = { id: "powershell", title: "PowerShell", questions: [] };
+const POWERSHELL_EXISTING_IDS = new Set([
+  "win-net-046", "master-srv-10", "exam-srv-02", "exam-srv-03", "exam-srv-06"
+]);
+const POWERSHELL_LEGACY_QUESTION = "Nach welchem festen Muster (zwei Wörter, mit Bindestrich) sind PowerShell-Cmdlets aufgebaut, z. B. bei Get-ADUser?";
+QUIZ_DATA.forEach((topic) => {
+  topic.questions = topic.questions.filter((question) => {
+    if (POWERSHELL_EXISTING_IDS.has(question.id) || question.question === POWERSHELL_LEGACY_QUESTION) {
+      POWERSHELL_TOPIC.questions.push(question);
+      return false;
+    }
+    return true;
+  });
+});
+if (POWERSHELL_TOPIC.questions.length !== 6) {
+  throw new Error("Die Zuordnung der sechs bestehenden PowerShell-Fragen ist unvollständig.");
+}
+QUIZ_DATA.push(POWERSHELL_TOPIC);
+
 // PowerShell_Grundlagen.docx, Ergänzung vom 24.09.2026.
 // Abschnittsnummern beziehen sich auf die Überschriften des unveränderten Lernzettels.
 // Kein erneuter Import von Get-Help, Cmdlet-Namensschema oder einfacher Dienstfilterung.
 // Die Beispiele sind Daten für das Quiz und werden niemals als PowerShell ausgeführt.
 const QUESTION_POOL_POWERSHELL_EXTENSION = {
-  "windows-server-admin": [
+  "powershell": [
     // Abschnitte 1–2: Umgebung und Skriptstart.
     mc("ps-001", "powershell-umgebung", "grundlagen", "Welche Aussage unterscheidet PowerShell von der Windows PowerShell ISE korrekt?", ["Die ISE ist die Skriptsprache; PowerShell dient nur zur Textbearbeitung.", "Die ISE ist eine grafische Arbeitsumgebung für Windows PowerShell bis 5.1; PowerShell 7 wird darin nicht unterstützt.", "Jedes PowerShell-Skript benötigt zwingend die ISE zur Ausführung.", "Die ISE wandelt Windows-PowerShell-Skripte beim Öffnen automatisch in PowerShell 7 um."], 1, "PowerShell ist eine Shell und Skriptsprache; die ISE kombiniert unter anderem Editor, Konsole und Debugging für Windows PowerShell. Sie unterstützt nicht PowerShell 7. Ein Skript kann auch ohne die ISE ausgeführt werden; PowerShell 7 ist zudem für mehrere Betriebssysteme verfügbar."),
     mc("ps-002", "powershell-skriptstart", "grundlagen", "Die Datei Inventar.ps1 liegt im aktuellen Ordner. Sie ist ein geprüftes PowerShell-Skript, und die geltenden Richtlinien erlauben seine Ausführung. Welcher Aufruf startet genau diese Datei ausdrücklich aus dem aktuellen Ordner?", ["..\\Inventar.ps1", "Get-Content .\\Inventar.ps1", ".\\Inventar.ps1", "Set-Location .\\Inventar.ps1"], 2, "Die Endung .ps1 kennzeichnet ein PowerShell-Skript. .\\ bezeichnet den aktuellen Ordner, ..\\ den übergeordneten. Get-Content liest den Dateiinhalt, führt ihn aber nicht als Skript aus. Die ausdrücklich angegebene Position vermeidet die Verwechslung mit der Suche nach Befehlen im Suchpfad."),

@@ -5,16 +5,26 @@ Läuft komplett im Browser, keine Installation, kein Backend nötig.
 
 **Themen aktuell:** IT-Sicherheit & Datenschutz, SQL-Grundlagen, IPv4-Adressen &
 Subnetting, Netzwerkgrundlagen, IT-Grundlagen & Virtualisierung, Arbeitsgruppe/
-Domäne & GPOs sowie Windows Server & AD-Verwaltung — insgesamt 596 Fragen,
+Domäne & GPOs, Windows Server & AD-Verwaltung sowie PowerShell — insgesamt 596 Fragen in 8 Themen,
 gemischt aus einfacher und mehrfacher Auswahl, Freitext, Lückentext,
 Zuordnung, Reihenfolge und IPv4-Berechnungsaufgaben.
 
 ## PowerShell-Grundlagen (24.09.2026)
 
-Aus `PowerShell_Grundlagen.docx` wurden 22 Fragen zum bestehenden Thema
-Windows Server & AD-Verwaltung ergänzt. Die IDs lauten `ps-001` bis `ps-022`;
+Aus `PowerShell_Grundlagen.docx` wurden 22 Fragen ergänzt, die jetzt im eigenen
+Thema **PowerShell** stehen. Die IDs lauten `ps-001` bis `ps-022`;
 die zugehörigen Abschnitte der Lernunterlage stehen an den Datenblöcken.
 Die Word-Datei bleibt unverändert.
+
+Das neue Thema bündelt zusätzlich sechs vorhandene Fragen zum Cmdlet-Namensschema,
+zur objektbasierten Dienstfilterung, zu Get-Help und zu Remoting. Es enthält damit
+28 Fragen; Windows Server & AD-Verwaltung enthält nun 125 und Arbeitsgruppe,
+Domäne & GPOs 78 Fragen. Es wurde ausschließlich umgeordnet, nicht dupliziert.
+AD-/GPO-/Serverrollen-spezifische Aufgaben bleiben in ihren Fachthemen.
+Die bestehende Themenauswahl, ausgewogene Verteilung und Ergebnisauswertung
+erkennen das neue Thema automatisch. Änderungen an der Quizlogik waren nicht nötig.
+Vorhandene lokale Bestwerte bleiben als historische Ergebnisse erhalten;
+PowerShell hat eine eigene, zunächst leere Bestwertung.
 
 - Umgebung und Skriptstart: PowerShell/ISE und Aufruf aus dem aktuellen Ordner
 - Grundlagen: Parameter/Argumente, Datentypen, Variablen und Anführungszeichen
@@ -28,7 +38,8 @@ und eine Mehrfachauswahl; 14 Grundlagen- und 8 Prüfungsniveau-Fragen.
 Begriffsabfragen und kleine Codebeispiele ergänzen die vorhandenen Szenarien.
 Get-Help, das Cmdlet-Namensschema und die einfache Dienstfilterung wurden nicht
 nochmals als eigenständige Fragen aufgenommen. Alle bisherigen 574 Fragen bleiben
-einschließlich ihrer Reihenfolge erhalten. Design, Navigation und Quizlogik sind
+inhaltlich erhalten; abgesehen von der genannten Umordnung bleibt die Reihenfolge
+der übrigen Fragen unverändert. Design, Navigation und Quizlogik sind
 unverändert; die neuen Fragen verwenden die vorhandene Datenstruktur.
 
 Aktuelle Typen: 472 einfache Auswahlfragen, 38 Mehrfachauswahlen (6,4 %),
@@ -40,7 +51,9 @@ Prüfungen: `tmp/validate_question_pool.js ps-`, `tmp/test_powershell_pool.js`,
 Keine Strukturfehler oder automatischen Ähnlichkeitshinweise; 15 ungefährliche
 PowerShell-Beispiel- und Metadatenprüfungen erfolgreich. Im Browser wurden
 1.192 Richtig/Falsch-Bewertungen, 37 zusätzliche Mehrfachauswahlfälle,
-6.096 Auswahlkombinationen und 112 neue Antwortvarianten geprüft.
+12.240 Auswahlkombinationen für acht Themen und 112 neue Antwortvarianten geprüft.
+Zusätzlich wurden Auswahl, Start und Abbruch einer reinen PowerShell-Runde
+mit allen 28 Fragen sowie die neue Themenzeile in der Handyansicht geprüft.
 Alle 22 neuen Fragen wurden bei 375 Pixel Ansichtsbreite auf horizontalen
 Überlauf geprüft; alle sechs neuen Zuordnungen und eine Codefrage zusätzlich
 visuell kontrolliert. Keine Browserfehler im Test. Altbestand und unveränderte
