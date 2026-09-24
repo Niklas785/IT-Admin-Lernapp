@@ -5,9 +5,54 @@ Läuft komplett im Browser, keine Installation, kein Backend nötig.
 
 **Themen aktuell:** IT-Sicherheit & Datenschutz, SQL-Grundlagen, IPv4-Adressen &
 Subnetting, Netzwerkgrundlagen, IT-Grundlagen & Virtualisierung, Arbeitsgruppe/
-Domäne & GPOs sowie Windows Server & AD-Verwaltung — insgesamt 574 Fragen,
+Domäne & GPOs sowie Windows Server & AD-Verwaltung — insgesamt 596 Fragen,
 gemischt aus einfacher und mehrfacher Auswahl, Freitext, Lückentext,
 Zuordnung, Reihenfolge und IPv4-Berechnungsaufgaben.
+
+## PowerShell-Grundlagen (24.09.2026)
+
+Aus `PowerShell_Grundlagen.docx` wurden 22 Fragen zum bestehenden Thema
+Windows Server & AD-Verwaltung ergänzt. Die IDs lauten `ps-001` bis `ps-022`;
+die zugehörigen Abschnitte der Lernunterlage stehen an den Datenblöcken.
+Die Word-Datei bleibt unverändert.
+
+- Umgebung und Skriptstart: PowerShell/ISE und Aufruf aus dem aktuellen Ordner
+- Grundlagen: Parameter/Argumente, Datentypen, Variablen und Anführungszeichen
+- Kontrollstrukturen: Vergleiche, Bedingungen, Arrays, Schleifen, switch und Klammern
+- Werkzeuge: Get-Command/Get-Member, Pipeline, Sortierung, Auswahl und Zählen
+- Administration: Dateibefehle, Anhängen von Text, WhatIf/Confirm,
+  gezieltes Prozessbeenden und Aufräumen der Konsolenanzeige
+
+Die Ergänzung enthält 14 einfache Auswahlfragen, 6 Zuordnungen, eine Freitextfrage
+und eine Mehrfachauswahl; 14 Grundlagen- und 8 Prüfungsniveau-Fragen.
+Begriffsabfragen und kleine Codebeispiele ergänzen die vorhandenen Szenarien.
+Get-Help, das Cmdlet-Namensschema und die einfache Dienstfilterung wurden nicht
+nochmals als eigenständige Fragen aufgenommen. Alle bisherigen 574 Fragen bleiben
+einschließlich ihrer Reihenfolge erhalten. Design, Navigation und Quizlogik sind
+unverändert; die neuen Fragen verwenden die vorhandene Datenstruktur.
+
+Aktuelle Typen: 472 einfache Auswahlfragen, 38 Mehrfachauswahlen (6,4 %),
+34 Freitextfragen, 36 Zuordnungen, 8 Reihenfolgen, 5 Lückentexte und
+3 mehrteilige IPv4-Berechnungen. Eine Zuordnungsaufgabe zählt als eine Frage.
+
+Prüfungen: `tmp/validate_question_pool.js ps-`, `tmp/test_powershell_pool.js`,
+`tmp/test_powershell_examples.ps1` und `tmp/test_master_pool_browser.js ps-`.
+Keine Strukturfehler oder automatischen Ähnlichkeitshinweise; 15 ungefährliche
+PowerShell-Beispiel- und Metadatenprüfungen erfolgreich. Im Browser wurden
+1.192 Richtig/Falsch-Bewertungen, 37 zusätzliche Mehrfachauswahlfälle,
+6.096 Auswahlkombinationen und 112 neue Antwortvarianten geprüft.
+Alle 22 neuen Fragen wurden bei 375 Pixel Ansichtsbreite auf horizontalen
+Überlauf geprüft; alle sechs neuen Zuordnungen und eine Codefrage zusätzlich
+visuell kontrolliert. Keine Browserfehler im Test. Altbestand und unveränderte
+App-Dateien wurden mit dem gesicherten Ausgangsstand verglichen.
+Die Quizbeispiele werden ausschließlich angezeigt, nicht als PowerShell ausgeführt.
+
+Fachliche Gegenprüfung unter anderem anhand der Microsoft-Dokumentation zu
+[Anführungszeichen](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_quoting_rules),
+[switch](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_switch)
+und [automatischen Variablen](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables).
+Das aktualisierte ZIP-Paket enthält die App einschließlich README, keine
+Quelldokumente, Sicherungskopien oder Prüfskripte.
 
 ## Ergänzung aus den Aufgabendateien (23.09.2026)
 
@@ -48,7 +93,7 @@ Fachliche Gegenprüfung anhand von Microsoft-Dokumentation, unter anderem:
 [Volume-Einhängepunkte](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/assign-a-mount-point-folder-path-to-a-drive)
 und [Windows-Namensauflösung](https://learn.microsoft.com/en-us/windows-server/networking/dns/queries-lookups).
 
-Aktuelle Typen: 458 einfache Auswahlfragen, 37 Mehrfachauswahlen (6,4 %),
+Typen nach dieser Ergänzung: 458 einfache Auswahlfragen, 37 Mehrfachauswahlen (6,4 %),
 33 Freitextfragen, 30 Zuordnungen, 8 Reihenfolgen, 5 Lückentexte und
 3 mehrteilige IPv4-Berechnungen. Eine Zuordnungsaufgabe zählt als eine Frage.
 
