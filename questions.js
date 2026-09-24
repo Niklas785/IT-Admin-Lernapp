@@ -519,7 +519,7 @@ const QUIZ_DATA = [
       {
         type: "text",
         question: "Eine klassische Punkt-zu-Punkt-Verbindung benötigt genau zwei nutzbare IPv4-Hostadressen. Welches Präfix wird dafür traditionell verwendet?",
-        accepted: ["/30"],
+        accepted: ["/30", "30"],
         explanation: "Ein /30 hat vier Adressen: Netzwerkadresse, zwei nutzbare Hostadressen und Broadcastadresse."
       },
       {
