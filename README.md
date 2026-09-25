@@ -9,6 +9,94 @@ Domäne & GPOs, Windows Server & AD-Verwaltung sowie PowerShell — insgesamt 59
 gemischt aus einfacher und mehrfacher Auswahl, Freitext, Lückentext,
 Zuordnung, Reihenfolge und IPv4-Berechnungsaufgaben.
 
+## Qualitätsdurchgang der 182 Prüfkandidaten (25.09.2026)
+
+Nach Freigabe wurden 180 der 182 zusätzlichen Prüfkandidaten in `questions.js`
+gezielt überarbeitet. Fachlich naheliegende Fehlvorstellungen ersetzen
+offensichtlich themenfremde Ablenkantworten. Formulierungen sind vergleichbarer,
+ohne Antworten künstlich auf dieselbe Länge zu bringen. Wo nötig wurden
+Voraussetzungen in Aufgabe und Erklärung präzisiert, beispielsweise bei
+Normalformen, Datenschutz-Folgenabschätzung, GPOs, FSRM und PowerShell-Remoting.
+
+Zwei Fragen bleiben bewusst unverändert: `exam-net-02` (DHCP-Bindungen an
+Netzwerkschnittstellen) und `base-036` (Verantwortung des SaaS-Kunden).
+Ihre Optionen prüfen bereits sinnvolle fachliche Abgrenzungen auf Grundlagenniveau.
+Die frühere Prüfliste in `output/Weitere_auffaellige_Auswahlfragen_2026-09-25.md`
+ist damit abgearbeitet und als historischer Ausgangsstand gekennzeichnet.
+
+Es bleiben 596 Fragen in acht Themen. Gegenüber dem Beginn dieses Durchgangs
+sind 416 Fragen unverändert; IDs, richtige Antwortpositionen, Fragetypen,
+Schwierigkeitszuordnungen und Themenverteilung wurden vollständig erhalten.
+Grundlagen- und Wissensfragen wurden nicht durch zusätzliche Szenarien verdrängt.
+Design, Navigation und Quizlogik (`index.html`, `style.css`, `app.js`) sind unverändert.
+Das ZIP enthält den aktualisierten Stand der fünf App-Dateien.
+
+Prüfungen: `tmp/test_quality_pass.js`, `tmp/test_quality_pass_browser.js`,
+`tmp/validate_question_pool.js ps-` und `tmp/test_master_pool_browser.js ps-`.
+Der Inhaltsvergleich kontrolliert sämtliche 180 Änderungen und die 416
+unveränderten Fragen. Die Browsertests prüfen alle 720 Antwortvarianten der
+überarbeiteten Fragen sowie den gesamten Pool mit 1.192 Richtig/Falsch-Bewertungen,
+37 zusätzlichen Mehrfachauswahlfällen und 12.240 Auswahlkombinationen.
+Alle 180 Fragen werden bei 320 und 375 Pixel Breite auf horizontalen Überlauf
+geprüft; umfangreiche Beispiele aus jedem Thema werden zusätzlich visuell geprüft.
+Keine Struktur- oder Browserfehler und keine automatischen Ähnlichkeitshinweise.
+Die Ähnlichkeitsprüfung ist eine Textprüfung, kein Beweis für vollständige
+inhaltliche Überschneidungsfreiheit. Die Überarbeitung ist eine redaktionelle
+Qualitätsverbesserung, keine empirische Neukalibrierung des Schwierigkeitsgrads.
+
+Referenzen für fachliche Präzisierungen:
+[DSGVO, insbesondere Artikel 35](https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX%3A02016R0679-20160504),
+[FSRM-Dateigruppen](https://learn.microsoft.com/en-us/windows-server/storage/fsrm/define-file-groups-for-screening),
+[DNS-Einstellungen für Domänencomputer](https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/best-practices-for-dns-client-settings),
+[DHCP-Failover und MCLT](https://learn.microsoft.com/en-us/powershell/module/dhcpserver/set-dhcpserverv4failover),
+[PowerShell-Remoting über WS-Management](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_remote_troubleshooting?view=powershell-7.5)
+und [alternativer SSH-Transport](https://learn.microsoft.com/en-us/powershell/scripting/security/remoting/ssh-remoting-in-powershell?view=powershell-7.5).
+
+## Vorheriger Durchgang: sieben gezielte Änderungen (25.09.2026)
+
+Auf Grundlage der acht kommentierten Screenshots wurden genau sieben Fragen
+überarbeitet; die übrigen 589 Fragen bleiben unverändert:
+
+- Fünf Auswahlfragen zu Sicherheitsprinzipalen, Block Inheritance,
+  Standardgateway/Router, Hyper-V-Prozessorkompatibilität und Checkpoint-Arten:
+  vergleichbar formulierte, fachlich naheliegende Ablenkantworten statt
+  offensichtlich themenfremder Optionen. Die richtige Antwort ist bei keiner
+  dieser fünf Fragen mehr die eindeutig längste.
+- SQL-Anführungszeichen: SQL Server mit QUOTED_IDENTIFIER ON als eindeutiger
+  Kontext; zusätzlich Wortvarianten und zwei einfache Apostrophe als Zeichenpaar.
+  Doppelte Anführungszeichen werden weiterhin nicht akzeptiert. Die Erklärung
+  unterscheidet die Eingabe des Zeichenpaars vom leeren Textliteral im SQL-Code.
+- GPO-Reihenfolge: die verräterische Merkhilfe LSDOU steht nur noch in der Erklärung.
+
+Die SQL-Reihenfolgeaufgabe bleibt unverändert erhalten. Auch die zuvor ergänzte
+Präfixantwort `30` neben `/30` bleibt erhalten und ist jetzt im ZIP enthalten.
+Fragenzahl (596), IDs, Themen, Niveaus, Reihenfolge und Fragetypen sind unverändert.
+Keine Änderungen an Design, Navigation oder Quizlogik.
+
+Alle 336 Auswahlfragen mit eindeutig längster richtiger Antwort im Ausgangsstand
+wurden zusätzlich auf schwache Ablenkantworten gesichtet. 182 weitere auffällige
+Kandidaten wurden zunächst ausschließlich zur Information in
+`output/Weitere_auffaellige_Auswahlfragen_2026-09-25.md` dokumentiert und damals
+noch nicht verändert. Ihr anschließender Qualitätsdurchgang ist oben beschrieben.
+Die Einordnung ist eine didaktische Einschätzung, kein objektiver Nachweis, dass
+jede Frage ohne Vorwissen lösbar ist.
+
+Prüfungen: `tmp/test_answer_review.js`, `tmp/test_answer_review_browser.js`,
+`tmp/validate_question_pool.js ps-` und `tmp/test_master_pool_browser.js ps-`.
+Genau sieben erlaubte Änderungen und die Unverändertheit aller anderen Fragen
+wurden mit dem Ausgangsstand verglichen. 39 gezielte Antwortvarianten,
+1.192 allgemeine Richtig/Falsch-Bewertungen, 37 zusätzliche Mehrfachauswahlfälle
+und 12.240 Themen-/Niveau-/Rundenkombinationen erfolgreich geprüft.
+Die sieben geänderten Fragen wurden bei 320 und 375 Pixel Breite auf horizontalen
+Überlauf geprüft und bei 375 Pixel zusätzlich visuell kontrolliert.
+Keine Struktur- oder Browserfehler im Test; keine automatischen Ähnlichkeitshinweise.
+
+Fachliche Referenzen:
+[Hyper-V-Prozessorkompatibilität](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/configure-processor-compatibility-mode),
+[Checkpoints](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/checkpoints),
+[GPO-Vererbung](https://learn.microsoft.com/en-us/powershell/module/grouppolicy/set-gpinheritance)
+und [SQL-Textliterale](https://learn.microsoft.com/en-us/sql/t-sql/data-types/constants-transact-sql).
+
 ## PowerShell-Grundlagen (24.09.2026)
 
 Aus `PowerShell_Grundlagen.docx` wurden 22 Fragen ergänzt, die jetzt im eigenen
