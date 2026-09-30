@@ -2320,3 +2320,1080 @@ Object.entries(QUESTION_POOL_POWERSHELL_EXTENSION).forEach(([topicId, questions]
   if (!topic) throw new Error(`Unbekanntes Thema im PowerShell-Fragenpool: ${topicId}`);
   topic.questions.push(...questions);
 });
+
+// Separater Originalpool: Wortlaut und Lösungsschlüssel der Quellen bleiben erhalten.
+QUIZ_DATA.push({
+  "id": "originalaufgaben-wlan-server",
+  "title": "Originalaufgaben – WLAN & Server",
+  "questions": [
+    {
+      "id": "original-wl-12",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "In Ihrer Domäne sind mehrere Domain Controller mit Windows Server, es sind alle optionalen Features aktiviert. Ein Administrator löscht versehentlich einige Computer. Sie müssen diese so schnell wie möglich wiederherstellen. Mit welchem Tool?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 12
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 12. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Active Directory Papierkorb",
+        "Autorisierende Wiederherstellung",
+        "Nicht autorisierende Wiederherstellung",
+        "Tombstone Reanimation"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-wl-13",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie müssen in ihrem Netzwerk einen Windows Server als Host für 20 virtuelle Server bereitstellen. Ihre Lösung sollte die bestmögliche Sicherheit bieten. Für welche Variante werden Sie sich entscheiden?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 13
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 13. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Originalauswahl ist nicht allein mit „bestmöglicher Sicherheit“ eindeutig begründet: Auch Standard bietet Server Core. Editionswahl und Virtualisierungsrechte sind von der Installationsoption zu unterscheiden.",
+      "options": [
+        "Windows Server Datacenter(mit grafischer Oberfläche)",
+        "Windows Server Standard (Core)",
+        "Windows Server Datacenter (Core)",
+        "Windows Server Standard (mit grafischer Oberfläche)"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "original-wl-14",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "„WindowsServer1“ mit DHCP, einem einzelnen Netz-Adapter, im Subnetz1, hat den Bereich1 mit 192.168.1.0/24. Für weitere IP-Adressen wird künftig Bereich2 mit ID 10.10.0.0/16 verwendet. Die Clients im Subnetz1 erhalten Adressen aus beiden Bereichen - wie?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 14
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 14. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Eine Bereichsgruppierung",
+        "Einen Multicastbereich",
+        "Einen Bereich",
+        "Einen geteilten Bereich"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-wl-15",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Auf einem DHCP-Server (Windows Server) in einem Subnetz (statische IP 192.168.1.2) sind 2 Bereiche (192.168.1.0/24 & 192.168.2.0/24). Der Server soll DHCP-Clients im lokalen Subnetz Adressen aus beiden Bereichen zuweisen können. Was ist zu erstellen?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 15
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 15. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Eine Bereichsgruppierung",
+        "Einen Multicastbereich",
+        "Einen Bereich",
+        "Einen geteilten Bereich"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-wl-16",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Auf „WindowsServer1“ in einer Domäne (Active Directory-Domänendienst ADDS, Rolle DHCP) ist ein IPv6-Bereich zu erstellen. Es ist ein für private Netze reservierter Bereich zu verwenden, Adressen müssen geroutet werden können. Mit welchem IPv6-Präfix?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 16
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 16. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "FF00::",
+        "FE80::",
+        "FD00:123:4567::",
+        "2001::"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "original-wl-17",
+      "type": "text",
+      "difficulty": "fortgeschritten",
+      "question": "Sie wollen mit Powershell die IPv6-Adresse einer Ressource auflösen, wissen aber nicht genau die Parameter für dieses Commandlet. Mit welchem Befehl können Sie diese einsehen? Was muss für „xxx“ stehen (Gross-/Kleinschreibung egal)? xxx Resolve-DnsName",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 17
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 17. Bewertung nach der vorgegebenen Lösung.",
+      "accepted": [
+        "get-help"
+      ]
+    },
+    {
+      "id": "original-wl-18",
+      "type": "text",
+      "difficulty": "fortgeschritten",
+      "question": "Sie müssen auf „Server1“ (Windows Server Core) in Ihrem Netz remote eine Aktion ausführen. Sie entscheiden sich zum Verbinden mit Server1 für einen Powershell-Befehl. Was muss für „xxx“ stehen (Gross-/Kleinschreibung egal)? xxx-Computername Server1",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 18
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 18. Bewertung nach der vorgegebenen Lösung.",
+      "accepted": [
+        "enter-pssession"
+      ]
+    },
+    {
+      "id": "original-wl-19",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie müssen auf einem Datenträger Speicherplatz bereitstellen. Die Nutzer sollen in der Lage sein, Ordner und Dokumente mit langen Dateinamen (mehr als 288 Zeichen) ablegen zu können. Für welche Formatierung entscheiden Sie sich?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 19
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 19. Bewertung nach der vorgegebenen Lösung. Hinweis: Fachlich fehlerhafte Originallösung: Auch ReFS erlaubt höchstens 255 Unicode-Zeichen je Dateinamen. Die Quelle verwechselt Dateinamen mit vollständigen Pfaden. ReFS wird hier ausschließlich entsprechend dem Originalschlüssel gewertet.",
+      "options": [
+        "NTFS",
+        "FAT32",
+        "ReFS",
+        "exFAT"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "original-wl-20",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Auf „WindowsServer1“ installieren Sie 3 neue Festplatten. Ziel: Der neue Speicherplatz für Benutzerdaten muss möglichst groß ausfallen, aber auch Fehlertoleranz für den Fall bieten, dass eine einzelne Festplatte ausfällt. Was werden Sie erstellen?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 20
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 20. Bewertung nach der vorgegebenen Lösung. Hinweis: Der Kapazitätsvergleich setzt gleich große Laufwerke voraus.",
+      "options": [
+        "Erstellen Sie einen virtuellen Datenträger vom Typ Parity.",
+        "Erstellen Sie einen virtuellen Datenträger vom Typ Simple.",
+        "Erstellen Sie ein übergreifendes Volume.",
+        "Erstellen Sie einen virtuellen Datenträger vom Typ Mirror."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-wl-21",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "2 Server in Active Directory-Domänendienst (ADDS) Domäne: S1 (Windows Server 2016), S2 (Windows Server 2019, als DHCP-Server verwendet). Was müssen Sie zuerst ausführen, um die DHCP-Konsole auf S1 zum Verwalten des DHCP-Serverdienstes auf S2 zu verwenden?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 21
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 21. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Originaloption enthält einen Schreibfehler: Das Cmdlet heißt Install-WindowsFeature. Für die DHCP-Konsole ist beispielsweise das Feature RSAT-DHCP zu installieren.",
+      "options": [
+        "Verwenden Sie die Windows PowerShell auf Server S1 und führen Sie das Cmdlet InstallWindowsFeature aus.",
+        "Starten Sie die Windows Firewall mit erweiterter Sicherheit auf Server S2 und erstellen Sie eine eingehende Regel.",
+        "Starten Sie die Microsoft Management Konsole (MMC) auf Server S1 und fügen Sie ein Snap-In hinzu."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-wl-22",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Auf „WindowsServer1“ in einer Active Directory-Domänendienste (ADDS) Domäne wollen Sie eine virtuelle Festplatte (Virtual Hard Disk, VHD) mit 3 TeraByte (TB) erstellen. Welches Tool bzw. welches Cmdlet verwenden Sie?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 22
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 22. Bewertung nach der vorgegebenen Lösung. Hinweis: Für eine virtuelle Festplatte dieser Größe muss das Dateiformat VHDX verwendet werden. Das klassische VHD-Format unterstützt keine 3 TB; die Quelle verwendet VHD hier ungenau.",
+      "options": [
+        "Computerverwaltung",
+        "Server-Manager",
+        "Ressourcen-Manager für Dateiserver (FSRM)",
+        "New-StorageSubsytemVirtualDisk"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-wl-23",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Active Directory-Domänendienst (ADDS) Domäne: Windows Server ist auf allen Geräten installiert. Welches Windows PowerShell Modul enthält die erforderlichen Cmdlets für die Installation eines Domänencontrollers auf Basis Windows Server?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 23
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 23. Bewertung nach der vorgegebenen Lösung. Hinweis: Der tatsächliche Modulname lautet ADDSDeployment ohne Leerzeichen. Die Schreibweise der Antwortoptionen ist aus der Quelle übernommen.",
+      "options": [
+        "AD CS Administration",
+        "AD DS Administration",
+        "AD CS Deployment",
+        "AD DS Deployment"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "original-wl-24",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie möchten sich mit Hyper-V eine Testumgebung aufbauen, die keine Verbindung zum Host oder dem Produktivnetz hat. Welchen Typ Switch werden Sie einrichten?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 24
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 24. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Privat",
+        "Intern",
+        "Extern"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-wl-25",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie möchten sich mit Hyper-V eine Testumgebung aufbauen, die nur eine Verbindung zum Host hat. Welchen Typ Switch werden Sie einrichten?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 25
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 25. Bewertung nach der vorgegebenen Lösung. Hinweis: Ein interner Switch verbindet auch die angeschlossenen VMs untereinander; „nur“ grenzt hier das externe Netzwerk aus.",
+      "options": [
+        "Privat",
+        "Extern",
+        "Intern"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "original-wl-26",
+      "type": "text",
+      "difficulty": "fortgeschritten",
+      "question": "Mit welchem Befehl können Sie in der Powershell einfach die Einstellungen der Netzwerkkarten der 3 Windows 10 PCs CL1, CL2, CL3 einsehen? Was muss für „xxx“ stehen (Gross-/Kleinschreibung egal)? xxx--Computername CL1, CL2, CL3 -scriptblock{ipconfig /all}",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 26
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 26. Bewertung nach der vorgegebenen Lösung. Hinweis: Der Originaltext zeigt einen doppelten Bindestrich vor Computername. Für den realen Aufruf lautet der Parameter -ComputerName.",
+      "accepted": [
+        "invoke-command"
+      ]
+    },
+    {
+      "id": "original-wl-27",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie beabsichtigen, remote auf einem Rechner in Ihrem Netzwerk einen Prozess zu beenden. Die Aktion schlägt mit einer Fehlermeldung fehl. Sie müssen sicherstellen, dass Sie die Aktion ausführen können. Sie starten die Powershell als Administrator.",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 27
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 27. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Originalaussage ist zu pauschal: Eine lokal erhöhte Konsole behebt nicht jede Remoting-Fehlermeldung. Zielberechtigungen, Verbindung, Remoting-Konfiguration und konkrete Fehlerursache sind ebenfalls entscheidend.",
+      "options": [
+        "RICHTIG",
+        "FALSCH"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-wl-28",
+      "type": "order",
+      "difficulty": "fortgeschritten",
+      "question": "In welcher Reihenfolge läuft die Adressermittlung in DHCP ab?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 28
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 28. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Quelle schreibt DHCPACKNOLEDGE. Gemeint ist die DHCPACK-Nachricht; die Originalschreibweise bleibt erhalten.",
+      "items": [
+        "DHCPDISCOVER",
+        "DHCPOFFER",
+        "DHCPREQUEST",
+        "DHCPACKNOLEDGE"
+      ]
+    },
+    {
+      "id": "original-wl-29",
+      "type": "multi",
+      "difficulty": "fortgeschritten",
+      "question": "Ein Nutzer teilt ihnen mit, dass er keine Verbindung zum Firmennetz herstellen kann. Auf Rückfrage teilt er Ihnen mit, dass seine IP-Adresse 169.254.12.247 lautet. Was könnte die Ursache sein?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 29
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 29. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Adresse deutet auf APIPA hin. Sie beweist allein keinen Hardwaredefekt; die genannten Punkte sind mögliche Ursachen einer gestörten DHCP-Erreichbarkeit.",
+      "options": [
+        "Defekte Netzwerkkarte",
+        "Defekte Grafikkarte",
+        "Defektes Kabel",
+        "DHCP-Server Ausfall"
+      ],
+      "correct": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "original-wl-30",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Eine Active Directory-Gesamtstruktur mit 2 Domänencontroller DC1, DC2: DC1 (Inhaber aller Betriebsmasterrollen) fällt aus (Hardwaredefekt). Ein automatisierter Prozess (Erstellen von 1000 neuen Benutzerkonten) muss erfolgreich abgeschlossen werden - wie?",
+      "source": {
+        "document": "WLAntworten.docx",
+        "number": 30
+      },
+      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 30. Bewertung nach der vorgegebenen Lösung. Hinweis: Eine erzwungene Rollenübernahme setzt voraus, dass der bisherige Rolleninhaber nicht rechtzeitig wiederhergestellt werden kann. 1000 Konten allein beweisen nicht, dass der vorhandene RID-Pool unzureichend ist. Die Quelle vereinfacht diese Voraussetzungen. Im ausführbaren PowerShell-Befehl wird -Force ohne Leerzeichen zwischen Bindestrich und Parametername geschrieben.",
+      "options": [
+        "Move-ADDirectoryServerOperationMasterRole -Identity \"DC2\" -OperationMasterRole PDCEmulator – Force",
+        "ntdsutil -Identity \"DC2\" -OperationMasterRole SchemaMaster Seize PDC",
+        "ntdsutil -Identity \"DC2\" -OperationMasterRole PDCEmulator Seize PDC",
+        "Move-ADDirectoryServerOperationMasterRole -Identity \"DC2\" -OperationMasterRole RIDMaster - Force",
+        "Move-ADDirectoryServerOperationMasterRole -Identity \"DC2\" -OperationMasterRole InfrastructureMaster Seize PDC",
+        "ntdsutil -Identity \"DC2\" -OperationMasterRole RIDMaster – Force"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "original-server-01",
+      "type": "multi",
+      "difficulty": "fortgeschritten",
+      "question": "Welche der folgenden Adressen sind klassenbehaftet? Wählen Sie drei richtige Antworten.",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 1
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 1. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Aufgabe verwendet das historische IPv4-Klassenmodell mit Standardmasken, nicht die heutige klassenlose CIDR-Adressierung.",
+      "options": [
+        "192.168.87.19 Subnetzmaske 255.255.255.0",
+        "10.14.27.32/8",
+        "172.16.34.22/26",
+        "10.17.22.99/12",
+        "192.168.87.56/24",
+        "172.16.98.23 Subnetzmaske Subnetzmaske 255.240.0.0"
+      ],
+      "correct": [
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "id": "original-server-02",
+      "type": "order",
+      "difficulty": "fortgeschritten",
+      "question": "Bringen Sie die entsprechenden Schichten des OSI-Referenzmodells in die richtige Reihenfolge. Beginnen Sie mit der Obersten Schicht.",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 2
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 2. Bewertung nach der vorgegebenen Lösung.",
+      "items": [
+        "Anwendung (Application)",
+        "Darstellung (Presentation)",
+        "Sitzung (Session)",
+        "Transport (Transport)",
+        "Vermittlung-/Paket (Network)",
+        "Sicherung (Data Link)",
+        "Bitübertragung (Physical)"
+      ]
+    },
+    {
+      "id": "original-server-03",
+      "type": "text",
+      "difficulty": "fortgeschritten",
+      "question": "Nennen Sie für das Netzwerk, in dem sich die Adresse 10.25.12.100/24 befindet, die erste nutzbare Adresse",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 3
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 3. Bewertung nach der vorgegebenen Lösung.",
+      "accepted": [
+        "10.25.12.1"
+      ]
+    },
+    {
+      "id": "original-server-04",
+      "type": "text",
+      "difficulty": "fortgeschritten",
+      "question": "Nennen Sie für das Netzwerk, in dem sich die Adresse 10.25.12.100/24 befindet die Broadcastadresse.",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 4
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 4. Bewertung nach der vorgegebenen Lösung.",
+      "accepted": [
+        "10.25.12.255"
+      ]
+    },
+    {
+      "id": "original-server-05",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie haben in ihrem Netzwerk einen DHCP-Server der für die Verteilung der IPv4-Adressen zuständig ist. Ein Client hat am 15.04.2021 eine Adresse mit einer Lease-Dauer von 8 Tagen erhalten. Wann wird sich der Client das nächste Mal mit dem DHCP-Server in Verbindung setzen um seine IP-Adresse zu erneuern?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 5
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 5. Bewertung nach der vorgegebenen Lösung. Hinweis: Vorausgesetzt sind die üblichen Standardwerte: T1 liegt bei 50 Prozent der Lease-Dauer.",
+      "options": [
+        "Nach 4 Tagen",
+        "Nach 8 Tagen",
+        "Nach 7 Tagen",
+        "Gar nicht. Er behält sie für immer."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-server-06",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Für die Marketingabteilung wurden zwei neue Mitarbeiter eingestellt. Der Netzwerkadministrator muss für diese neuen Mitarbeiter Benutzerkonten erstellen, damit sie auf Netzwerkressourcen, wie freigegebene Ordner und Drucker, zugreifen können. Welchen Typ von Benutzerkonten sollte der Netzwerkadministrator für die neuen Mitarbeiter erstellen?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 6
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 6. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Originallösung setzt eine vorhandene Domänenumgebung voraus; Netzwerkzugriff allein erfordert nicht grundsätzlich ein Domänenkonto.",
+      "options": [
+        "Vordefiniertes Konto Administrator",
+        "Lokale Benutzerkonten",
+        "Domänenbenutzerkonten",
+        "Vordefiniertes Konto Gast"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "original-server-07",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Einige Benutzer aus der Produktionsabteilung müssen kontinuierlich auf produktbezogene Informationen zugreifen, die in einem Ordner auf dem Server gespeichert sind. Dieser Ordner enthält auch einige Anwendungen, die die Benutzer möglicherweise ausführen müssen. Allerdings ist es den Benutzern nicht gestattet, irgendwelche Änderungen an den Dateien in dem Ordner vorzunehmen. Welche Berechtigungen sollten für diesen Ordner zugewiesen werden?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 7
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 7. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Lesen",
+        "Lesen, Ausführen",
+        "Schreiben",
+        "Ordnerinhalt anzeigen"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "original-server-08",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Können Sie Windows PowerShell®-Skripts in Gruppenrichtlinien als Startskripts verwenden?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 8
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 8. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Ja",
+        "Nein"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-server-10",
+      "type": "multi",
+      "difficulty": "fortgeschritten",
+      "question": "Welche der nachfolgenden Betriebsmasterrollen (FSMO) sind in einer Gesamtstruktur einmalig?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 10
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 10. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Schema-Master",
+        "RID-Master",
+        "Infrastruktur Master",
+        "Domain Name Master",
+        "PDC-Emulator"
+      ],
+      "correct": [
+        0,
+        3
+      ]
+    },
+    {
+      "id": "original-server-11",
+      "type": "multi",
+      "difficulty": "fortgeschritten",
+      "question": "Sie haben in ihrer Domäne einen neuen Windows Server 2019 installiert. Dieser soll die Rolle als DHCP-Server einnehmen. Mit welchem Tool können Sie diese Rolle installieren? Geben Sie 2 richtige Antworten",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 11
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 11. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Management Console (MMC)",
+        "Power Shell",
+        "Server Manager",
+        "Active Directory Verwaltungscenter"
+      ],
+      "correct": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "original-server-12",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie haben in ihrer Domäne mehrere Domain Controller mit dem Betriebssystem Windows Server 2019. In ihrer Domäne sind alle optionalen Features aktiviert. Ein Administrator löscht versehentlich einige Computer. Sie müssen diese so schnell wie möglich wiederherstellen. Welches Tool werden sie benutzen?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 12
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 12. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Active Directory Papierkorb",
+        "Autorisierende Wiederherstellung",
+        "Tombstone Reanimation",
+        "Nicht autorisierende Wiederherstellung"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-server-13",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie müssen in ihrem Netzwerk einen Windows Server 2019 als Host für 20 virtuelle Server bereitstellen. Ihre Lösung sollte die bestmögliche Sicherheit bieten. Für welche Variante werden Sie sich entscheiden.",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 13
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 13. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Originalauswahl ist nicht allein mit „bestmöglicher Sicherheit“ eindeutig begründet: Auch Standard bietet Server Core. Editionswahl und Virtualisierungsrechte sind von der Installationsoption zu unterscheiden.",
+      "options": [
+        "Windows Server Datacenter(mit grafischer Oberfläche)",
+        "Windows Server Datacenter (Core)",
+        "Windows Server Standard (Core)",
+        "Windows Server Standard (mit grafischer Oberfläche)"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "original-server-14",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Ihr Firmennetzwerk besteht aus einer Active Directory-Domänendienste (AD DS) Domäne. Die Domäne umfasst die Hauptgeschäftsstelle und eine Zweigstelle. Für jede der beiden Niederlassungen ist ein Active Directory-Standort konfiguriert. Die Domäne enthält zwei Windows Server 2019 Computer mit den Namen Server1 und Server2. Auf beiden Computern ist die Rolle DHCP-Server installiert. Server1 befindet sich in der Hauptgeschäftsstelle und Server2 befindet sich in der Zweigstelle. Server1 stellt IPv4-Adressen für die Clientcomputer der Hauptgeschäftsstelle bereit. Server2 vergibt IPv4-Adressen für die Clientcomputer im Subnetz der Zweigstelle. Sie müssen sicherstellen, dass alle Clientcomputer auch dann IPv4-Adressen erhalten, wenn entweder Server1 oder Server2 offline ist. Ihre Lösung muss die folgenden Anforderungen unterstützen: Die Speicherorte der DHCP-Datenbanken dürfen keinen Single Point of Failure (SPoF) darstellen. Server1 soll nur dann IPv4-Adressen an Clientcomputer der Zweigstelle verteilen, wenn Server2 offline ist. Server2 soll nur dann IPv4-Adressen an Clientcomputer der Hauptgeschäftsstelle verteilen, wenn Server1 offline ist. Welche Konfiguration werden Sie verwenden?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 14
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 14. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "DHCP-Failover im Modus Lastenausgleich",
+        "DHCP-Failover im Modus Hot Standby",
+        "Einen Cluster für den Netzwerklastenausgleich (NLB)",
+        "Einen Failovercluster"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "original-server-15",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie sind als Serveradministrator für das Unternehmen Contoso tätig. Ihr Netzwerk umfasst einen Windows Server 2019 Computer mit dem Namen Server1. Auf Server1 ist die Rolle DHCP-Server installiert. Server1 verfügt über einen einzelnen Netzwerkadapter und befindet sich in einem Subnetz mit dem Namen Subnetz1. Auf dem DHCP-Server ist ein Adressbereich mit der Bezeichnung Bereich1 konfiguriert. Bereich1 enthält Adressen für das Netzwerk 192.168.1.0/24. Um zukünftig mehr IP-Adressen verfügbar zu haben, möchte Ihr Vorgesetzter zukünftig die Netzwerk-ID 10.10.0.0/16 verwenden. Sie erstellen auf Server1 einen Adressbereich mit der Bezeichnung Bereich2. Der neue Bereich enthält Adressen für das Netzwerk 10.10.0.0/16. Sie müssen sicherstellen, dass Clients in Subnetz1 Adressen aus beiden Bereichen erhalten können. Was werden Sie erstellen?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 15
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 15. Bewertung nach der vorgegebenen Lösung. Hinweis: Der Originaltext und die Originaltabelle widersprechen sich bei Bereich2 (10.10.0.0/16 bzw. 192.168.2.0/24). Beide Angaben wurden unverändert übernommen. Die markierte Lösung bezeichnet einen Superscope.",
+      "options": [
+        "Einen MulticastbereichEinen Multicastbereich",
+        "Einen Bereich",
+        "Eine Bereichsgruppierung",
+        "Einen geteilten Bereich"
+      ],
+      "correct": 2,
+      "image": "assets/original-server-15.png",
+      "imageAlt": "Originaltabelle: Bereich1 – 192.168.1.0/24; Bereich2 – 192.168.2.0/24."
+    },
+    {
+      "id": "original-server-16",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Ihr Unternehmen verwendet eine Active Directory-Domänendienste (AD DS) Domäne mit dem Namen Contoso.de. Die Domäne enthält einen Windows Server 2019 Computer mit dem Namen Server1. Auf Server1 ist die Rolle DHCP-Server installiert. Sie müssen auf Server1 einen IPv6-Adressbereich erstellen. Der Bereich muss einen Adressraum verwenden, der für private Netzwerke reserviert ist und die Adressen müssen geroutet werden können. Welches IPv6-Präfix werden Sie verwenden?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 16
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 16. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "FE80::",
+        "FD00:123:4567::",
+        "2001::",
+        "FF00::"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "original-server-17",
+      "type": "text",
+      "difficulty": "fortgeschritten",
+      "question": "Sie wollen mit der Powershell die IPv6-Adresse einer Ressource auflösen. Sie sind sich nicht sicher wie die Parameter für dieses Commandlet lauten. Mit welchem Befehl können sie die Parameter einsehen? Geben Sie ihre Antwort in das Eingabefeld ein. Groß/Kleinschreibung muss nicht beachtet werden\n________________ Resolve-DnsName",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 17
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 17. Bewertung nach der vorgegebenen Lösung.",
+      "accepted": [
+        "Get-Help"
+      ]
+    },
+    {
+      "id": "original-server-18",
+      "type": "text",
+      "difficulty": "fortgeschritten",
+      "question": "Sie müssen auf einem Server mit dem Namen Server1 in ihrem Netzwerk remote eine Aktion ausführen. Der Server ist ein Windows Server 2019 Core. Sie entscheiden sich dafür dies mit der Powershell durchzuführen. Mit welchem Befehl verbinden Sie sich mit dem Server. Geben Sie den Text in das Eingabefeld ein. Groß/Kleinschreibung muss nicht beachtet werden.\n__________ -Computername Server1",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 18
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 18. Bewertung nach der vorgegebenen Lösung.",
+      "accepted": [
+        "Enter-PSSession"
+      ]
+    },
+    {
+      "id": "original-server-19",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie müssen auf einem Datenträger Speicherplatz bereitstellen. Die Nutzer sollen in der Lage sein Ordner und Dokumente mit langen Dateinamen (mehr als 288 Zeichen) ablegen zu können. Für welche Formatierung entscheiden sie sich?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 19
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 19. Bewertung nach der vorgegebenen Lösung. Hinweis: Fachlich fehlerhafte Originallösung: Auch ReFS erlaubt höchstens 255 Unicode-Zeichen je Dateinamen. Die Quelle verwechselt Dateinamen mit vollständigen Pfaden. ReFS wird hier ausschließlich entsprechend dem Originalschlüssel gewertet.",
+      "options": [
+        "NTFS",
+        "FAT32",
+        "exFAT",
+        "ReFS"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "original-server-20",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie sind als Serveradministrator für das Unternehmen Contoso tätig. Sie administrieren einen Windows Server 2019 Computer mit dem Namen Server1. Sie installieren drei neue Festplatten in Server1. Sie wollen die drei Festplatten verwenden, um einen neuen Speicherplatz zu erstellen. Ihre Lösung muss den folgenden Anforderungen entsprechen: Der Speicher muss Fehlertoleranz für den Fall bieten, dass eine einzelne Festplatte ausfällt. Der verfügbare Speicherplatz für Benutzerdaten muss möglichst groß ausfallen. Was werden Sie erstellen?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 20
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 20. Bewertung nach der vorgegebenen Lösung. Hinweis: In dieser PDF-Abbildung ist der Lösungsschlüssel nicht eingeblendet. Parity ist in der entsprechenden Word-Aufgabe 20 blau markiert. Der Kapazitätsvergleich setzt gleich große Laufwerke voraus.",
+      "options": [
+        "Erstellen Sie ein übergreifendes Volume.",
+        "Erstellen Sie einen virtuellen Datenträger vom Typ Parity.",
+        "Erstellen Sie einen virtuellen Datenträger vom Typ Mirror.",
+        "Erstellen Sie einen virtuellen Datenträger vom Typ Simple."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "original-server-21",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Ihr Firmennetzwerk umfasst eine Active Directory-Domänendienste (AD DS) Domäne mit dem Namen Contoso.de. Die Domäne enthält zwei Server mit den Namen Server1 und Server2. Auf Server1 ist das Betriebssystem Windows Server 2016 installiert. Auf Server2 wird Windows Server 2019 ausgeführt. Server2 wird als DHCP-Server verwendet. Sie wollen die DHCP-Konsole auf Server1 für die Verwaltung des DHCP-Serverdienstes auf Server2 verwenden. Welchen Schritt werden Sie zuvor ausführen?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 21
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 21. Bewertung nach der vorgegebenen Lösung. Hinweis: Gemeint ist die Installation fehlender DHCP-Verwaltungstools, beispielsweise mit Install-WindowsFeature RSAT-DHCP. Die Originaloption nennt nur das Cmdlet, nicht den vollständigen Aufruf.",
+      "options": [
+        "Verwenden Sie die Windows PowerShell auf Server1 und führen Sie das Cmdlet Install-WindowsFeature aus",
+        "Starten Sie die Microsoft Management Konsole (MMC) auf Server1 und fügen Sie ein Snap-In hinzu",
+        "Starten Sie die Windows Firewall mit erweiterter Sicherheit auf Server2 und erstellen Sie eine eingehende Regel"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-server-22",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Ihr Firmennetzwerk umfasst eine Active Directory-Domänendienste (AD DS) Domäne mit dem Namen Contoso.de. Die Domäne enthält einen Server mit dem Namen Server1. Auf Server1 ist das Betriebssystem Windows Server 2019 installiert. Sie wollen auf Server1 eine virtuelle Festplatte (Virtual Hard Disk, VHD) mit einer Kapazität von 3 TeraByte (TB) erstellen. Welches Tool bzw. welches Cmdlet verwenden Sie?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 22
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 22. Bewertung nach der vorgegebenen Lösung. Hinweis: Für eine virtuelle Festplatte dieser Größe muss das Dateiformat VHDX verwendet werden. Das klassische VHD-Format unterstützt keine 3 TB; die Quelle verwendet VHD hier ungenau.",
+      "options": [
+        "Ressourcen-Manager für Dateiserver (FSRM)",
+        "New-StorageSubsytemVirtualDisk",
+        "Server-Manager",
+        "Computerverwaltung"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "original-server-23",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Ihr Netzwerk enthält einen Server mit dem Namen Server1. Auf Server1 ist das Betriebssystem Windows Server 2019 installiert. Sie installieren eine zusätzliche Festplatte in Server1. Die Datenträgerkonfiguration wird in der Abbildung gezeigt (klicken Sie auf die Schaltfläche Zeichnung). Sie müssen sicherstellen, dass Benutzer über Volume C: auf den Speicherplatz des neuen Datenträgers zugreifen können. Wie gehen Sie vor?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 23
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 23. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Konvertieren Sie Datenträger 0 und Datenträger 1 in dynamische Datenträger und erweitern Sie Volume C:.",
+        "Konvertieren Sie Datenträger 0 in einen dynamischen Datenträger und fügen Sie eine Spiegelung hinzu.",
+        "Erstellen Sie auf Datenträger 1 ein einfaches Volume und stellen Sie das Volume in einem leeren Ordner bereit.",
+        "Konvertieren Sie Datenträger 1 in einen dynamischen Datenträger und erstellen Sie ein übergreifendes Volume."
+      ],
+      "correct": 2,
+      "image": "assets/original-server-23.png",
+      "imageAlt": "Originalabbildung: Datenträger 0 mit vorhandenen Partitionen einschließlich C: und D:; Datenträger 1 mit 1023,88 GB nicht zugeordnetem Speicher."
+    },
+    {
+      "id": "original-server-24",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie administrieren einen Server mit dem Namen Server1. Auf Server1 ist das Betriebssystem Windows Server 2019-Server Core installiert. Server1 ist mit den folgenden statischen Adressen konfiguriert:\nIP-Adresse: 10.1.1.1\nSubnetzmaske: 255.255.240.0\nStandardgateway: 10.1.1.254\nBevorzugter DNS-Server: Kein Eintrag\nDas Netzwerk enthält einen DNS-Server mit der IPv4-Adresse 10.1.1.200. Sie müssen Server1 so konfigurieren, dass der DNS-Server mit der IPv4-Adresse 10.1.1.200 als bevorzugter DNS-Server verwendet wird. Ihre Lösung muss sicherstellen, dass die übrigen Einstellungen nicht geändert werden. Welches Tool verwenden Sie?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 24
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 24. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Set-NetIPInterface",
+        "Net.exe",
+        "Ipconfig.exe",
+        "Sconfig.cmd"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "original-server-25",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Ihr Unternehmen verwendet eine Active Directory-Domänendienste (AD DS) Domäne mit dem Namen Contoso.de. Auf allen Servern der Domäne ist das Betriebssystem Windows Server 2019 installiert. Das Team für die Active Directory-Administration plant die Installation zahlreicher neuer Domänencontroller mit dem Betriebssystem Windows Server 2019 und möchte für diesen Zweck die Windows PowerShell einsetzen. Welches Windows PowerShell Modul enthält die erforderlichen Cmdlets für die Installation eines Domänencontrollers?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 25
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 25. Bewertung nach der vorgegebenen Lösung. Hinweis: Der tatsächliche Modulname lautet ADDSDeployment ohne Leerzeichen. Die Schreibweise der Antwortoptionen ist aus der Quelle übernommen.",
+      "options": [
+        "AD DS Deployment",
+        "AD DS Administration",
+        "AD CS Administration",
+        "AD CS Deployment"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-server-26",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie administrieren einen Hyper-V Host mit dem Namen Server1. Auf Server1 ist das Betriebssystem Windows Server 2019 Datacenter installiert. Der Server befindet sich in einem isolierten Netzwerk und hat keinen Zugriff auf Internetressourcen. Sie installieren für Testzwecke auf Server1 eine virtuelle Maschine (VM) mit dem Namen VM1. Auf VM1 wird Windows Server 2019 ausgeführt. VM1 ist mit einem virtuellen privaten Netzwerk (VPN) verbunden. Nach 30-Tagen stellen Sie fest, dass VM1 alle 60 Minuten heruntergefahren wird. Sie müssen sicherstellen, dass VM1 ohne Unterbrechungen ausgeführt wird. Wie gehen Sie vor?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 26
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 26. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Originallösung ist fachlich problematisch: /rearm auf dem Host setzt nicht automatisch den Aktivierungszustand des Gasts VM1 zurück. Der Lizenzstatus des betroffenen Systems muss gesondert geprüft werden. Die markierte Originalantwort bleibt für diesen Quellenvergleich erhalten.",
+      "options": [
+        "Erstellen Sie auf Server1 ein neues Netzwerk vom Typ Intern und verbinden Sie VM1 mit dem neuen Netzwerk.",
+        "Führen Sie slmgr.vbs mit dem Parameter /ipk auf VM1 aus.",
+        "Führen Sie auf Server1 das Cmdlet Add-WindowsFeatureVolumeActivation aus.",
+        "Führen Sie slmgr.vbs mit dem Parameter /rearm auf Server1 aus und starten sie den Rechner neu."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "original-server-27",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie möchten sich mit Hyper-V eine Testumgebung aufbauen, die keine Verbindung zum Host oder dem Produktivnetz hat. Welchen Typ Switch werden Sie einrichten.",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 27
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 27. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Privat",
+        "Intern",
+        "Extern"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-server-28",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie möchten sich mit Hyper-V eine Testumgebung aufbauen, die nur eine Verbindung zum Host hat. Welchen Typ Switch werden Sie einrichten.",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 28
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 28. Bewertung nach der vorgegebenen Lösung. Hinweis: Ein interner Switch verbindet auch die angeschlossenen VMs untereinander; „nur“ grenzt hier das externe Netzwerk aus.",
+      "options": [
+        "Privat",
+        "Intern",
+        "Extern"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "original-server-29",
+      "type": "text",
+      "difficulty": "fortgeschritten",
+      "question": "Sie haben in ihrem Netzwerk 3 Windows 10 Rechner mit dem Namen CL1, CL2 und CL3. Sie möchten mit der Powershell die Einstellungen der Netzwerkkarte der 3 Rechner einsehen. Mit welchem Befehl können Sie dies am einfachsten erreichen? Geben Sie den Text in das Eingabefeld ein. Groß/Kleinschreibung muss nicht beachtet werden\n____________ -Computername CL1, CL2, CL3 -scriptblock{ipconfig /all} (Texteingabe)",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 29
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 29. Bewertung nach der vorgegebenen Lösung.",
+      "accepted": [
+        "Invoke-Command"
+      ]
+    },
+    {
+      "id": "original-server-30",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie beabsichtigen remote auf einem Rechner in ihrem Netzwerk einen Prozess zu beenden. Die Aktion schlägt mit einer Fehlermeldung fehl. Sie müssen sicherstellen, dass sie die Aktion ausführen können. Sie starten die Powershell als Administrator",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 30
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 30. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Originalaussage ist zu pauschal: Eine lokal erhöhte Konsole behebt nicht jede Remoting-Fehlermeldung. Zielberechtigungen, Verbindung, Remoting-Konfiguration und konkrete Fehlerursache sind ebenfalls entscheidend.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-server-31",
+      "type": "order",
+      "difficulty": "fortgeschritten",
+      "question": "In welcher Reihenfolge läuft die Adressermittlung in DHCP ab",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 31
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 31. Bewertung nach der vorgegebenen Lösung.",
+      "items": [
+        "DHCPDISCOVER",
+        "DHCPOFFER",
+        "DHCPREQUEST",
+        "DHCPACK"
+      ]
+    },
+    {
+      "id": "original-server-32",
+      "type": "multi",
+      "difficulty": "fortgeschritten",
+      "question": "Ein Nutzer teilt ihnen mit, dass er keine Verbindung zum Firmennetz herstellen kann. Auf Rückfrage teilt er ihnen mit, dass seine IP-Adresse 169.254.12.247 Was könnte die Ursache sein",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 32
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 32. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Adresse deutet auf APIPA hin. Sie beweist allein keinen Hardwaredefekt; die genannten Punkte sind mögliche Ursachen einer gestörten DHCP-Erreichbarkeit.",
+      "options": [
+        "Defekte Grafikkarte",
+        "Defekte Netzwerkkarte",
+        "Defektes Netzwerkkabel",
+        "DHCP-Server Ausfall"
+      ],
+      "correct": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "original-server-33",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Ihr Netzwerk umfasst eine Active Directory-Gesamtstruktur. Die Gesamtstruktur enthält zwei Domänencontroller mit den Namen DC1 und DC2. Auf beiden Domänencontrollern ist das Betriebssystem Windows Server 2016 installiert. DC1 ist Inhaber aller Betriebsmasterrollen. DC1 fällt aufgrund eines Hardwaredefekts aus. Sie planen, mithilfe eines automatisierten Prozesses 1000 neue Benutzerkonten zu erstellen. Sie müssen sicherstellen, dass der automatisierte Prozess erfolgreich abgeschlossen werden kann. Welchen Befehl führen Sie aus?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 33
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 33. Bewertung nach der vorgegebenen Lösung. Hinweis: Eine erzwungene Rollenübernahme setzt voraus, dass der bisherige Rolleninhaber nicht rechtzeitig wiederhergestellt werden kann. 1000 Konten allein beweisen nicht, dass der vorhandene RID-Pool unzureichend ist. Die Quelle vereinfacht diese Voraussetzungen.",
+      "options": [
+        "Move-ADDirectoryServerOperationMasterRole -Identity \"DC2\" -OperationMasterRole PDCEmulator -Force",
+        "Move-ADDirectoryServerOperationMasterRole -Identity \"DC2\" -OperationMasterRole InfrastructureMaster Seize PDC",
+        "Move-ADDirectoryServerOperationMasterRole -Identity \"DC2\" -OperationMasterRole RIDMaster -Force",
+        "ntdsutil -Identity \"DC2\" -OperationMasterRole SchemaMaster Seize PDC",
+        "ntdsutil -Identity \"DC2\" -OperationMasterRole RIDMaster -Force",
+        "ntdsutil -Identity \"DC2\" -OperationMasterRole PDCEmulator Seize PDC"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "original-server-34",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie sind als Netzwerkadministrator für das Unternehmen Contoso tätig. Das Unternehmen hat eine Hauptgeschäftsstelle und eine Zweigstelle. Die Benutzer der Zweigstelle berichten, dass sie keinen Zugriff auf freigegebene Ressourcen der Hauptgeschäftsstelle erhalten. Sie stellen fest, dass die Computer der Zweigstelle mit IP-Adressen aus dem Bereich 169.254.x.x konfiguriert sind. Sie müssen sicherstellen, dass die Mitarbeiter der Zweigstelle Zugriff auf freigegebene Ressourcen beider Standorte erhalten. Wie gehen Sie vor?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 34
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 34. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Originallösung setzt einen erreichbaren zentralen DHCP-Server mit passendem Bereich sowie funktionierendes Routing voraus.",
+      "options": [
+        "Konfigurieren Sie einen DHCP-Relay-Agent auf einem Mitgliedsserver in der Hauptgeschäftsstelle.",
+        "Konfigurieren Sie einen DHCP-Relay-Agent auf einem Mitgliedsserver in der Zweigstelle.",
+        "Konfigurieren Sie die DHCP-Serveroption 028 Broadcastadresse, so dass die IP-Adresse des DHCP-Servers der Hauptgeschäftsstelle eingeschlossen wird.",
+        "Konfigurieren Sie die DHCP-Serveroption 011 Ressourcenstandort-Server, so dass die IP-Adresse des DHCP-Servers der Hauptgeschäftsstelle eingeschlossen wird."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "original-server-35",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie sind als Netzwerkadministrator für das Unternehmen Contoso tätig. Das Firmennetzwerk besteht aus einer einzelnen Active Directory Gesamtstruktur mit dem Namen contoso.de. Das Unternehmen betreibt drei Standorte. Für jeden Standort wurde innerhalb des Active Directory eine Organisationseinheit erstellt. Die drei Organisationseinheiten enthalten jeweils eine untergeordnete OU mit dem Namen Verkauf, in der die Benutzer- und Computerkonten der Verkaufsabteilung des Standortes organisiert sind. Das Unternehmen plant die Verteilung einer Firmeneigenen Anwendung auf alle Computer der drei Verkaufsabteilungen. Sie müssen sicherstellen, dass die Anwendung ausschließlich auf die Computer installiert wird, deren Konten sich in den drei Organisationseinheiten der Verkaufsabteilungen befinden. Wie gehen Sie vor?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 35
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 35. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Erstellen Sie ein Gruppenrichtlinienobjekt (GPO) mit dem Namen VerkaufApp. Konfigurieren Sie die Zuweisung der Anwendung im Abschnitt Computerkonfiguration des Gruppenrichtlinienobjektes. Verknüpfen Sie das GPO mit der Domäne.",
+        "Erstellen Sie ein Gruppenrichtlinienobjekt (GPO) mit dem Namen VerkaufApp. Konfigurieren Sie die Zuweisung der Anwendung im Abschnitt Benutzerkonfiguration des Gruppenrichtlinienobjektes. Verknüpfen Sie das GPO mit den Organisationseinheiten der drei Verkaufsabteilungen.",
+        "Erstellen Sie ein Gruppenrichtlinienobjekt (GPO) mit dem Namen VerkaufApp. Konfigurieren Sie die Veröffentlichung der Anwendung im Abschnitt Benutzerkonfiguration des Gruppenrichtlinienobjektes. Verknüpfen Sie das GPO mit den Organisationseinheiten der drei Verkaufsabteilungen.",
+        "Erstellen Sie ein Gruppenrichtlinienobjekt (GPO) mit dem Namen VerkaufApp. Konfigurieren Sie die Zuweisung der Anwendung im Abschnitt Computerkonfiguration des Gruppenrichtlinienobjektes. Verknüpfen Sie das GPO mit den Organisationseinheiten der drei Verkaufsabteilungen."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "original-server-36",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie sind als Netzwerkadministrator für das Unternehmen Contoso tätig. Das Firmennetzwerk besteht aus einer einzelnen Active Directory Domäne mit dem Namen contoso.de. Die Domäne enthält einen Domänencontroller mit dem Namen DC1. Sie müssen eine Offline-Defragmentierung der Active Directory Datenbank auf DC1 durchführen. Welche vier Aktionen werden Sie in Reihenfolge ausführen? (Eine Übersicht der verfügbaren Aktionen wird in der Abbildung dargestellt.)",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 36
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 36. Bewertung nach der vorgegebenen Lösung. Hinweis: Die vier Originalschritte sind keine vollständige Wartungsanleitung. Vorherige Sicherung, tatsächlicher Datenbankpfad und weitere Prüfungen müssen bei einer realen Offline-Defragmentierung berücksichtigt werden.",
+      "options": [
+        "Reihenfolge: 5, 6, 1, 4",
+        "Reihenfolge: 6, 1, 2, 4",
+        "Reihenfolge: 6, 5, 1, 4",
+        "Reihenfolge: 6, 2, 1, 4"
+      ],
+      "correct": 1,
+      "image": "assets/original-server-36.png",
+      "imageAlt": "Liste der Aktionen: 1 Komprimieren Sie die Datenbankdatei ntds.dit. 2 Verschieben Sie die Datei ntds.dit nach %windir%\\NTDS. 3 Starten Sie den Domänencontroller im abgesicherten Modus. 4 Starten Sie den Dienst „Domain Controller“. 5 Kopieren Sie die Datei ntds.dit nach %windir%\\NTDS. 6 Beenden Sie den Dienst „Domain Controller“."
+    },
+    {
+      "id": "original-server-37",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie sind als Netzwerkadministrator für das Unternehmen Contoso tätig. Das Firmennetzwerk enthält einen Windows Server 2019 Computer auf dem die Serverrolle DHCP-Server ausgeführt wird. Der DHCP-Server verfügt über zwei Netzwerkschnittstellen mit den Namen LAN1 und LAN2. Sie müssen verhindern, dass der DHCP-Server auf Anfragen von DHCP-Clients auf der Schnittstelle LAN2 antwortet. Der Server muss jedoch weiterhin nicht DHCP-bezogene Clientanforderungen auf der Schnittstelle LAN2 annehmen. Wie gehen Sie vor?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 37
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 37. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Verwenden Sie die Konsole DHCP und bearbeiten Sie die Bindungen des DHCP-Servers, so dass nur die Schnittstelle LAN1 mit dem DHCP-Serverdienst verknüpft ist.",
+        "Verwenden Sie die Konsole DHCP und erstellen Sie einen neuen Multicastbereich.",
+        "Bearbeiten Sie die Eigenschaften der Schnittstelle LAN1 und konfigurieren Sie die Schnittstellenmetrik mit dem Wert 1.",
+        "Bearbeiten Sie die Eigenschaften der Schnittstelle LAN2 und konfigurieren Sie die Schnittstellenmetrik mit dem Wert 1."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-server-38",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie sind als Netzwerkadministrator für das Unternehmen Contoso tätig. Das Firmennetzwerk enthält 4 Windows Server 2019 Computer, die als DNS-Server eingesetzt werden. Die 4 DNS-Server sind mit statischen IP-Adressen konfiguriert. Sie müssen verhindern, dass die IP-Adressen der DNS-Server über das Dynamic Host Configuration Protokoll (DHCP) an DHCP-Clients vergeben werden. Wie gehen Sie vor?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 38
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 38. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Erstellen Sie einen neuen Adressbereich für die DNS-Server.",
+        "Erstellen Sie eine Reservierung für den DHCP-Server.",
+        "Konfigurieren Sie die Bereichsoption 005 WINS Server.",
+        "Konfigurieren Sie einen ausgeschlossenen Bereich, der die IP-Adressen der DNS-Server enthält."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "original-server-40",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie sind als Netzwerkadministrator für das Unternehmen Contoso tätig. Das Firmennetzwerk besteht aus einer einzelnen Active Directory Domäne mit dem Namen contoso.de. Auf allen Servercomputern ist das Betriebssystem Windows Server 2019 installiert. Das Netzwerk enthält zwei DNS-Server mit den Namen DNS1 und DNS2. Die Konfiguration der DNS Server wird in der nachstehenden Tabelle gezeigt:\nDomänenbenutzer, die DNS2 als bevorzugten DNS Server eingetragen haben, können keine Verbindungen mit Websites im Internet herstellen. Sie müssen allen Clientcomputern die Auflösung von Internetnamen ermöglichen. Wie gehen Sie vor?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 40
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 40. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Löschen Sie die Stammzone .(Stamm) auf DNS2.",
+        "Aktualisieren Sie die Datei Cache.dns auf DNS2.",
+        "Erstellen Sie eine Kopie der Stammzone .(Stamm) von DNS2 auf DNS1.",
+        "Aktualisieren Sie die Liste der Stammhinweise auf DNS2."
+      ],
+      "correct": 0,
+      "image": "assets/original-server-40.png",
+      "imageAlt": "Originaltabelle: DNS1 enthält _msdcs.contoso.de und contoso.de. DNS2 enthält zusätzlich die Stammzone Punkt sowie _msdcs.contoso.de und contoso.de."
+    },
+    {
+      "id": "original-server-43",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie sind als Netzwerkadministrator für das Unternehmen Contoso tätig. Das Firmennetzwerk besteht aus einer einzelnen Active Directory Domäne mit dem Namen contoso.de. Auf allen Servercomputern ist das Betriebssystem Windows Server 2019 installiert. Sie erstellen 200 neue Benutzerkonten für Benutzer, die über sechs verschiedene Standorte verteilt sind. Die neuen Benutzer berichten, dass sie bei einem Anmeldeversuch eine Fehlermeldung mit dem Text „Der Benutzername bzw. das Kennwort ist falsch“ erhalten. Sie vergewissern sich, dass die Benutzerkonten vorhanden und nicht gesperrt sind. Ferner stellen Sie sicher, dass Sie die korrekten Zugangsdaten an die Benutzer weitergegeben haben. Sie müssen die Ursache für die Fehlermeldung ermitteln. Zudem müssen Sie sicherstellen, dass sich die neuen Benutzer an der Domäne anmelden können. Welches Utility werden Sie verwenden?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 43
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 43. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Rsdiag.exe.",
+        "Rstools.",
+        "Repadmin.exe",
+        "Active Directory-Domänen und Vertrauensstellungen."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "original-server-44",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Ihr Netzwerk umfasst eine Active Directory-Domänendienste (AD DS) Domäne mit dem Namen certbase.de. Die Computer im Netzwerk werden mithilfe der Windows-Bereitstellungsdienste (WDS) installiert. Die Domäne enthält einen Mitgliedsserver mit dem Namen Server1. Auf Server1 ist das Betriebssystem Windows Server 2016 installiert. Server1 ist als Hyper-V Host konfiguriert. Virtuelle Maschinen (VMs), die auf Server1 bereitgestellt sind, sind mit einem externen Switch namens vSwitch1 verbunden. Sie erstellen auf Server1 eine neue virtuelle Maschine mit dem Namen VM1. Für das Erstellen verwenden Sie die folgenden PowerShell Cmdlets:\nNew-VM VM1\nAdd-VMHardDiskDrive –VMName VM1 –ControllerType IDE –Path C:\\VMs\\Disk1.vhd\nAdd-VMNetworkAdapter –VMName VM1\nSie müssen sicherstellen, dass Sie das Betriebssystem auf VM1 mithilfe der Windows-Bereitstellungsdienste (WDS) installieren können. Wie gehen Sie vor?",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 44
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 44. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Aufgabe betrifft eine Generation-1-VM. Für PXE benötigt sie einen Legacy-Netzwerkadapter; dieser muss außerdem mit dem geeigneten virtuellen Switch verbunden sein. Die gedruckten Befehle zeigen diese Verbindung noch nicht.",
+      "options": [
+        "Fügen Sie VM1 einen älteren Netzwerkadapter hinzu.",
+        "Ändern Sie den Parameter SwitchType des virtuellen Netzwerkswitchs vSwitch1.",
+        "Ändern Sie den Parameter DefaultFlowMinimumBandwidthWeight des virtuellen Netzwerkswitchs vSwitch1.",
+        "Fügen Sie VM1 einen SCSI-Controller hinzu."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "original-server-45",
+      "type": "mc",
+      "difficulty": "fortgeschritten",
+      "question": "Sie sind dabei, die Ursache eines Verbindungsproblems mit einem Client einzugrenzen. Ein Benutzer kann sich mithilfe der IP-Adresse mit einem Dateiserver verbinden, jedoch nicht mithilfe des DNS-Hostnamens. Wenn Sie den DNS-Server abfragen, wird der Hostname in die richtige IP-Adresse aufgelöst. Wenn Sie jedoch Ping verwenden, um nach dem Dateiserver über seinen Hostnamen zu suchen, wird eine ungültige IP-Adresse angezeigt. Was ist wahrscheinlich der Grund für diesen Fehler? Wählen Sie die richtige Antwort.",
+      "source": {
+        "document": "Sammelmappe Server.pdf",
+        "number": 45
+      },
+      "explanation": "Originalaufgabe aus Sammelmappe Server.pdf, Seite 45. Bewertung nach der vorgegebenen Lösung.",
+      "options": [
+        "Das Netzwerk verwendet private statt registrierter IP-Adressen.",
+        "Der Clientcomputer verwendet eine statische statt einer dynamischen Adresse.",
+        "Es befindet sich ein ungültiger Eintrag im ARP-Cache.",
+        "Es befindet sich ein ungültiger Eintrag in der Hostsdatei."
+      ],
+      "correct": 3
+    }
+  ]
+});

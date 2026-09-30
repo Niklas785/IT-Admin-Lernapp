@@ -687,3 +687,12 @@ footer.app-footer {
   .ip-field-row { flex-direction: column; align-items: stretch; }
   .ip-field-row input { max-width: 100%; }
 }
+/* Quellenkontext und Abbildungen nur im separaten Originalpool. */
+.question-source { font-size: .78rem; color: var(--ink-soft); margin: 0 0 12px; }
+.original-question .question-text,
+.original-question .review-q { white-space: pre-line; overflow-wrap: anywhere; }
+.original-question .option > span:last-child { min-width: 0; overflow-wrap: anywhere; }
+.question-figure { margin: 0 0 18px; }
+.question-figure a { display: block; color: inherit; }
+.question-figure img { display: block; max-width: 100%; height: auto; }
+.question-figure figcaption { margin-top: 6px; font-size: .8rem; }

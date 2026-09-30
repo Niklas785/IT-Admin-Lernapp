@@ -355,6 +355,32 @@ function renderQuestionBody(q) {
       fieldWrap.appendChild(row);
     });
   }
+  renderOriginalContext(q, slot);
+}
+
+// Optionaler Quellenkontext ausschließlich für die separaten Originalaufgaben.
+function renderOriginalContext(q, container) {
+  if (!q.source) return;
+  container.classList.add("original-question");
+  const label = document.createElement("p");
+  label.className = "question-source";
+  label.textContent = `Original · ${q.source.document} · ${q.source.document.endsWith(".pdf") ? "Seite" : "Aufgabe"} ${q.source.number}`;
+  container.prepend(label);
+  if (!q.image || !/^assets\/[a-z0-9-]+\.png$/.test(q.image)) return;
+  const figure = document.createElement("figure");
+  figure.className = "question-figure";
+  const link = document.createElement("a");
+  link.href = q.image;
+  link.target = "_blank";
+  link.rel = "noopener";
+  const img = document.createElement("img");
+  img.src = q.image;
+  img.alt = q.imageAlt || "Abbildung zur Originalaufgabe";
+  const caption = document.createElement("figcaption");
+  caption.textContent = "Abbildung vergrößern";
+  link.append(img, caption);
+  figure.append(link);
+  container.querySelector(".question-text, .review-q").after(figure);
 }
 
 function renderOrderItems(q) {
@@ -772,6 +798,10 @@ function renderResult() {
     <div class="section-label">Falsch beantwortete Fragen (${wrongAnswers.length})</div>
     ${reviewHtml}
   `;
+
+  document.querySelectorAll(".review-item").forEach((item, index) => {
+    renderOriginalContext(wrongAnswers[index].question, item);
+  });
 
   document.getElementById("restart-btn").addEventListener("click", () => {
     state.screen = "setup";
