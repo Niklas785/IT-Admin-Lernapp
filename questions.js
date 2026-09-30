@@ -2445,24 +2445,6 @@ QUIZ_DATA.push({
       ]
     },
     {
-      "id": "original-wl-19",
-      "type": "mc",
-      "difficulty": "fortgeschritten",
-      "question": "Sie müssen auf einem Datenträger Speicherplatz bereitstellen. Die Nutzer sollen in der Lage sein, Ordner und Dokumente mit langen Dateinamen (mehr als 288 Zeichen) ablegen zu können. Für welche Formatierung entscheiden Sie sich?",
-      "source": {
-        "document": "WLAntworten.docx",
-        "number": 19
-      },
-      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 19. Bewertung nach der vorgegebenen Lösung. Hinweis: Fachlich fehlerhafte Originallösung: Auch ReFS erlaubt höchstens 255 Unicode-Zeichen je Dateinamen. Die Quelle verwechselt Dateinamen mit vollständigen Pfaden. ReFS wird hier ausschließlich entsprechend dem Originalschlüssel gewertet.",
-      "options": [
-        "NTFS",
-        "FAT32",
-        "ReFS",
-        "exFAT"
-      ],
-      "correct": 2
-    },
-    {
       "id": "original-wl-20",
       "type": "mc",
       "difficulty": "fortgeschritten",
@@ -2534,40 +2516,6 @@ QUIZ_DATA.push({
       "correct": 3
     },
     {
-      "id": "original-wl-24",
-      "type": "mc",
-      "difficulty": "fortgeschritten",
-      "question": "Sie möchten sich mit Hyper-V eine Testumgebung aufbauen, die keine Verbindung zum Host oder dem Produktivnetz hat. Welchen Typ Switch werden Sie einrichten?",
-      "source": {
-        "document": "WLAntworten.docx",
-        "number": 24
-      },
-      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 24. Bewertung nach der vorgegebenen Lösung.",
-      "options": [
-        "Privat",
-        "Intern",
-        "Extern"
-      ],
-      "correct": 0
-    },
-    {
-      "id": "original-wl-25",
-      "type": "mc",
-      "difficulty": "fortgeschritten",
-      "question": "Sie möchten sich mit Hyper-V eine Testumgebung aufbauen, die nur eine Verbindung zum Host hat. Welchen Typ Switch werden Sie einrichten?",
-      "source": {
-        "document": "WLAntworten.docx",
-        "number": 25
-      },
-      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 25. Bewertung nach der vorgegebenen Lösung. Hinweis: Ein interner Switch verbindet auch die angeschlossenen VMs untereinander; „nur“ grenzt hier das externe Netzwerk aus.",
-      "options": [
-        "Privat",
-        "Extern",
-        "Intern"
-      ],
-      "correct": 2
-    },
-    {
       "id": "original-wl-26",
       "type": "text",
       "difficulty": "fortgeschritten",
@@ -2579,39 +2527,6 @@ QUIZ_DATA.push({
       "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 26. Bewertung nach der vorgegebenen Lösung. Hinweis: Der Originaltext zeigt einen doppelten Bindestrich vor Computername. Für den realen Aufruf lautet der Parameter -ComputerName.",
       "accepted": [
         "invoke-command"
-      ]
-    },
-    {
-      "id": "original-wl-27",
-      "type": "mc",
-      "difficulty": "fortgeschritten",
-      "question": "Sie beabsichtigen, remote auf einem Rechner in Ihrem Netzwerk einen Prozess zu beenden. Die Aktion schlägt mit einer Fehlermeldung fehl. Sie müssen sicherstellen, dass Sie die Aktion ausführen können. Sie starten die Powershell als Administrator.",
-      "source": {
-        "document": "WLAntworten.docx",
-        "number": 27
-      },
-      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 27. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Originalaussage ist zu pauschal: Eine lokal erhöhte Konsole behebt nicht jede Remoting-Fehlermeldung. Zielberechtigungen, Verbindung, Remoting-Konfiguration und konkrete Fehlerursache sind ebenfalls entscheidend.",
-      "options": [
-        "RICHTIG",
-        "FALSCH"
-      ],
-      "correct": 0
-    },
-    {
-      "id": "original-wl-28",
-      "type": "order",
-      "difficulty": "fortgeschritten",
-      "question": "In welcher Reihenfolge läuft die Adressermittlung in DHCP ab?",
-      "source": {
-        "document": "WLAntworten.docx",
-        "number": 28
-      },
-      "explanation": "Originalaufgabe aus WLAntworten.docx, Aufgabe 28. Bewertung nach der vorgegebenen Lösung. Hinweis: Die Quelle schreibt DHCPACKNOLEDGE. Gemeint ist die DHCPACK-Nachricht; die Originalschreibweise bleibt erhalten.",
-      "items": [
-        "DHCPDISCOVER",
-        "DHCPOFFER",
-        "DHCPREQUEST",
-        "DHCPACKNOLEDGE"
       ]
     },
     {

@@ -6,14 +6,14 @@ Läuft komplett im Browser, keine Installation, kein Backend nötig.
 **Themen aktuell:** IT-Sicherheit & Datenschutz, SQL-Grundlagen, IPv4-Adressen &
 Subnetting, Netzwerkgrundlagen, IT-Grundlagen & Virtualisierung, Arbeitsgruppe/
 Domäne & GPOs, Windows Server & AD-Verwaltung, PowerShell sowie
-Originalaufgaben – WLAN & Server — insgesamt 656 Fragen in 9 Themen,
+Originalaufgaben – WLAN & Server — insgesamt 651 Fragen in 9 Themen,
 gemischt aus einfacher und mehrfacher Auswahl, Freitext, Lückentext,
 Zuordnung, Reihenfolge und IPv4-Berechnungsaufgaben.
 
 ## Separater Originalpool (30.09.2026)
 
 Die 596 bestehenden Fragen in acht Themen bleiben unverändert. Hinzu kommen
-60 Originalaufgaben: 19 aus `WLAntworten.docx` (Aufgaben 12–30) und 41 aus
+55 Originalaufgaben: 14 aus `WLAntworten.docx` und 41 aus
 `Sammelmappe Server.pdf`. Die neue Kategorie allein auswählen, um ausschließlich
 diese Aufgaben zu üben; die bisherigen Themen enthalten keine neu importierten
 Originalaufgaben. Zum vollständigen Üben „Alle verfügbaren“ und „Alle Niveaus“
@@ -23,8 +23,10 @@ Wortlaut, Antwortalternativen und vorgegebene Lösungsschlüssel wurden übernom
 einschließlich Fehlern der Vorlage. Zeilenumbrüche und Darstellung sind an das
 vorhandene Quiz angepasst. Fachliche Warnhinweise erscheinen nach der Antwort.
 Dies ist ein Quellen-Übungsmodus, kein fachlich bereinigter zweiter Fragenpool.
-Ähnliche und doppelte Originalaufgaben aus beiden Dateien bleiben absichtlich
-erhalten. Einträge sind mit Quelldokument und Seiten-/Aufgabennummer gekennzeichnet.
+Die fünf benannten Dopplungen wurden nachträglich auf Nutzerwunsch entfernt:
+Word 19, 24, 25, 27 und 28; die entsprechenden PDF-Versionen bleiben erhalten.
+Die übrigen Originalaufgaben, auch inhaltlich ähnliche Varianten, sind unverändert.
+Einträge sind mit Quelldokument und Seiten-/Aufgabennummer gekennzeichnet.
 
 Vier notwendige Originalabbildungen liegen in `assets/`. Sie werden auch bei
 der Fehlerauswertung angezeigt und lassen sich vergrößern. Bei Weitergabe oder
