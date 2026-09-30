@@ -3312,3 +3312,647 @@ QUIZ_DATA.push({
     }
   ]
 });
+
+// Freigegebene Originalvarianten aus windows.docx und SQL.docx.
+QUIZ_DATA.find(topic => topic.id === "originalaufgaben-wlan-server").questions.push(...[
+  {
+    "id": "original-windows-01",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Die Subnetze für die Segmente des Netzwerks müssen konfiguriert werden, dabei müssen alle Computer der einzelnen Segmente unterstützt werden. Welche Adressen werden Sie verwenden?\nSegment A: 280 PC / Segment B: 130 PC / Segment C: 75 PC / Segment D: 20 PC",
+    "options": [
+      "Segment A: 131.107.40.0/23 Segment B: 131.107.42.0/24 Segment C: 131.107.43.0/25 Segment D: 131.107.43.128/27",
+      "Segment A: 131.107.40.128/23 Segment B: 131.107.43.128/24 Segment C: 131.107.44.0/25 Segment D: 131.107.44.128/27",
+      "Segment A: 131.107.40.0/23 Segment B: 131.107.41.128/24 Segment C: 131.107.41.128/25 Segment D: 131.107.43.0/27",
+      "Segment A: 131.107.40.0/25 Segment B: 131.107.40.128/26 Segment C: 131.107.43.0/27 Segment D: 131.107.43.224/30"
+    ],
+    "correct": 0,
+    "source": {
+      "document": "windows.docx",
+      "number": 1
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 1. Bewertung nach der blau markierten Originallösung."
+  },
+  {
+    "id": "original-windows-02",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Ein neu installierter Server in Ihrer Domäne soll die Rolle als DHCP-Server einnehmen. Mit welchem Tool können Sie diese Rolle installieren?",
+    "options": [
+      "Power Shell",
+      "Gruppen-Richtlinienverwaltungs-Center",
+      "Active Directory Verwaltungscenter",
+      "Netzwerk- und Freigabe-Center",
+      "Computerverwaltung",
+      "Synchronisierungscenter",
+      "Management Console (MMC)"
+    ],
+    "correct": 0,
+    "source": {
+      "document": "windows.docx",
+      "number": 2
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 2. Bewertung nach der blau markierten Originallösung."
+  },
+  {
+    "id": "original-windows-03",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Es befinden sich 2 Mitgliedserver in Ihrer Domäne. Server A (keine Rollen), Server B (DHCP). Sie müssen den DHCP Server von Server A aus administrieren können. Was müssen Sie zuerst ausführen, um DHCP zu verwenden?",
+    "options": [
+      "Verwenden Sie die Windows PowerShell auf Server A und führen Sie das Cmdlet InstallWindowsFeature aus.",
+      "Synchronisieren Sie die beiden Server, installieren Sie das Snap-In auf beiden Geräten und erstellen eine eingehende Regel.",
+      "Starten Sie die Windows Firewall mit erweiterter Sicherheit auf Server B und erstellen Sie eine eingehende Regel.",
+      "Starten Sie die Microsoft Management Konsole (MMC) auf Server A und fügen Sie ein Snap-In hinzu."
+    ],
+    "correct": 0,
+    "source": {
+      "document": "windows.docx",
+      "number": 3
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 3. Bewertung nach der blau markierten Originallösung. Hinweis: Die Quelle schreibt InstallWindowsFeature ohne Bindestrich. Das tatsächliche Cmdlet heißt Install-WindowsFeature; für die DHCP-Verwaltungstools ist beispielsweise Install-WindowsFeature RSAT-DHCP gemeint."
+  },
+  {
+    "id": "original-windows-04",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "In einer Firma mit Hauptgeschäft & Zweigstelle: Die Zweigstellen-User haben keinen Zugriff auf freigegebene Ressourcen des Hauptgeschäfts, sollen dies aber bekommen. Info: Sie merken, dass die PCs der Zweigstelle mit IPs aus 169.254.x.x konfiguriert sind",
+    "options": [
+      "Konfigurieren Sie einen DHCP-Relay-Agent auf einem Mitgliedsserver in der Zweigstelle.",
+      "Konfigurieren Sie einen DHCP-Relay-Agent auf einem Mitgliedsserver in der Hauptgeschäftsstelle und auf einem Mitgliedsserver der Zweigstelle.",
+      "Konfigurieren Sie die DHCP-Serveroption 028 Broadcastadresse, so dass die IP-Adresse des DHCP-Servers der Hauptgeschäftsstelle eingeschlossen wird.",
+      "Konfigurieren Sie einen DHCP-Relay-Agent auf einem Mitgliedsserver in der Hauptgeschäftsstelle."
+    ],
+    "correct": 0,
+    "source": {
+      "document": "windows.docx",
+      "number": 4
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 4. Bewertung nach der blau markierten Originallösung. Hinweis: Vorausgesetzt sind ein erreichbarer zentraler DHCP-Server mit passendem Bereich und funktionierendes Routing. APIPA allein beweist nicht, dass ausschließlich ein Relay fehlt."
+  },
+  {
+    "id": "original-windows-05",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Benennen Sie die Betriebsmasterrolle, die für die Vergabe von SecureIDs in der Domäne verantwortlich ist.",
+    "options": [
+      "PDC-Emulator",
+      "Keines von denen",
+      "Domain Name Master",
+      "Infrastruktur Master",
+      "Schema-Master"
+    ],
+    "correct": 1,
+    "source": {
+      "document": "windows.docx",
+      "number": 5
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 5. Bewertung nach der blau markierten Originallösung. Hinweis: Gemeint ist der RID-Master, der RID-Pools an Domänencontroller verteilt. Er steht nicht unter den Antwortmöglichkeiten. „SecureIDs“ ist hier eine unpräzise Bezeichnung; eine Objekt-SID wird aus Domänen-SID und RID gebildet."
+  },
+  {
+    "id": "original-windows-06",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Es kann keine Verbindung aus anderen Subnetzen mit einem mit Windows Server neu installierten Server hergestellt werden: IP 192.168.46.186 Subnetz 255.255.255.192 Gateway 192.168.46.1\nWie stellen Sie den Zugriff auf die Ressourcen des Servers sicher?",
+    "options": [
+      "Ändern Sie die Subnetzmaske in eine 23-Bit Subnetzmaske.",
+      "Ändern Sie die Subnetzmaske in eine 27-Bit Subnetzmaske.",
+      "Ändern Sie die IP-Adresse in 192.168.46.186.",
+      "Ändern Sie die IP-Adresse in 192.168.46.192.",
+      "Ändern Sie die Subnetzmaske in eine 24-Bit Subnetzmaske."
+    ],
+    "correct": 4,
+    "source": {
+      "document": "windows.docx",
+      "number": 6
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 6. Bewertung nach der blau markierten Originallösung. Hinweis: Die Originallösung ist ohne Angabe des tatsächlich vorgesehenen Netzpräfixes nicht eindeutig: Sowohl /24 als auch /23 ordnen Host und Gateway demselben Subnetz zu. Die passende Maske muss zum realen Netz passen. Hier wird ausschließlich die blau markierte /24-Antwort gewertet."
+  },
+  {
+    "id": "original-windows-07",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Es fangen neue Mitarbeiter an. Der Netzwerkadministrator muss Benutzerkonten für diese für den Zugriff auf Netzwerkressourcen erstellen (z.B. freigegebene Ordner). Welchen Typ von Konten sollte er erstellen?",
+    "options": [
+      "Keines von den genannten ist richtig",
+      "Vordefiniertes Konto Gast",
+      "Arbeitsgruppen-Konto",
+      "Lokale Benutzerkonten",
+      "Vordefiniertes Konto Administrator",
+      "Dienstkonto für Ordner-Dienste"
+    ],
+    "correct": 0,
+    "source": {
+      "document": "windows.docx",
+      "number": 7
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 7. Bewertung nach der blau markierten Originallösung. Hinweis: Die Quelle setzt offenbar Domänenbenutzerkonten voraus, die unter den Optionen fehlen. Eine Domänenumgebung wird im Fragetext aber nicht genannt; Netzwerkzugriff kann auch mit lokalen Konten erfolgen. Der Originalschlüssel ist daher ohne diese zusätzliche Annahme nicht eindeutig."
+  },
+  {
+    "id": "original-windows-08",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Ein Netz enthält 4 Windows Server mit Rolle DNS-Server, jeweils mit statischen IPs konfiguriert. Sie müssen verhindern, dass die IP-Adressen der DNS-Server über DHCP (Dynamic Host Configuration Protokoll) an Clients vergeben werden. Wie?",
+    "options": [
+      "Konfigurieren Sie die Bereichsoption 005 WINS Server.",
+      "Erstellen Sie eine Reservierung für den DHCP-Server.",
+      "Erstellen Sie einen neuen Adressbereich für die DNS-Server.",
+      "Keines von diesen."
+    ],
+    "correct": 3,
+    "source": {
+      "document": "windows.docx",
+      "number": 8
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 8. Bewertung nach der blau markierten Originallösung. Hinweis: Die passende Maßnahme wäre ein DHCP-Ausschluss für die statischen DNS-Server-Adressen, sofern sie innerhalb des verteilten Bereichs liegen. Diese Antwort fehlt in der Vorlage."
+  },
+  {
+    "id": "original-windows-09",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "In einem AD-Netz mit 2 Domänencontroller A1, A2:\nA1 als Inhaber aller Betriebsmasterrollen fällt aus. Ein automatisierter Prozess (Erstellen von 50 neuen Benutzerkonten) muss erfolgreich abgeschlossen werden?",
+    "options": [
+      "Move-ADDirectoryServerOperationMasterRole -Identity \"A2\" -OperationMasterRole RIDMaster - Force",
+      "ntdsutil -Identity \"A2\" -OperationMasterRole PDCEmulator Seize PDC",
+      "Move-ADDirectoryServerOperationMasterRole -Identity \"A2\" -OperationMasterRole SchemaMaster Seize PDC",
+      "ntdsutil -Identity \"A2\" -OperationMasterRole RIDMaster –Force"
+    ],
+    "correct": 0,
+    "source": {
+      "document": "windows.docx",
+      "number": 9
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 9. Bewertung nach der blau markierten Originallösung. Hinweis: 50 neue Konten machen eine Rollenübernahme nicht automatisch erforderlich, wenn der vorhandene RID-Pool ausreicht. Eine erzwungene Übernahme setzt einen entsprechend andauernden Ausfall voraus. Im ausführbaren Cmdlet lautet der Parameter -Force ohne das Leerzeichen der Originaloption."
+  },
+  {
+    "id": "original-windows-10",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Sie beabsichtigen, remote auf einem Rechner in Ihrem Netzwerk einen Prozess zu beenden. Die Aktion schlägt mit einer Fehlermeldung fehl. Sie müssen sicherstellen, dass Sie die Aktion ausführen können.",
+    "options": [
+      "Ich öffne die PowerShell",
+      "Ich verbinde mich über VPN",
+      "Ich öffne die PowerShell als Administrator",
+      "Ich nutze SSH"
+    ],
+    "correct": 2,
+    "source": {
+      "document": "windows.docx",
+      "number": 10
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 10. Bewertung nach der blau markierten Originallösung. Hinweis: Eine lokal erhöhte Konsole behebt nicht jede Remoting-Störung. Ohne konkrete Fehlermeldung ist die Lösung nicht eindeutig; insbesondere Zielberechtigungen und Verbindung müssen ebenfalls stimmen. Die Wertung folgt der Quelle."
+  },
+  {
+    "id": "original-windows-11",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Sie wollen mit Powershell die IPv6-Adresse einer Ressource auflösen, wissen aber nicht genau die Parameter für dieses Commandlet. Mit welchem Befehl können Sie diese einsehen? Was muss für „xxx“ stehen?: xxx Resolve-DnsName",
+    "options": [
+      "Help-Order",
+      "Get-Help",
+      "Need-Help",
+      "Receive-Help"
+    ],
+    "correct": 1,
+    "source": {
+      "document": "windows.docx",
+      "number": 11
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 11. Bewertung nach der blau markierten Originallösung."
+  },
+  {
+    "id": "original-windows-12",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Nennen Sie für das Netzwerk, in dem sich die Adresse 10.25.12.100/24 befindet, die Broadcastadresse.",
+    "options": [
+      "010.025.012.255",
+      "010.025.012.128",
+      "010.025.012.001",
+      "010.025.012.256"
+    ],
+    "correct": 0,
+    "source": {
+      "document": "windows.docx",
+      "number": 12
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 12. Bewertung nach der blau markierten Originallösung. Hinweis: Die Quelle stellt die Oktette mit führenden Nullen dar. Die übliche eindeutige Dezimalschreibweise der Broadcastadresse lautet 10.25.12.255; führende Nullen sollten in praktischen Konfigurationen vermieden werden."
+  },
+  {
+    "id": "original-windows-13",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Serverx (ein Windows Server Datacenter) in isoliertem Netz ohne Internet: Installation einer VM mit Windows Server, verbunden mit VPN. Nach 30-Tagen stellen Sie fest, dass die VM alle 60 Minuten heruntergefahren wird, soll aber ohne Stopps laufen. Todo?",
+    "options": [
+      "Führen Sie slmgr.vbs mit dem Parameter /rearm auf Serverxy aus und starten sie den Rechner neu.",
+      "Führen Sie auf Serverx das Cmdlet Add-WindowsFeatureVolumeActivation aus.",
+      "Erstellen Sie auf Serverx ein neues Netzwerk vom Typ Extern und verbinden Sie die Virtuelle Maschine VM mit dem neuen Netzwerk.",
+      "Führen Sie slmgr.vbs mit dem Parameter /ato auf der Virtuelle Maschine VM aus."
+    ],
+    "correct": 0,
+    "source": {
+      "document": "windows.docx",
+      "number": 13
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 13. Bewertung nach der blau markierten Originallösung. Hinweis: Die Originallösung ist unklar: „Serverxy“ wird nicht definiert, der Host heißt Serverx. Ein /rearm auf dem Host setzt nicht automatisch den Lizenzstatus der betroffenen Gast-VM zurück. Lizenzstatus, Aktivierungsweg und betroffener Rechner müssen getrennt geprüft werden."
+  },
+  {
+    "id": "original-windows-14",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Ein PC kann sich über die IP mit einem Dateiserver verbinden, jedoch nicht über den DNS-Hostnamen. Bei Abfrage nach dem DNS-Server: Hostname wird richtig aufgelöst. Ping Anzeige: „ungültige IP-Adresse“. Möglicher Grund?",
+    "options": [
+      "Es befindet sich ein ungültiger Eintrag im ARP-Cache.",
+      "Das Netzwerk verwendet private statt registrierter IP-Adressen.",
+      "Es befindet sich ein ungültiger Eintrag in der Hostsdatei.",
+      "Der Clientcomputer hat einen falschen Eintrag für das Standardgateway und den DNS-Server. Deswegen hat er auch eine falsche Subnet-Maske.",
+      "Der Clientcomputer verwendet eine statische statt einer dynamischen Adresse."
+    ],
+    "correct": 2,
+    "source": {
+      "document": "windows.docx",
+      "number": 14
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 14. Bewertung nach der blau markierten Originallösung."
+  },
+  {
+    "id": "original-windows-15",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Sie wollen auf einem Server eine virtuelle Festplatte (Virtual Hard Disk, VHD) mit 2 TeraByte (TB) erstellen. Welches Tool bzw. welches Cmdlet verwenden Sie?",
+    "options": [
+      "Drive-Mapping",
+      "Ressourcen-Manager für Dateiserver (FSRM)",
+      "Keines von denen",
+      "Computerverwaltung",
+      "DriceAllocation-Assign",
+      "New-StorageSubsystemVirtualDisk"
+    ],
+    "correct": 3,
+    "source": {
+      "document": "windows.docx",
+      "number": 15
+    },
+    "explanation": "Originalaufgabe aus windows.docx, Bild 15. Bewertung nach der blau markierten Originallösung."
+  },
+  {
+    "id": "original-sql-01",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Eine Liste der Etagen mit den durchschnittlichen Raumgrößen. Die Liste soll nach den Durchschnittswerten sortiert werden. AVG(plaetze) berechnet den Durchschnitt.",
+    "options": [
+      "Select count(etage), sum(plaetze.id), AVG(plaetze) plaetze from raum group by plaetze",
+      "select etage, AVG(plaetze) plaetze from raum group by etage",
+      "Select * from Etage inner join plaetze on etage, AVG(plaetze) plaetze from raum group by etage"
+    ],
+    "correct": 1,
+    "source": {
+      "document": "SQL.docx",
+      "number": 1,
+      "resultNumber": 2
+    },
+    "explanation": "Originalaufgabe aus SQL.docx, Bild 1. Bewertung nach der blau markierten Originallösung. Hinweis: Die blau markierte Abfrage enthält kein ORDER BY und erfüllt damit die ausdrücklich verlangte Sortierung nicht. Für eine Sortierung nach dem Durchschnitt wäre beispielsweise ORDER BY AVG(plaetze) erforderlich. Auch die Nachkommastellen von AVG hängen in SQL Server vom Datentyp ab. Bewertet wird der unveränderte Originalschlüssel.",
+    "images": [
+      {
+        "src": "assets/original-sql-schema.png",
+        "alt": "Gemeinsame Originalübersicht der Tabellen schueler, teilnahme, ag, klasse, lehrer, unterricht und raum mit Datensätzen und Beziehungen.",
+        "caption": "Gemeinsame Tabellenübersicht"
+      },
+      {
+        "src": "assets/original-sql-result-02.png",
+        "alt": "Vorgegebene Ergebnistabelle 2 aus SQL.docx.",
+        "caption": "Vorgegebene Ergebnistabelle 2"
+      }
+    ]
+  },
+  {
+    "id": "original-sql-02",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Ermitteln sie das Schulfach, das am meisten unterrichtet wird, einschließlich Anzahl der Stunden.",
+    "options": [
+      "select top 1 u.fach, sum(u.stunden) stunden from unterricht u group by u.fach order by stunden desc",
+      "select * from unterricht u group by u.fach order by stunden desc",
+      "create table top 1 u.fach, sum(u.stunden) stunden from unterricht u group by u.fach order by stunden desc"
+    ],
+    "correct": 0,
+    "source": {
+      "document": "SQL.docx",
+      "number": 2,
+      "resultNumber": 1
+    },
+    "explanation": "Originalaufgabe aus SQL.docx, Bild 2. Bewertung nach der blau markierten Originallösung.",
+    "images": [
+      {
+        "src": "assets/original-sql-schema.png",
+        "alt": "Gemeinsame Originalübersicht der Tabellen schueler, teilnahme, ag, klasse, lehrer, unterricht und raum mit Datensätzen und Beziehungen.",
+        "caption": "Gemeinsame Tabellenübersicht"
+      },
+      {
+        "src": "assets/original-sql-result-01.png",
+        "alt": "Vorgegebene Ergebnistabelle 1 aus SQL.docx.",
+        "caption": "Vorgegebene Ergebnistabelle 1"
+      }
+    ]
+  },
+  {
+    "id": "original-sql-03",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "In welchem Raum finden die meisten Unterrichtsstunden statt?",
+    "options": [
+      "select * from stunden outer join unterricht u on r.id = u.raum_id group by r.nummer",
+      "select r.nummer, sum(u.stunden) stunden from raum r outer join unterricht u on r.id = u.raum_id",
+      "select r.nummer, sum(u.stunden) stunden from raum r inner join unterricht u on r.id = u.raum_id group by r.nummer order by sum(u.stunden) desc"
+    ],
+    "correct": 2,
+    "source": {
+      "document": "SQL.docx",
+      "number": 3,
+      "resultNumber": 4
+    },
+    "explanation": "Originalaufgabe aus SQL.docx, Bild 3. Bewertung nach der blau markierten Originallösung. Hinweis: Die Originallösung liefert eine absteigend sortierte Liste aller berücksichtigten Räume. In den gegebenen Daten liegen R112 und R205 mit jeweils 8 Stunden gemeinsam vorn.",
+    "images": [
+      {
+        "src": "assets/original-sql-schema.png",
+        "alt": "Gemeinsame Originalübersicht der Tabellen schueler, teilnahme, ag, klasse, lehrer, unterricht und raum mit Datensätzen und Beziehungen.",
+        "caption": "Gemeinsame Tabellenübersicht"
+      },
+      {
+        "src": "assets/original-sql-result-04.png",
+        "alt": "Vorgegebene Ergebnistabelle 4 aus SQL.docx.",
+        "caption": "Vorgegebene Ergebnistabelle 4"
+      }
+    ]
+  },
+  {
+    "id": "original-sql-04",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Welcher Lehrer unterrichtet am meisten?",
+    "options": [
+      "select top 1 l.name, l.vorname, sum(u.stunden) stunden from lehrer l outer join unterricht u on l.id=u.lehrer_id order by sum(u.stunden) desc",
+      "create table top 1 (l.name, l.vorname, stunden), sum(u.stunden) stunden from lehrer l inner join unterricht u on l.id=u.lehrer_id group by l.name, l.vorname order by sum(u.stunden) desc",
+      "select top 1 l.name, l.vorname, sum(u.stunden) stunden from lehrer l inner join unterricht u on l.id=u.lehrer_id group by l.name, l.vorname order by sum(u.stunden) desc"
+    ],
+    "correct": 2,
+    "source": {
+      "document": "SQL.docx",
+      "number": 4,
+      "resultNumber": 3
+    },
+    "explanation": "Originalaufgabe aus SQL.docx, Bild 4. Bewertung nach der blau markierten Originallösung.",
+    "images": [
+      {
+        "src": "assets/original-sql-schema.png",
+        "alt": "Gemeinsame Originalübersicht der Tabellen schueler, teilnahme, ag, klasse, lehrer, unterricht und raum mit Datensätzen und Beziehungen.",
+        "caption": "Gemeinsame Tabellenübersicht"
+      },
+      {
+        "src": "assets/original-sql-result-03.png",
+        "alt": "Vorgegebene Ergebnistabelle 3 aus SQL.docx.",
+        "caption": "Vorgegebene Ergebnistabelle 3"
+      }
+    ]
+  },
+  {
+    "id": "original-sql-05",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Eine Liste der Schüler, die nie in Raum R112 Unterricht haben.",
+    "options": [
+      "select s.name, s.vorname from raum r inner join unterricht u on r.id = u.raum_id inner join klasse k on k.id = u.klasse_id inner join schueler s on s.klasse_id = k.id where r.nummer not like 'R112'",
+      "select s.name, s.vorname from raum r right inner join unterricht u on r.id = u.raum_id nicht inner join klasse k on k.id = u.klasse_id left outer join schueler s on s.klasse_id = k.id where r.nummer not like 'R112'",
+      "select s.name, s.vorname from raum r outer join unterricht u on r.id = u.raum_id outer join klasse k on k.id = u.klasse_id outer join schueler s on s.klasse_id = k.id where r.nummer not like 'R112'"
+    ],
+    "correct": 0,
+    "source": {
+      "document": "SQL.docx",
+      "number": 5,
+      "resultNumber": 11
+    },
+    "explanation": "Originalaufgabe aus SQL.docx, Bild 5. Bewertung nach der blau markierten Originallösung. Hinweis: Fachlich fehlerhafte Originallösung: Der Filter wählt Unterrichtszeilen in anderen Räumen aus, nicht Schüler, die niemals in R112 Unterricht haben. Wer in R112 und zusätzlich anderswo Unterricht hat, wird trotzdem ausgegeben. Das zeigt auch die vorgegebene Ergebnistabelle. Für „nie“ wäre etwa eine passend korrelierte NOT-EXISTS-Abfrage erforderlich.",
+    "images": [
+      {
+        "src": "assets/original-sql-schema.png",
+        "alt": "Gemeinsame Originalübersicht der Tabellen schueler, teilnahme, ag, klasse, lehrer, unterricht und raum mit Datensätzen und Beziehungen.",
+        "caption": "Gemeinsame Tabellenübersicht"
+      },
+      {
+        "src": "assets/original-sql-result-11.png",
+        "alt": "Vorgegebene Ergebnistabelle 11 aus SQL.docx.",
+        "caption": "Vorgegebene Ergebnistabelle 11"
+      }
+    ]
+  },
+  {
+    "id": "original-sql-06",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Wieviele Stunden Unterricht haben die Klassen?",
+    "options": [
+      "select k.name, sum(u.stunden) stunden from klasse k left outer join klasse k on k.id = u.klasse_id group by k.name",
+      "select k.name, sum(u.stunden) stunden from klasse k left outer join unterricht u on k.id = u.klasse_id group by k.name",
+      "select k.name, sum(u.stunden) stunden from klasse k right outer join unterricht u on k.id = u.klasse_id order by k.name"
+    ],
+    "correct": 1,
+    "source": {
+      "document": "SQL.docx",
+      "number": 6,
+      "resultNumber": 9
+    },
+    "explanation": "Originalaufgabe aus SQL.docx, Bild 6. Bewertung nach der blau markierten Originallösung.",
+    "images": [
+      {
+        "src": "assets/original-sql-schema.png",
+        "alt": "Gemeinsame Originalübersicht der Tabellen schueler, teilnahme, ag, klasse, lehrer, unterricht und raum mit Datensätzen und Beziehungen.",
+        "caption": "Gemeinsame Tabellenübersicht"
+      },
+      {
+        "src": "assets/original-sql-result-09.png",
+        "alt": "Vorgegebene Ergebnistabelle 9 aus SQL.docx.",
+        "caption": "Vorgegebene Ergebnistabelle 9"
+      }
+    ]
+  },
+  {
+    "id": "original-sql-07",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Eine Liste aller Klassen, in der für jede Klasse vermerkt ist, wie viele Stunden Geschichte und wie viele Stunden Deutsch sie hat.",
+    "options": [
+      "with deutsch as (select u.klasse_id, count(u.stunden) stunden from unterricht u where u.fach like 'Deutsch' group by u.klasse_id), geschichte as (select u.klasse_id, count(u.stunden) stunden from unterricht u where u.fach like 'Geschichte' group by u.klasse_id) select k.name, d.stunden deutsch, g.stunden geschichte from klasse k left outer join deutsch d on k.id = d.klasse_id left outer join geschichte g on k.id = g.klasse_id",
+      "with deutsch as (select * from unterricht, count(u.stunden) stunden from unterricht u where u.fach like 'Deutsch' group by u.klasse_id), geschichte as (select * from unterricht, count(u.stunden) stunden from unterricht u where u.fach like 'Geschichte' group by u.klasse_id) select k.name, d.stunden deutsch, g.stunden geschichte from klasse k left outer join deutsch d on k.id = d.klasse_id left outer join geschichte g on k.id = g.klasse_id",
+      "with deutsch as (select u.klasse_id, SUM(u.stunden) stunden from unterricht u where u.fach like 'Deutsch' group by u.klasse_id), geschichte as (select u.klasse_id, SUM(u.stunden) stunden from unterricht u where u.fach like 'Geschichte' group by u.klasse_id) select k.name, d.stunden deutsch, g.stunden geschichte from klasse k left outer join deutsch d on k.id = d.klasse_id left outer join geschichte g on k.id = g.klasse_id"
+    ],
+    "correct": 2,
+    "source": {
+      "document": "SQL.docx",
+      "number": 7,
+      "resultNumber": 12
+    },
+    "explanation": "Originalaufgabe aus SQL.docx, Bild 7. Bewertung nach der blau markierten Originallösung.",
+    "images": [
+      {
+        "src": "assets/original-sql-schema.png",
+        "alt": "Gemeinsame Originalübersicht der Tabellen schueler, teilnahme, ag, klasse, lehrer, unterricht und raum mit Datensätzen und Beziehungen.",
+        "caption": "Gemeinsame Tabellenübersicht"
+      },
+      {
+        "src": "assets/original-sql-result-12.png",
+        "alt": "Vorgegebene Ergebnistabelle 12 aus SQL.docx.",
+        "caption": "Vorgegebene Ergebnistabelle 12"
+      }
+    ]
+  },
+  {
+    "id": "original-sql-08",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Raum R112 sieht immer furchtbar aus. Der Direktor möchte deswegen mit den Klassenlehrern von allen Klassen sprechen, die in R112 Unterricht haben.",
+    "options": [
+      "select l.name, l.vorname from raum r inner join unterricht u on r.id = u.raum_id outer join klasse k on k.id = u.klasse_id outer join lehrer l on l.id = k.fk_lehrer where r.nummer like 'R112'",
+      "select l.name, l.vorname from raum r inner join unterricht u on r.id = u.raum_id left inner join klasse k on k.id = u.klasse_id right outer join lehrer l on l.id = k.fk_lehrer where r.nummer like 'R112'",
+      "select l.name, l.vorname from raum r inner join unterricht u on r.id = u.raum_id inner join klasse k on k.id = u.klasse_id inner join lehrer l on l.id = k.fk_lehrer where r.nummer like 'R112'"
+    ],
+    "correct": 2,
+    "source": {
+      "document": "SQL.docx",
+      "number": 8,
+      "resultNumber": 10
+    },
+    "explanation": "Originalaufgabe aus SQL.docx, Bild 8. Bewertung nach der blau markierten Originallösung. Hinweis: Die Originalabfrage passt nicht zum abgebildeten Schema: Dort heißt die Spalte klasse.klassenlehrer_id, nicht klasse.fk_lehrer. Mit dem Schema wäre die Join-Bedingung l.id = k.klassenlehrer_id nötig. Die Wertung folgt trotzdem der blau markierten Originaloption.",
+    "images": [
+      {
+        "src": "assets/original-sql-schema.png",
+        "alt": "Gemeinsame Originalübersicht der Tabellen schueler, teilnahme, ag, klasse, lehrer, unterricht und raum mit Datensätzen und Beziehungen.",
+        "caption": "Gemeinsame Tabellenübersicht"
+      },
+      {
+        "src": "assets/original-sql-result-10.png",
+        "alt": "Vorgegebene Ergebnistabelle 10 aus SQL.docx.",
+        "caption": "Vorgegebene Ergebnistabelle 10"
+      }
+    ]
+  },
+  {
+    "id": "original-sql-09",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Eine Liste der Fächer, in der die Anzahl der Unterrichtsstunden und der Prozentsatz am gesamt erteilten Unterricht aufgeführt ist. (Innere Tabelle: die Summe der Unterrichtsstunden)",
+    "options": [
+      "select * from unterricht inner join stunden on stunden.stunden=unterricht.stunden, 100 * SUM(u.stunden) / (select SUM(u2.stunden) from unterricht u2) as anteil from unterricht u group by u.fach",
+      "select count(fach), SUM(u.stunden) stunden, 100 * SUM(u.stunden) / (select SUM(u2.stunden) from unterricht u2) as anteil from unterricht u group by u.stunden",
+      "select u.fach, SUM(u.stunden) stunden, 100 * SUM(u.stunden) / (select SUM(u2.stunden) from unterricht u2) as anteil from unterricht group by u.fach"
+    ],
+    "correct": 2,
+    "source": {
+      "document": "SQL.docx",
+      "number": 9,
+      "resultNumber": 8
+    },
+    "explanation": "Originalaufgabe aus SQL.docx, Bild 9. Bewertung nach der blau markierten Originallösung. Hinweis: Die markierte Originalabfrage verwendet den Alias u, definiert ihn im äußeren FROM aber nicht. Dort müsste FROM unterricht u stehen. Bei ganzzahligen Stundenwerten muss außerdem eine Dezimalrechnung erzwungen werden, etwa mit 100.0 statt 100, damit Nachkommastellen wie in der Ergebnistabelle entstehen.",
+    "images": [
+      {
+        "src": "assets/original-sql-schema.png",
+        "alt": "Gemeinsame Originalübersicht der Tabellen schueler, teilnahme, ag, klasse, lehrer, unterricht und raum mit Datensätzen und Beziehungen.",
+        "caption": "Gemeinsame Tabellenübersicht"
+      },
+      {
+        "src": "assets/original-sql-result-08.png",
+        "alt": "Vorgegebene Ergebnistabelle 8 aus SQL.docx.",
+        "caption": "Vorgegebene Ergebnistabelle 8"
+      }
+    ]
+  },
+  {
+    "id": "original-sql-10",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Eine Liste der Unterrichtsfächer, in der für jedes Fach vermerkt ist, wie viele Stunden in der unteren, in der mittleren bzw. in der oberen Etage unterrichtet werden.",
+    "options": [
+      "insert into unterricht (klasse.id, lehrer.id, raum.id, fach, stunden) Values (sum(u.stunden) stunden from raum r inner join unterricht u on r.id = u.raum_id) group by u.fach, r.etage order by u.fach, r.etage",
+      "select u.fach, r.etage, count(u.stunden) stunden from raum r outer join unterricht u on r.id = u.raum_id group by u.fach, r.etage order by u.fach, r.etage",
+      "select u.fach, r.etage, sum(u.stunden) stunden from raum r inner join unterricht u on r.id = u.raum_id group by u.fach, r.etage order by u.fach, r.etage"
+    ],
+    "correct": 2,
+    "source": {
+      "document": "SQL.docx",
+      "number": 10,
+      "resultNumber": 6
+    },
+    "explanation": "Originalaufgabe aus SQL.docx, Bild 10. Bewertung nach der blau markierten Originallösung.",
+    "images": [
+      {
+        "src": "assets/original-sql-schema.png",
+        "alt": "Gemeinsame Originalübersicht der Tabellen schueler, teilnahme, ag, klasse, lehrer, unterricht und raum mit Datensätzen und Beziehungen.",
+        "caption": "Gemeinsame Tabellenübersicht"
+      },
+      {
+        "src": "assets/original-sql-result-06.png",
+        "alt": "Vorgegebene Ergebnistabelle 6 aus SQL.docx.",
+        "caption": "Vorgegebene Ergebnistabelle 6"
+      }
+    ]
+  },
+  {
+    "id": "original-sql-11",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Eine Liste aller Schüler, in der für jeden Schüler steht, wie viele AGs er belegt hat. Es sollen auch Schüler ohne AGs aufgeführt werden.",
+    "options": [
+      "select s.name,s.vorname, count(t.ag_id) anzahlag from schueler s left outer join teilnahme t on s.id=t.schueler_id group by s.name,s.vorname",
+      "select s.name,s.vorname, sum(t.ag_id) anzahlag from schueler s left inner join teilnahme t on s.id=t.schueler_id",
+      "select s.name , count(t.ag_id) anzahlag from schueler s right outer join teilnahme t on s.id=t.schueler_id group by s.name,s.vorname"
+    ],
+    "correct": 0,
+    "source": {
+      "document": "SQL.docx",
+      "number": 11,
+      "resultNumber": 7
+    },
+    "explanation": "Originalaufgabe aus SQL.docx, Bild 11. Bewertung nach der blau markierten Originallösung. Hinweis: Die Originalabfrage benennt die Ergebnisspalte anzahlag, die abgebildete Tabelle dagegen anzahl. Ohne ORDER BY ist die dort gezeigte Reihenfolge nicht garantiert. Für die vorgegebenen eindeutigen Schülernamen ist die Gruppierung ausreichend; bei Namensgleichheit müsste zusätzlich nach Schüler-ID gruppiert werden.",
+    "images": [
+      {
+        "src": "assets/original-sql-schema.png",
+        "alt": "Gemeinsame Originalübersicht der Tabellen schueler, teilnahme, ag, klasse, lehrer, unterricht und raum mit Datensätzen und Beziehungen.",
+        "caption": "Gemeinsame Tabellenübersicht"
+      },
+      {
+        "src": "assets/original-sql-result-07.png",
+        "alt": "Vorgegebene Ergebnistabelle 7 aus SQL.docx.",
+        "caption": "Vorgegebene Ergebnistabelle 7"
+      }
+    ]
+  },
+  {
+    "id": "original-sql-12",
+    "type": "mc",
+    "difficulty": "fortgeschritten",
+    "question": "Eine Liste aller Schüler, in der für jeden Schüler vermerkt ist, wie viele Stunden er hat.",
+    "options": [
+      "select s.name, s.vorname, count(u.stunden) stunden from schueler s right inner join klasse k on s.klasse_id = k.id right inner join unterricht u on k.id=u.klasse_id group by s.name, s.vorname order by s.name, s.vorname",
+      "select s.name, s.vorname, sum(u.stunden) stunden from schueler s left outer join klasse k on s.klasse_id = k.id left outer join unterricht u on k.id=u.klasse_id group by s.name, s.vorname order by s.name, s.vorname",
+      "select * from schueler, sum(u.stunden) stunden from schueler s left outer join klasse k on s.klasse_id = k.id left outer join unterricht u on k.id=u.klasse_id group by s.name,s.vorname"
+    ],
+    "correct": 1,
+    "source": {
+      "document": "SQL.docx",
+      "number": 12,
+      "resultNumber": 5
+    },
+    "explanation": "Originalaufgabe aus SQL.docx, Bild 12. Bewertung nach der blau markierten Originallösung.",
+    "images": [
+      {
+        "src": "assets/original-sql-schema.png",
+        "alt": "Gemeinsame Originalübersicht der Tabellen schueler, teilnahme, ag, klasse, lehrer, unterricht und raum mit Datensätzen und Beziehungen.",
+        "caption": "Gemeinsame Tabellenübersicht"
+      },
+      {
+        "src": "assets/original-sql-result-05.png",
+        "alt": "Vorgegebene Ergebnistabelle 5 aus SQL.docx.",
+        "caption": "Vorgegebene Ergebnistabelle 5"
+      }
+    ]
+  }
+]);

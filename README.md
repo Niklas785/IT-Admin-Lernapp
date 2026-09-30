@@ -6,15 +6,15 @@ Läuft komplett im Browser, keine Installation, kein Backend nötig.
 **Themen aktuell:** IT-Sicherheit & Datenschutz, SQL-Grundlagen, IPv4-Adressen &
 Subnetting, Netzwerkgrundlagen, IT-Grundlagen & Virtualisierung, Arbeitsgruppe/
 Domäne & GPOs, Windows Server & AD-Verwaltung, PowerShell sowie
-Originalaufgaben – WLAN & Server — insgesamt 651 Fragen in 9 Themen,
+Originalaufgaben – WLAN & Server — insgesamt 678 Fragen in 9 Themen,
 gemischt aus einfacher und mehrfacher Auswahl, Freitext, Lückentext,
 Zuordnung, Reihenfolge und IPv4-Berechnungsaufgaben.
 
 ## Separater Originalpool (30.09.2026)
 
 Die 596 bestehenden Fragen in acht Themen bleiben unverändert. Hinzu kommen
-55 Originalaufgaben: 14 aus `WLAntworten.docx` und 41 aus
-`Sammelmappe Server.pdf`. Die neue Kategorie allein auswählen, um ausschließlich
+82 Originalaufgaben: 14 aus `WLAntworten.docx`, 41 aus `Sammelmappe Server.pdf`,
+15 aus `windows.docx` und 12 aus `SQL.docx`. Die neue Kategorie allein auswählen, um ausschließlich
 diese Aufgaben zu üben; die bisherigen Themen enthalten keine neu importierten
 Originalaufgaben. Zum vollständigen Üben „Alle verfügbaren“ und „Alle Niveaus“
 auswählen. Die Originalaufgaben sind unter „Prüfungsniveau“ einsortiert.
@@ -28,7 +28,15 @@ Word 19, 24, 25, 27 und 28; die entsprechenden PDF-Versionen bleiben erhalten.
 Die übrigen Originalaufgaben, auch inhaltlich ähnliche Varianten, sind unverändert.
 Einträge sind mit Quelldokument und Seiten-/Aufgabennummer gekennzeichnet.
 
-Vier notwendige Originalabbildungen liegen in `assets/`. Sie werden auch bei
+Die 27 Varianten aus `windows.docx` und `SQL.docx` wurden anschließend ausdrücklich
+vollständig freigegeben, einschließlich inhaltlicher Wiederholungen. Der vorherige
+Stand mit 651 Fragen bleibt unverändert. Jede SQL-Aufgabe zeigt die gemeinsame
+Tabellenübersicht und die passende nummerierte Ergebnistabelle. Beide Bilder
+sind vergrößerbar und auch in der Fehlerauswertung verfügbar. Die Aufgabennummern
+beziehen sich bei den neuen Word-Dateien auf die Bildreihenfolge; die Nummern der
+SQL-Ergebnistabellen sind separat angegeben. Der Kategoriename bleibt unverändert.
+
+17 Originalabbildungen (vier bisherige und 13 neue SQL-Bilder) liegen in `assets/`. Sie werden auch bei
 der Fehlerauswertung angezeigt und lassen sich vergrößern. Bei Weitergabe oder
 Hosting unbedingt diesen Ordner zusammen mit den bisherigen App-Dateien kopieren.
 `files.zip` enthält den vollständigen App-Stand einschließlich der Abbildungen.
@@ -36,6 +44,8 @@ Die Quelldokumente wurden nicht verändert und sind nicht im App-Paket enthalten
 
 Ausgelassene Aufgaben, Quellenhinweise, Änderungen und Prüfungen:
 `output/Originalaufgaben_Import_2026-09-30.md`.
+Die neue Ergänzung ist in `output/Originalvarianten_SQL_Windows_2026-09-30.md`
+mit Tabellenzuordnung, Einschränkungen und Prüfergebnissen dokumentiert.
 
 ## Qualitätsdurchgang der 182 Prüfkandidaten (25.09.2026)
 
