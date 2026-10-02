@@ -6,15 +6,15 @@ Läuft komplett im Browser, keine Installation, kein Backend nötig.
 **Themen aktuell:** IT-Sicherheit & Datenschutz, SQL-Grundlagen, IPv4-Adressen &
 Subnetting, Netzwerkgrundlagen, IT-Grundlagen & Virtualisierung, Arbeitsgruppe/
 Domäne & GPOs, Windows Server & AD-Verwaltung, PowerShell sowie
-Originalaufgaben – WLAN & Server — insgesamt 652 Fragen in 9 Themen,
+Originalaufgaben – WLAN & Server — insgesamt 678 Fragen in 9 Themen,
 gemischt aus einfacher und mehrfacher Auswahl, Freitext, Lückentext,
 Zuordnung, Reihenfolge und IPv4-Berechnungsaufgaben.
 
 ## Separater Originalpool (aktualisiert am 02.10.2026)
 
 Die 596 bestehenden Fragen in acht Themen bleiben unverändert. Hinzu kommen
-56 Originalaufgaben: 41 aus `Sammelmappe Server.pdf`, drei aus `windows.docx`
-(Bilder 1, 5 und 6) und zwölf aus `SQL.docx`. Die Kategorie allein auswählen, um ausschließlich
+82 Originalaufgaben: 14 aus `WLAntworten.docx`, 41 aus `Sammelmappe Server.pdf`,
+15 aus `windows.docx` und zwölf aus `SQL.docx`. Die Kategorie allein auswählen, um ausschließlich
 diese Aufgaben zu üben; die bisherigen Themen enthalten keine neu importierten
 Originalaufgaben. Zum vollständigen Üben „Alle verfügbaren“ und „Alle Niveaus“
 auswählen. Die Originalaufgaben sind unter „Prüfungsniveau“ einsortiert.
@@ -23,16 +23,15 @@ Wortlaut, Antwortalternativen und vorgegebene Lösungsschlüssel wurden übernom
 einschließlich Fehlern der Vorlage. Zeilenumbrüche und Darstellung sind an das
 vorhandene Quiz angepasst. Fachliche Warnhinweise erscheinen nach der Antwort.
 Dies ist ein Quellen-Übungsmodus, kein fachlich bereinigter zweiter Fragenpool.
-Am 02.10.2026 wurden 26 zusätzliche Varianten aus 21 inhaltlichen Gruppen entfernt.
-Je Gruppe bleibt die ausführliche PDF-Aufgabe zum gleichen Lernziel erhalten.
-Damit sind auch die Lernziele der zuvor importierten WLAntworten-Aufgaben weiterhin
-vertreten. Alle verbleibenden Fragen einschließlich ihrer Antworten, Erklärungen
-und Abbildungen sind unverändert. Andere Formulierungen und Auswahlvarianten
-werden nicht mehr separat abgefragt; das ist eine Lernzielbereinigung, keine
-Behauptung wortgleicher Kopien. Vorheriger Stand und Zuordnung sind gesichert.
+Am 02.10.2026 wurde die Reduzierung auf 56 Aufgaben auf Nutzerwunsch rückgängig
+gemacht. Alle 26 entfernten Varianten sind wieder enthalten, einschließlich der
+14 WLA-Aufgaben und zwölf Windows-Aufgaben. Der Fragenpool entspricht vollständig
+dem gesicherten 82-Aufgaben-Stand vor dieser Bereinigung. Inhaltlich ähnliche
+Originalvarianten mit unterschiedlichen Formulierungen oder Antwortmöglichkeiten
+bleiben bewusst erhalten. Antworten, Erklärungen und Abbildungen sind unverändert.
 Einträge sind mit Quelldokument und Seiten-/Aufgabennummer gekennzeichnet.
 
-Alle zwölf SQL-Aufgaben und die drei eigenständigen neuen Windows-Aufgaben bleiben
+Alle zwölf SQL-Aufgaben und alle 15 Windows-Aufgaben bleiben
 erhalten. Jede SQL-Aufgabe zeigt die gemeinsame
 Tabellenübersicht und die passende nummerierte Ergebnistabelle. Beide Bilder
 sind vergrößerbar und auch in der Fehlerauswertung verfügbar. Die Aufgabennummern
@@ -49,7 +48,7 @@ Ausgelassene Aufgaben, Quellenhinweise, Änderungen und Prüfungen:
 `output/Originalaufgaben_Import_2026-09-30.md`.
 Die neue Ergänzung ist in `output/Originalvarianten_SQL_Windows_2026-09-30.md`
 mit Tabellenzuordnung, Einschränkungen und Prüfergebnissen dokumentiert.
-Die aktuelle Bereinigung mit vollständiger Zuordnung aller entfernten Varianten:
+Die inzwischen rückgängig gemachte Bereinigung mit Zuordnung der Varianten:
 `output/Originalaufgaben_Bereinigung_2026-10-02.md`.
 
 ## Qualitätsdurchgang der 182 Prüfkandidaten (25.09.2026)
